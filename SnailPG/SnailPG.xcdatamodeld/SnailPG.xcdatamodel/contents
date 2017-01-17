@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Armor" representedClassName="Armor" parentEntity="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="defense" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Hero" representedClassName="Hero" syncable="YES" codeGenerationType="class">
+        <attribute name="dexterity" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="experience" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="gold" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="health" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="intelligence" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="job" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="strength" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="inventory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="toHero" inverseEntity="Item" syncable="YES"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="toHero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="inventory" inverseEntity="Hero" syncable="YES"/>
+    </entity>
+    <entity name="Monster" representedClassName="Monster" syncable="YES" codeGenerationType="class">
+        <attribute name="damage" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="experience" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="gold" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="health" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Potion" representedClassName="Potion" parentEntity="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="effect" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Weapon" representedClassName="Weapon" parentEntity="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="damage" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="handed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Hero" positionX="-63" positionY="-72" width="128" height="193"/>
+        <element name="Item" positionX="117" positionY="-198" width="128" height="88"/>
+        <element name="Monster" positionX="-218" positionY="-72" width="128" height="120"/>
+        <element name="Potion" positionX="124" positionY="36" width="128" height="60"/>
+        <element name="Weapon" positionX="-45" positionY="-54" width="128" height="75"/>
+        <element name="Armor" positionX="-36" positionY="-45" width="128" height="60"/>
+    </elements>
+</model>
