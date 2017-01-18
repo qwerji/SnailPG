@@ -62,7 +62,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             default: print("Error")
             }
             
-            hero.health = 20
+            hero.health = 50
             hero.level = 1
             hero.name = heroName.text!
             hero.job = jobChoice!
@@ -166,7 +166,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             
             let lesserDragon = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
             lesserDragon.name = "Lesser Dragon"
-            lesserDragon.health = 50
+            lesserDragon.health = 40
             lesserDragon.damage = 15
             lesserDragon.gold = 50
             lesserDragon.experience = 50
@@ -189,9 +189,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             
             let landShark = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
             landShark.name = "Land Shark"
-            landShark.health = 50
-            landShark.damage = 25
-            landShark.gold = 150
+            landShark.health = 40
+            landShark.damage = 20
+            landShark.gold = 100
             landShark.experience = 100
             
             
@@ -205,9 +205,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             
             let evilShopkeep = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
             evilShopkeep.name = "Evil Shopkeep"
-            evilShopkeep.health = 100
-            evilShopkeep.damage = 10
-            evilShopkeep.gold = 100
+            evilShopkeep.health = 80
+            evilShopkeep.damage = 7
+            evilShopkeep.gold = 80
             evilShopkeep.experience = 75
             
             
@@ -221,21 +221,21 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             
             let snailJunkie = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
             snailJunkie.name = "Snail Junkie"
-            snailJunkie.health = 60
+            snailJunkie.health = 50
             snailJunkie.damage = 15
             snailJunkie.gold = 50
             snailJunkie.experience = 50
             
             let ratMonkey = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
             ratMonkey.name = "Rat Monkey"
-            ratMonkey.health = 75
+            ratMonkey.health = 65
             ratMonkey.damage = 20
             ratMonkey.gold = 70
             ratMonkey.experience = 70
             
             let goblinElite = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
             goblinElite.name = "Goblin Elite"
-            goblinElite.health = 60
+            goblinElite.health = 50
             goblinElite.damage = 15
             goblinElite.gold = 50
             goblinElite.experience = 55
