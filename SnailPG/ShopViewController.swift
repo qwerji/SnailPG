@@ -34,12 +34,11 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         let item = storeInventory[indexPath.row]
         if (loggedInHero?.gold)! >= item.price {
             loggedInHero?.gold -= item.price
-            item.toHero = loggedInHero
+            loggedInHero?.addToInventory(item)
         } else {
             print("Not enough monies")
         }
         heroGoldLabel.text = "\((loggedInHero?.name!)!)'s Gold: \((loggedInHero?.gold)!)"
-        
         appDelegate.saveContext()
     }
     

@@ -12,13 +12,16 @@ import CoreData
 struct ActiveMonster {
     var name: String
     var health: Int
-    var gold: Int?
+    var gold: Int
     var damage: Int
-    init(name: String, health: Int, gold: Int, damage: Int){
-        self.name = name
-        self.health = health
-        self.gold = gold
-        self.damage = damage
+    init(monster: Monster){
+        self.name = monster.name!
+        self.health = Int(monster.health)
+        self.gold = Int(monster.gold)
+        self.damage = Int(monster.damage)
+    }
+    mutating func getHit(damage: Int) {
+        self.health -= damage
     }
 }
 
@@ -53,7 +56,7 @@ class BattleViewController: UIViewController {
         
         // Implement weapon modifiers here
         
-        target?.health -= heroAttackValue
+        target?.getHit(damage: heroAttackValue)
         
         // Monster health check
         if (target?.health)! <= 0 {
@@ -93,7 +96,7 @@ class BattleViewController: UIViewController {
             battleLog.text = (battleLog.text ?? "") + "\n\((target?.name)!) did \(monsterAttackValue) damage to \((loggedInHero?.name!)!)!"
         }
         
-        loggedInHero?.health -= monsterAttackValue
+        loggedInHero?.getHit(damage: monsterAttackValue)
 
         // Hero health check
         if (loggedInHero?.health)! <= 0 {
@@ -142,10 +145,10 @@ class BattleViewController: UIViewController {
         let monsterRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Monster")
         do {
             let results = try managedObjectContext.fetch(monsterRequest)
-            let monsterIdx = Int(arc4random_uniform(5))
+            let monsterIdx = Int(arc4random_uniform(UInt32(results.count)))
             let monsterChoice = results[monsterIdx] as! Monster
             
-            target = ActiveMonster(name: monsterChoice.name!, health: Int(monsterChoice.health), gold: Int(monsterChoice.gold), damage: Int(monsterChoice.damage))
+            target = ActiveMonster(monster: monsterChoice)
             
         } catch {
             print("\(error)")
