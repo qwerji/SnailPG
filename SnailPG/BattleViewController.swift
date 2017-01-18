@@ -103,8 +103,8 @@ class BattleViewController: UIViewController {
             let alert = UIAlertController(title: "You Died", message: "\((loggedInHero?.name!)!) was defeated by \((target?.name)!).", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Back to Welcome", style: UIAlertActionStyle.default) {
                 (action: UIAlertAction!) -> Void in
-                self.appDelegate.saveContext()
                 self.died()
+                self.appDelegate.saveContext()
             })
             self.present(alert, animated: true, completion: nil)
             return
