@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A18276021E29A69100090001 /* finalf.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A18276011E29A69100090001 /* finalf.ttf */; };
 		A1AB90B51E285AFA00CF4750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */; };
 		A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90B81E285AFA00CF4750 /* Main.storyboard */; };
 		A1AB90BD1E285AFA00CF4750 /* SnailPG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90BB1E285AFA00CF4750 /* SnailPG.xcdatamodeld */; };
@@ -18,11 +17,11 @@
 		A1AB90D21E287A4200CF4750 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90D11E287A4200CF4750 /* BattleViewController.swift */; };
 		A1E14BC11E2EFA7F005133E3 /* HeroMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */; };
 		A1E14BC31E2EFE47005133E3 /* MonsterMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E14BC21E2EFE47005133E3 /* MonsterMethods.swift */; };
+		A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1E14BC41E2F1440005133E3 /* finalf.ttf */; };
 		A1FA96051E2D453000EA3870 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FA96041E2D453000EA3870 /* ShopViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A18276011E29A69100090001 /* finalf.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = finalf.ttf; path = ../../../../Downloads/final_fantasy/finalf.ttf; sourceTree = "<group>"; };
 		A1AB90B11E285AFA00CF4750 /* Snail Fantasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snail Fantasy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1AB90B91E285AFA00CF4750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,6 +34,7 @@
 		A1AB90D11E287A4200CF4750 /* BattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 		A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroMethods.swift; path = ../HeroMethods.swift; sourceTree = "<group>"; };
 		A1E14BC21E2EFE47005133E3 /* MonsterMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterMethods.swift; sourceTree = "<group>"; };
+		A1E14BC41E2F1440005133E3 /* finalf.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = finalf.ttf; sourceTree = "<group>"; };
 		A1FA96041E2D453000EA3870 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,13 +70,13 @@
 			children = (
 				A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */,
 				A1E14BC21E2EFE47005133E3 /* MonsterMethods.swift */,
-				A18276011E29A69100090001 /* finalf.ttf */,
 				A1FA96041E2D453000EA3870 /* ShopViewController.swift */,
 				A1AB90D11E287A4200CF4750 /* BattleViewController.swift */,
 				A1AB90CF1E28662500CF4750 /* MainViewController.swift */,
 				A1AB90CD1E2860C000CF4750 /* WelcomeViewController.swift */,
 				A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */,
 				A1AB90B81E285AFA00CF4750 /* Main.storyboard */,
+				A1E14BC41E2F1440005133E3 /* finalf.ttf */,
 				A1AB90BE1E285AFA00CF4750 /* Assets.xcassets */,
 				A1AB90C01E285AFA00CF4750 /* LaunchScreen.storyboard */,
 				A1AB90C31E285AFA00CF4750 /* Info.plist */,
@@ -147,7 +147,7 @@
 			files = (
 				A1AB90C21E285AFA00CF4750 /* LaunchScreen.storyboard in Resources */,
 				A1AB90BF1E285AFA00CF4750 /* Assets.xcassets in Resources */,
-				A18276021E29A69100090001 /* finalf.ttf in Resources */,
+				A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */,
 				A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
