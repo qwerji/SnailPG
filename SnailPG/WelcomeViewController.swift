@@ -112,152 +112,16 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        previousHeroesTable.dataSource = self
+        previousHeroesTable.delegate = self
+        heroName.delegate = self
         
-        // Preload the game entities into CoreData on first app load
-        preload()
         update()
         
-        previousHeroesTable.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         update()
-    }
-    
-    func preload(){
-        let preloaded = defaults.bool(forKey: "preloaded")
-        if !preloaded {
-            
-            // Preload Coredata
-            
-            // Monster Area 0
-//            let goblinPleb = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            goblinPleb.name = "Goblin Pleb"
-//            goblinPleb.health = 20
-//            goblinPleb.damage = 8
-//            goblinPleb.gold = 15
-//            goblinPleb.experience = 15
-//            
-//            let basicSnail = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            basicSnail.name = "Basic Snail"
-//            basicSnail.health = 10
-//            basicSnail.damage = 5
-//            basicSnail.gold = 5
-//            basicSnail.experience = 10
-//            
-//            let mechaSnail = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            mechaSnail.name = "Mecha-Snail"
-//            mechaSnail.health = 25
-//            mechaSnail.damage = 10
-//            mechaSnail.gold = 30
-//            mechaSnail.experience = 30
-//            
-//            let prancingPony = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            prancingPony.name = "Prancing Pony"
-//            prancingPony.health = 15
-//            prancingPony.damage = 7
-//            prancingPony.gold = 12
-//            prancingPony.experience = 15
-//            
-//            let snailDragon = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            snailDragon.name = "Snail Dragon"
-//            snailDragon.health = 30
-//            snailDragon.damage = 10
-//            snailDragon.gold = 35
-//            snailDragon.experience = 35
-//            
-//            
-//            let lesserDragon = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            lesserDragon.name = "Lesser Dragon"
-//            lesserDragon.health = 40
-//            lesserDragon.damage = 15
-//            lesserDragon.gold = 50
-//            lesserDragon.experience = 50
-//            
-//            let slimer = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            slimer.name = "Slimer"
-//            slimer.health = 15
-//            slimer.damage = 10
-//            slimer.gold = 10
-//            slimer.experience = 15
-//            
-//            
-//            let vampireSnail = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            vampireSnail.name = "Vampire Snail"
-//            vampireSnail.health = 20
-//            vampireSnail.damage = 12
-//            vampireSnail.gold = 15
-//            vampireSnail.experience = 20
-//            
-//            
-//            let landShark = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            landShark.name = "Land Shark"
-//            landShark.health = 40
-//            landShark.damage = 20
-//            landShark.gold = 100
-//            landShark.experience = 100
-//            
-//            
-//            let greaterSnail = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            greaterSnail.name = "Greater Snail"
-//            greaterSnail.health = 20
-//            greaterSnail.damage = 10
-//            greaterSnail.gold = 40
-//            greaterSnail.experience = 20
-//            
-//            
-//            let evilShopkeep = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            evilShopkeep.name = "Evil Shopkeep"
-//            evilShopkeep.health = 80
-//            evilShopkeep.damage = 7
-//            evilShopkeep.gold = 80
-//            evilShopkeep.experience = 75
-//            
-//            
-//            let lavaLord = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            lavaLord.name = "Lava Lord"
-//            lavaLord.health = 35
-//            lavaLord.damage = 20
-//            lavaLord.gold = 40
-//            lavaLord.experience = 40
-//            
-//            
-//            let snailJunkie = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            snailJunkie.name = "Snail Junkie"
-//            snailJunkie.health = 50
-//            snailJunkie.damage = 15
-//            snailJunkie.gold = 50
-//            snailJunkie.experience = 50
-//            
-//            let ratMonkey = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            ratMonkey.name = "Rat Monkey"
-//            ratMonkey.health = 65
-//            ratMonkey.damage = 20
-//            ratMonkey.gold = 70
-//            ratMonkey.experience = 70
-//            
-//            let goblinElite = NSEntityDescription.insertNewObject(forEntityName: "Monster", into: managedObjectContext) as! Monster
-//            goblinElite.name = "Goblin Elite"
-//            goblinElite.health = 50
-//            goblinElite.damage = 15
-//            goblinElite.gold = 50
-//            goblinElite.experience = 55
-//            
-//            // Weapons
-
-            
-            // Save
-            appDelegate.saveContext()
-            
-            // Don't preload again
-            defaults.set(true, forKey: "preloaded")
-        }
-        
-        // Set up keyboard
-        heroName.returnKeyType = .done
-        heroName.delegate = self
-        
-        previousHeroesTable.delegate = self
     }
     
     // Keyboard goes away when Done is pressed
