@@ -37,6 +37,11 @@ class MainViewController: UIViewController {
         self.performSegue(withIdentifier: "mainToShopSegue", sender: nil)
     }
     
+    // To Backpack
+    @IBAction func backpackButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "backpack", sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         switch segue.identifier! {
@@ -46,6 +51,10 @@ class MainViewController: UIViewController {
             break
         case "mainToShopSegue":
             let controller = segue.destination as! ShopViewController
+            controller.loggedInHero = self.loggedInHero
+            break
+        case "backpack":
+            let controller = segue.destination as! BackpackViewController
             controller.loggedInHero = self.loggedInHero
             break
         default:
