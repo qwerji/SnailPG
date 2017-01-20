@@ -10,6 +10,18 @@ import UIKit
 
 extension Hero {
     
+    func addToBackpack(_ item: String) {
+        var bp = self.backpack as! [String]
+        bp.append(item)
+        self.backpack = bp as NSObject?
+    }
+    
+    func removeFromBackpack(at index: Int) {
+        var bp = self.backpack as! [String]
+        bp.remove(at: index)
+        self.backpack = bp as NSObject?
+    }
+    
     func getHit(with damage: Int) {
         self.health -= damage
     }
@@ -19,12 +31,12 @@ extension Hero {
         var log = ""
         var computedDamage = Int(self.strength)
         
-//        if let weapon = self.leftHand {
-//            computedDamage += WeaponList[weapon]?["damage"] as! Int
-//        }
-//        if let weapon = self.rightHand {
-//            computedDamage += WeaponList[weapon]?["damage"] as! Int
-//        }
+        if let weapon = self.leftHand {
+            computedDamage += ItemList[weapon]?["damage"] as! Int
+        }
+        if let weapon = self.rightHand {
+            computedDamage += ItemList[weapon]?["damage"] as! Int
+        }
         
         let hitChance = Int(arc4random_uniform(UInt32(10))) + 1
         if hitChance == 1 {

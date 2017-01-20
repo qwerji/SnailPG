@@ -106,7 +106,9 @@ class BattleViewController: UIViewController {
     func getMonster() {
         // Implement monster choosing logic here, making a more specific DB query
         
-        let monsterChoice = MonsterList["Goblin Pleb"]!
+        let randomMonsterIdx = Int(arc4random_uniform(UInt32(Area0Monsters.count)))
+        
+        let monsterChoice = MonsterList[Area0Monsters[randomMonsterIdx]]!
         
         target = Monster(name: monsterChoice["name"] as! String, health: monsterChoice["health"] as! Int, gold: monsterChoice["gold"] as! Int, damage: monsterChoice["damage"] as! Int)
         

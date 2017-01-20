@@ -58,6 +58,8 @@ class Monster {
     }
 }
 
+let Area0Monsters = ["Goblin Pleb", "Basic Snail", "Mecha Snail", "Prancing Pony", "Snail Dragon", "Lesser Dragon", "Slimer", "Vampire Snail", "Land Shark", "Greater Snail", "Evil Shopkeep", "Lava Lord", "Snail Junkie", "Rat Monkey", "Goblin Elite"]
+
 let MonsterList: [String:[String:Any]] = [
     "Goblin Pleb" : [
         "name" : "Goblin Pleb",

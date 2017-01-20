@@ -14,7 +14,6 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
   
     var loggedInHero: Hero?
     var storeInventory = [[String:Any]]()
@@ -36,8 +35,7 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         let itemPrice = item["price"] as! Int
         if Int((loggedInHero?.gold)!) >= itemPrice {
             loggedInHero?.gold -= itemPrice
-            let bp = loggedInHero?.backpack as! NSMutableArray
-            bp.add(item["name"]!)
+            loggedInHero?.addToBackpack(item["name"] as! String)
         } else {
             print("Not enough monies")
         }
@@ -53,16 +51,8 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         heroGoldLabel.text = "\((loggedInHero?.name)!)'s Gold: \((loggedInHero?.gold)!)"
         
-        for (key, _) in WeaponList {
-            storeInventory.append(WeaponList[key]!)
-        }
-        
-        for (key, _) in ArmorList {
-            storeInventory.append(ArmorList[key]!)
-        }
-        
-        for (key, _) in PotionList {
-            storeInventory.append(PotionList[key]!)
+        for (key, _) in ItemList {
+            storeInventory.append(ItemList[key]!)
         }
         
         storeInventoryTable.delegate = self

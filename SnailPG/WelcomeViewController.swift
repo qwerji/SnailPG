@@ -62,12 +62,13 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             default: print("Error")
             }
             
+            hero.maxHealth = 50
             hero.defense = 0
             hero.health = 50
             hero.level = 1
             hero.name = heroName.text!
             hero.job = jobChoice!
-            hero.backpack = NSMutableArray()
+            hero.backpack = NSArray()
 
             // Save Hero instance in appDelegate and CoreData
             appDelegate.saveContext()
@@ -85,7 +86,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! MainViewController
         controller.loggedInHero = self.loggedInHero
-//        controller.update()
     }
     
     func update() {
@@ -94,7 +94,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         heroRequest.predicate = NSPredicate(format: "%K > %D", "health", 0)
         do {
             let results = try managedObjectContext.fetch(heroRequest)
-            
+            for hero in results {
+                print((hero as! Hero).backpack!)
+            }
             previousHeroes = results as! [Hero]
         } catch {
             print("\(error)")

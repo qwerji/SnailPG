@@ -39,9 +39,74 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
         update()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let itemName = backpack[indexPath.row]
+        let item = ItemList[itemName]
+        loggedInHero?.removeFromBackpack(at: indexPath.row)
+        
+        switch item?["type"] as! String {
+        case "Weapon":
+            if let lh = loggedInHero?.leftHand {
+                if let rh = loggedInHero?.rightHand {
+                    loggedInHero?.addToBackpack(rh)
+                }
+                if item?["handed"] as! Int == 2 {
+                    loggedInHero?.addToBackpack(lh)
+                    loggedInHero?.rightHand = nil
+                } else {
+                    if ItemList[(loggedInHero?.leftHand)!]?["handed"] as! Int == 1 {
+                        loggedInHero?.rightHand = loggedInHero?.leftHand
+                    } else {
+                        loggedInHero?.addToBackpack(lh)
+                    }
+                }
+            }
+            loggedInHero?.leftHand = itemName
+            break
+        case "Potion":
+            if item?["name"] as! String == "Health Potion" {
+                let maxHealth = Int((loggedInHero?.maxHealth)!)
+                let curHealth = Int((loggedInHero?.health)!)
+                if curHealth + 10 > maxHealth {
+                    loggedInHero?.health = Int64(maxHealth)
+                } else {
+                    loggedInHero?.health += 10
+                }
+            }
+            break
+        case "Armor":
+            if let armor = loggedInHero?.armor {
+                loggedInHero?.addToBackpack(armor)
+            }
+            loggedInHero?.armor = itemName
+            break
+        default:
+            print("error")
+        }
+        appDelegate.saveContext()
+        update()
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "item")!
-        cell.textLabel?.text = "\(backpack[indexPath.row])"
+        let item = ItemList[backpack[indexPath.row]]
+        
+        var itemDetail = ""
+        
+        switch item?["type"] as! String {
+        case "Weapon":
+            itemDetail = "Damage: \((item?["damage"]!)!)"
+            break
+        case "Armor":
+            itemDetail = "Defense: \((item?["defense"]!)!)"
+            break
+        default:
+            itemDetail = "\((item?["effect"]!)!)"
+        }
+        
+        cell.detailTextLabel?.text = itemDetail
+        cell.textLabel?.text = "\((item?["name"]!)!)"
+        
         return cell
     }
     
@@ -78,10 +143,10 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
         var strengthText = "Strength: \((loggedInHero?.strength)!)"
         var additionalStrength = 0
         if let lh = loggedInHero?.leftHand {
-            additionalStrength += WeaponList[lh]?["damage"] as! Int
+            additionalStrength += ItemList[lh]?["damage"] as! Int
         }
         if let rh = loggedInHero?.rightHand {
-            additionalStrength += WeaponList[rh]?["damage"] as! Int
+            additionalStrength += ItemList[rh]?["damage"] as! Int
         }
         if additionalStrength > 0 {
             strengthText += " +\(additionalStrength)"
@@ -92,14 +157,15 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
         // Compute Defense Label
         var defense = 0
         if let armor = loggedInHero?.armor {
-            defense = ArmorList[armor]?["defense"] as! Int
+            defense = ItemList[armor]?["defense"] as! Int
         }
         
         defenseLabel.text = "Defense: \(defense)"
         
         // Get Items
-        for itemName in loggedInHero?.backpack as! NSMutableArray {
-            backpack.append(itemName as! String)
+        backpack = []
+        for itemName in loggedInHero?.backpack as! [String] {
+            backpack.append(itemName)
         }
         
         backpackTable.reloadData()
