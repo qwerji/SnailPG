@@ -9,111 +9,82 @@
 import UIKit
 import CoreData
 
-struct ActiveMonster {
-    var name: String
-    var health: Int
-    var gold: Int
-    var damage: Int
-    init(monster: Monster){
-        self.name = monster.name!
-        self.health = Int(monster.health)
-        self.gold = Int(monster.gold)
-        self.damage = Int(monster.damage)
-    }
-    mutating func getHit(damage: Int) {
-        self.health -= damage
-    }
-}
-
 class BattleViewController: UIViewController {
     @IBOutlet weak var heroHealthLabel: UILabel!
     @IBOutlet weak var heroNameLabel: UILabel!
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var target: ActiveMonster?
+    var target: Monster?
     var loggedInHero: Hero?
     @IBOutlet weak var battleLog: UILabel!
     @IBOutlet weak var monsterNameLabel: UILabel!
     @IBOutlet weak var monsterHealthLabel: UILabel!
     @IBOutlet weak var monsterDamageLabel: UILabel!
     
+    @IBOutlet weak var runButton: UIButton!
+    @IBOutlet weak var backToMainButton: UIButton!
+    @IBOutlet weak var restartButton: UIButton!
+    @IBOutlet weak var attackButton: UIButton!
+    
     @IBAction func attackButtonPressed(_ sender: UIButton) {
         // Hero Attacks
-        var heroAttackValue = 0
-        let hitChance = Int(arc4random_uniform(UInt32(10))) + 1
-        if hitChance == 1 {
-            // Miss
-            battleLog.text = (battleLog.text ?? "") + "\n\((loggedInHero?.name!)!) missed!"
-        } else if hitChance == 10 {
-            // Max damage
-            heroAttackValue = Int((loggedInHero?.strength)!)
-            battleLog.text = (battleLog.text ?? "") + "\n\((loggedInHero?.name!)!) did \(heroAttackValue) damage to \((target?.name)!)!"
-        } else {
-            // Base damage range
-            heroAttackValue = Int(arc4random_uniform(UInt32((loggedInHero?.strength)!))) + 1
-            battleLog.text = (battleLog.text ?? "") + "\n\((loggedInHero?.name!)!) did \(heroAttackValue) damage to \((target?.name)!)!"
-        }
+        battleLog.text! += "\n" + (loggedInHero?.attack(target!))!
         
-        // Implement weapon modifiers here
-        
-        target?.getHit(damage: heroAttackValue)
-        
-        // Monster health check
+        // Monster Health Check
         if (target?.health)! <= 0 {
-            battleLog.text = battleLog.text! + "\n\((loggedInHero?.name!)!) defeated \((target?.name)!)!"
-            if let goldDrop = target?.gold {
-                battleLog.text = battleLog.text! + "\nYou gained \(goldDrop) gold!"
-                loggedInHero?.gold += goldDrop
-            }
-            //            if let itemDrop = target.drop {
-            //                print("You picked up \(itemDrop.name)!")
-            //                self.backpack.append(itemDrop)
-            //            }
+            appDelegate.saveContext()
             
-            let alert = UIAlertController(title: "Snailed it!", message: "\((target?.name)!) was defeated. \((loggedInHero?.name!)!) gained \((target?.gold)!) gold.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Back to Menu", style: UIAlertActionStyle.default) {
-                (action: UIAlertAction!) -> Void in
-                self.appDelegate.saveContext()
-                self.dismiss(animated: true, completion: nil)
-            })
-            self.present(alert, animated: true, completion: nil)
+            runButton.isHidden = true
+            attackButton.isHidden = true
+            backToMainButton.isHidden = false
+            restartButton.isHidden = true
+            
+            battleLog.text! += "\n\((target?.name)!) was defeated."
+            
+            if let goldDrop = target?.gold {
+                loggedInHero?.gold += goldDrop
+                battleLog.text! += "\n\((loggedInHero?.name!)!) got \(goldDrop) gold!"
+            }
+            if let itemDrop = target?.drop {
+                let bp = loggedInHero?.backpack as! NSMutableArray
+                bp.add(itemDrop)
+                battleLog.text! += "\n\((loggedInHero?.name!)!) picked up \(itemDrop)!"
+            }
+            
+            // Show win button
+            
+            update()
             return
         }
         
         // Monster Attacks
-        var monsterAttackValue = 0
-        let targetHitChance = Int(arc4random_uniform(UInt32(10))) + 1
-        if targetHitChance == 1 {
-            // Miss
-            battleLog.text = (battleLog.text ?? "") + "\n\((target?.name)!) missed!"
-        } else if targetHitChance == 10 {
-            // Max damage
-            monsterAttackValue = Int((target?.damage)!)
-            battleLog.text = (battleLog.text ?? "") + "\n\((target?.name)!) did \(monsterAttackValue) damage to \((loggedInHero?.name!)!)!"
-        } else {
-            // Base damage range
-            monsterAttackValue = Int(arc4random_uniform(UInt32((target?.damage)!))) + 1
-            battleLog.text = (battleLog.text ?? "") + "\n\((target?.name)!) did \(monsterAttackValue) damage to \((loggedInHero?.name!)!)!"
-        }
+        battleLog.text! += "\n" + (target?.attack(loggedInHero!))!
         
-        loggedInHero?.getHit(damage: monsterAttackValue)
-
-        // Hero health check
+        // Hero Health Check
         if (loggedInHero?.health)! <= 0 {
-            let alert = UIAlertController(title: "You Died", message: "\((loggedInHero?.name!)!) was defeated by \((target?.name)!).", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Back to Welcome", style: UIAlertActionStyle.default) {
-                (action: UIAlertAction!) -> Void in
-                self.died()
-                self.appDelegate.saveContext()
-            })
-            self.present(alert, animated: true, completion: nil)
+            appDelegate.saveContext()
+            
+            runButton.isHidden = true
+            attackButton.isHidden = true
+            backToMainButton.isHidden = true
+            restartButton.isHidden = false
+            
+            battleLog.text! += "\n\((loggedInHero?.name!)!) was defeated."
+            
+            // Show die button
+            
+            update()
             return
         }
         update()
     }
     
-    func died() -> Void {
+    @IBAction func died(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindToWelcome", sender: nil)
+    }
+    
+    @IBAction func won(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func runButtonPressed(_ sender: UIButton) {
@@ -132,31 +103,32 @@ class BattleViewController: UIViewController {
         monsterHealthLabel.text = String(describing: (target?.health)!)
     }
     
-    override func viewDidLoad() {
-        // Set Hero stats labels
-        heroNameLabel.text = "\((loggedInHero?.name!)!)'s Health:"
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        // Load Monsters
-        
+    func getMonster() {
         // Implement monster choosing logic here, making a more specific DB query
         
-        let monsterRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Monster")
-        do {
-            let results = try managedObjectContext.fetch(monsterRequest)
-            let monsterIdx = Int(arc4random_uniform(UInt32(results.count)))
-            let monsterChoice = results[monsterIdx] as! Monster
-            
-            target = ActiveMonster(monster: monsterChoice)
-            
-        } catch {
-            print("\(error)")
-        }
+        let monsterChoice = MonsterList["Goblin Pleb"]!
+        
+        target = Monster(name: monsterChoice["name"] as! String, health: monsterChoice["health"] as! Int, gold: monsterChoice["gold"] as! Int, damage: monsterChoice["damage"] as! Int)
         
         // Set Monster stats labels
         monsterNameLabel.text = target?.name
         monsterDamageLabel.text = String(describing: (target?.damage)!)
+    }
+    
+    override func viewDidLoad() {
+        // Set Hero stats labels
+        heroNameLabel.text = "\((loggedInHero?.name!)!)'s Health:"
+        
+        runButton.isHidden = false
+        attackButton.isHidden = false
+        backToMainButton.isHidden = true
+        restartButton.isHidden = true
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // Load Monsters
+        getMonster()
         
         // Update health labels
         update()

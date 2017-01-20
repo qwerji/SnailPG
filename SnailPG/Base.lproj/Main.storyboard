@@ -269,12 +269,28 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="itemCell" id="mhz-R6-bN3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="itemCell" textLabel="ox6-69-a8Q" detailTextLabel="WTJ-Dq-21W" style="IBUITableViewCellStyleSubtitle" id="mhz-R6-bN3">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mhz-R6-bN3" id="7MN-iJ-Y0F">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ox6-69-a8Q">
+                                                    <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WTJ-Dq-21W">
+                                                    <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -593,7 +609,7 @@
                                 <rect key="frame" x="0.0" y="458" width="320" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biK-XD-LcS">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="110"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="110"/>
                                         <color key="backgroundColor" red="1" green="0.2300107093" blue="0.24935875190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                         <state key="normal" title="Attack!">
@@ -603,8 +619,30 @@
                                             <action selector="attackButtonPressed:" destination="yKh-kP-0oH" eventType="touchUpInside" id="moX-7E-FSP"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-Z1-Z4O">
+                                        <rect key="frame" x="80" y="0.0" width="80" height="110"/>
+                                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <state key="normal" title="Restart">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="died:" destination="yKh-kP-0oH" eventType="touchUpInside" id="gjv-nP-JBU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp6-N1-S5L">
+                                        <rect key="frame" x="160" y="0.0" width="80" height="110"/>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <state key="normal" title="Back To Main">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="won:" destination="yKh-kP-0oH" eventType="touchUpInside" id="AAg-li-Xmm"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KR3-5r-qdG">
-                                        <rect key="frame" x="160" y="0.0" width="160" height="110"/>
+                                        <rect key="frame" x="240" y="0.0" width="80" height="110"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                         <state key="normal" title="Run...">
@@ -641,12 +679,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="attackButton" destination="biK-XD-LcS" id="b6g-19-KOe"/>
+                        <outlet property="backToMainButton" destination="Pp6-N1-S5L" id="K1u-p0-LAh"/>
                         <outlet property="battleLog" destination="3gQ-Se-gtR" id="RXz-6R-9Xa"/>
                         <outlet property="heroHealthLabel" destination="hOy-CC-aHB" id="xfz-Fa-v6s"/>
                         <outlet property="heroNameLabel" destination="m0e-aK-HCK" id="yUA-Hk-496"/>
                         <outlet property="monsterDamageLabel" destination="QhW-Mu-jC5" id="dUc-Lr-LdR"/>
                         <outlet property="monsterHealthLabel" destination="3y9-Do-7x4" id="Ant-8h-qH2"/>
                         <outlet property="monsterNameLabel" destination="Bi3-GH-pda" id="bRE-fv-0sH"/>
+                        <outlet property="restartButton" destination="Taa-Z1-Z4O" id="Fin-Ua-bDJ"/>
+                        <outlet property="runButton" destination="KR3-5r-qdG" id="4Qb-Wa-rdg"/>
                         <segue destination="b43-oY-wfz" kind="unwind" identifier="unwindToWelcome" unwindAction="unwindToWelcomeWithSegue:" id="nPF-Av-eNW"/>
                         <segue destination="b43-oY-wfz" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMainWithSegue:" id="8IR-ah-gcu"/>
                     </connections>
@@ -654,7 +696,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M87-cr-Q3j" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="b43-oY-wfz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2237" y="211"/>
+            <point key="canvasLocation" x="2236.875" y="210.21126760563379"/>
         </scene>
     </scenes>
     <resources>

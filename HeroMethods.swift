@@ -9,7 +9,48 @@
 import UIKit
 
 extension Hero {
-    func getHit(damage: Int) {
+    
+    func getHit(with damage: Int) {
         self.health -= damage
     }
+    
+    func attack(_ target: Monster) -> String {
+        
+        var log = ""
+        var computedDamage = Int(self.strength)
+        
+//        if let weapon = self.leftHand {
+//            computedDamage += WeaponList[weapon]?["damage"] as! Int
+//        }
+//        if let weapon = self.rightHand {
+//            computedDamage += WeaponList[weapon]?["damage"] as! Int
+//        }
+        
+        let hitChance = Int(arc4random_uniform(UInt32(10))) + 1
+        if hitChance == 1 {
+            
+            // Miss
+            computedDamage = 0
+            
+            log = "\(self.name!) missed!"
+            
+        } else if hitChance == 10 {
+            
+            // Max damage
+            log = "Critical hit! \(self.name!) did \(computedDamage) damage to \(target.name)!"
+            
+        } else {
+            
+            // Base damage range
+            computedDamage = Int(arc4random_uniform(UInt32(computedDamage - computedDamage/2))) + Int(computedDamage/2)
+            
+            log = "\(self.name!) did \(computedDamage) damage to \(target.name)!"
+            
+        }
+        
+        target.health -= computedDamage
+        
+        return log
+    }
+    
 }

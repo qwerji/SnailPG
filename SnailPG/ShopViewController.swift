@@ -17,12 +17,13 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     
   
     var loggedInHero: Hero?
-    var storeInventory = [Item]()
+    var storeInventory = [[String:Any]]()
     @IBOutlet weak var storeInventoryTable: UITableView!
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell")!
-        cell.textLabel?.text = "\(storeInventory[indexPath.row].name!) - \(storeInventory[indexPath.row].price)"
+        cell.textLabel?.text = "\(storeInventory[indexPath.row]["name"]!)"
+        cell.detailTextLabel?.text = "\(storeInventory[indexPath.row]["price"]!)"
         return cell
     }
     
@@ -32,9 +33,11 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = storeInventory[indexPath.row]
-        if (loggedInHero?.gold)! >= item.price {
-            loggedInHero?.gold -= item.price
-            loggedInHero?.addToInventory(item)
+        let itemPrice = item["price"] as! Int
+        if Int((loggedInHero?.gold)!) >= itemPrice {
+            loggedInHero?.gold -= itemPrice
+            let bp = loggedInHero?.backpack as! NSMutableArray
+            bp.add(item["name"]!)
         } else {
             print("Not enough monies")
         }
@@ -50,16 +53,17 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         heroGoldLabel.text = "\((loggedInHero?.name)!)'s Gold: \((loggedInHero?.gold)!)"
         
-        let itemRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
-        do {
-            let results = try managedObjectContext.fetch(itemRequest)
-            storeInventory = results as! [Item]
-            
-        } catch {
-            print("\(error)")
+        for (key, _) in WeaponList {
+            storeInventory.append(WeaponList[key]!)
         }
         
-        heroGoldLabel.text = "\((loggedInHero?.name!)!)'s Gold: \((loggedInHero?.gold)!)"
+        for (key, _) in ArmorList {
+            storeInventory.append(ArmorList[key]!)
+        }
+        
+        for (key, _) in PotionList {
+            storeInventory.append(PotionList[key]!)
+        }
         
         storeInventoryTable.delegate = self
         storeInventoryTable.dataSource = self

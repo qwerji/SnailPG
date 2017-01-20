@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1769C981E3161A200B8FC3D /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1769C971E3161A200B8FC3D /* Items.swift */; };
+		A1769C9A1E3164E000B8FC3D /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1769C991E3164E000B8FC3D /* Monster.swift */; };
 		A1AB90B51E285AFA00CF4750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */; };
 		A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90B81E285AFA00CF4750 /* Main.storyboard */; };
 		A1AB90BD1E285AFA00CF4750 /* SnailPG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90BB1E285AFA00CF4750 /* SnailPG.xcdatamodeld */; };
@@ -16,12 +18,13 @@
 		A1AB90D01E28662500CF4750 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90CF1E28662500CF4750 /* MainViewController.swift */; };
 		A1AB90D21E287A4200CF4750 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90D11E287A4200CF4750 /* BattleViewController.swift */; };
 		A1E14BC11E2EFA7F005133E3 /* HeroMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */; };
-		A1E14BC31E2EFE47005133E3 /* MonsterMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E14BC21E2EFE47005133E3 /* MonsterMethods.swift */; };
 		A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1E14BC41E2F1440005133E3 /* finalf.ttf */; };
 		A1FA96051E2D453000EA3870 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FA96041E2D453000EA3870 /* ShopViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1769C971E3161A200B8FC3D /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Items.swift; path = ../Items.swift; sourceTree = "<group>"; };
+		A1769C991E3164E000B8FC3D /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A1AB90B11E285AFA00CF4750 /* Snail Fantasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snail Fantasy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1AB90B91E285AFA00CF4750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -33,7 +36,6 @@
 		A1AB90CF1E28662500CF4750 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A1AB90D11E287A4200CF4750 /* BattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 		A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroMethods.swift; path = ../HeroMethods.swift; sourceTree = "<group>"; };
-		A1E14BC21E2EFE47005133E3 /* MonsterMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterMethods.swift; sourceTree = "<group>"; };
 		A1E14BC41E2F1440005133E3 /* finalf.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = finalf.ttf; sourceTree = "<group>"; };
 		A1FA96041E2D453000EA3870 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +51,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1769C9B1E31699A00B8FC3D /* GameAssets */ = {
+			isa = PBXGroup;
+			children = (
+				A1769C991E3164E000B8FC3D /* Monster.swift */,
+				A1769C971E3161A200B8FC3D /* Items.swift */,
+				A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */,
+			);
+			name = GameAssets;
+			sourceTree = "<group>";
+		};
 		A1AB90A81E285AFA00CF4750 = {
 			isa = PBXGroup;
 			children = (
@@ -68,8 +80,7 @@
 		A1AB90B31E285AFA00CF4750 /* SnailPG */ = {
 			isa = PBXGroup;
 			children = (
-				A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */,
-				A1E14BC21E2EFE47005133E3 /* MonsterMethods.swift */,
+				A1769C9B1E31699A00B8FC3D /* GameAssets */,
 				A1FA96041E2D453000EA3870 /* ShopViewController.swift */,
 				A1AB90D11E287A4200CF4750 /* BattleViewController.swift */,
 				A1AB90CF1E28662500CF4750 /* MainViewController.swift */,
@@ -159,10 +170,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1769C981E3161A200B8FC3D /* Items.swift in Sources */,
+				A1769C9A1E3164E000B8FC3D /* Monster.swift in Sources */,
 				A1AB90BD1E285AFA00CF4750 /* SnailPG.xcdatamodeld in Sources */,
 				A1E14BC11E2EFA7F005133E3 /* HeroMethods.swift in Sources */,
 				A1AB90CE1E2860C000CF4750 /* WelcomeViewController.swift in Sources */,
-				A1E14BC31E2EFE47005133E3 /* MonsterMethods.swift in Sources */,
 				A1FA96051E2D453000EA3870 /* ShopViewController.swift in Sources */,
 				A1AB90B51E285AFA00CF4750 /* AppDelegate.swift in Sources */,
 				A1AB90D01E28662500CF4750 /* MainViewController.swift in Sources */,
