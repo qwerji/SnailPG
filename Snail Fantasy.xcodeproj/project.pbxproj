@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		102DD5A51E32F76B00274F72 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5A41E32F76B00274F72 /* StatusBar.swift */; };
+		102DD5A71E33274D00274F72 /* HealthBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5A61E33274D00274F72 /* HealthBar.swift */; };
 		A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC841E32E95D008E8971 /* weaponCell.swift */; };
 		A175AC871E32E967008E8971 /* potionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC861E32E967008E8971 /* potionCell.swift */; };
 		A175AC891E32E96E008E8971 /* armorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC881E32E96E008E8971 /* armorCell.swift */; };
-		102DD5A51E32F76B00274F72 /* ExperienceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5A41E32F76B00274F72 /* ExperienceBar.swift */; };
 		A1769C981E3161A200B8FC3D /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1769C971E3161A200B8FC3D /* Items.swift */; };
 		A1769C9A1E3164E000B8FC3D /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1769C991E3164E000B8FC3D /* Monster.swift */; };
 		A184867B1E31A36B00661783 /* BackpackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184867A1E31A36B00661783 /* BackpackViewController.swift */; };
@@ -28,10 +29,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		102DD5A41E32F76B00274F72 /* StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
+		102DD5A61E33274D00274F72 /* HealthBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthBar.swift; sourceTree = "<group>"; };
 		A175AC841E32E95D008E8971 /* weaponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weaponCell.swift; sourceTree = "<group>"; };
 		A175AC861E32E967008E8971 /* potionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = potionCell.swift; sourceTree = "<group>"; };
 		A175AC881E32E96E008E8971 /* armorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = armorCell.swift; sourceTree = "<group>"; };
-		102DD5A41E32F76B00274F72 /* ExperienceBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceBar.swift; sourceTree = "<group>"; };
 		A1769C971E3161A200B8FC3D /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Items.swift; path = ../Items.swift; sourceTree = "<group>"; };
 		A1769C991E3164E000B8FC3D /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A184867A1E31A36B00661783 /* BackpackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackpackViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,8 @@
 		A1769C9B1E31699A00B8FC3D /* GameAssets */ = {
 			isa = PBXGroup;
 			children = (
+				102DD5A41E32F76B00274F72 /* StatusBar.swift */,
+				102DD5A61E33274D00274F72 /* HealthBar.swift */,
 				A1769C991E3164E000B8FC3D /* Monster.swift */,
 				A1769C971E3161A200B8FC3D /* Items.swift */,
 				A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */,
@@ -107,7 +111,6 @@
 				A184867A1E31A36B00661783 /* BackpackViewController.swift */,
 				A1AB90D11E287A4200CF4750 /* BattleViewController.swift */,
 				A1AB90CF1E28662500CF4750 /* MainViewController.swift */,
-				102DD5A41E32F76B00274F72 /* ExperienceBar.swift */,
 				A1AB90CD1E2860C000CF4750 /* WelcomeViewController.swift */,
 				A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */,
 				A1AB90B81E285AFA00CF4750 /* Main.storyboard */,
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A175AC871E32E967008E8971 /* potionCell.swift in Sources */,
+				102DD5A71E33274D00274F72 /* HealthBar.swift in Sources */,
 				A1769C981E3161A200B8FC3D /* Items.swift in Sources */,
 				A1769C9A1E3164E000B8FC3D /* Monster.swift in Sources */,
 				A1AB90BD1E285AFA00CF4750 /* SnailPG.xcdatamodeld in Sources */,
@@ -205,7 +209,7 @@
 				A175AC891E32E96E008E8971 /* armorCell.swift in Sources */,
 				A184867B1E31A36B00661783 /* BackpackViewController.swift in Sources */,
 				A1AB90B51E285AFA00CF4750 /* AppDelegate.swift in Sources */,
-				102DD5A51E32F76B00274F72 /* ExperienceBar.swift in Sources */,
+				102DD5A51E32F76B00274F72 /* StatusBar.swift in Sources */,
 				A1AB90D01E28662500CF4750 /* MainViewController.swift in Sources */,
 				A1AB90D21E287A4200CF4750 /* BattleViewController.swift in Sources */,
 			);

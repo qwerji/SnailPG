@@ -1,5 +1,5 @@
 //
-//  ExperienceBar.swift
+//  StatusBar.swift
 //  Snail Fantasy
 //
 //  Created by Tyler Warren on 1/20/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExperienceBar: UISlider {
+class StatusBar: UISlider {
     override func trackRect(forBounds bounds: CGRect) -> CGRect {
         var newBounds = super.trackRect(forBounds: bounds)
         newBounds.size.height = 9

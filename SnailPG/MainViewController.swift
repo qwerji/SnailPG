@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var goldLabel: UILabel!
     @IBOutlet weak var expLabel: UILabel!
     @IBOutlet weak var experienceSlider: UISlider!
+    @IBOutlet weak var healthSlider: UISlider!
     
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -27,6 +28,7 @@ class MainViewController: UIViewController {
     
     // To Welcome
     @IBAction func exitButtonPressed(_ sender: UIButton) {
+        ad.saveContext()
         dismiss(animated: true, completion: nil)
     }
     
@@ -67,12 +69,15 @@ class MainViewController: UIViewController {
     
     func update() {
         // Set hero stats labels
-        heroNameLabel.text = loggedInHero?.name!
-        jobLabel.text = loggedInHero?.job!
+        heroNameLabel.text = "\((loggedInHero?.name!)!) the \((loggedInHero?.job!)!)"
+        
         levelLabel.text = String(describing: loggedInHero!.level)
         healthLabel.text = String(describing: loggedInHero!.health)
         goldLabel.text = String(describing: loggedInHero!.gold)
         experienceSlider.value = Float(loggedInHero!.experience)
+        experienceSlider.maximumValue = Float(loggedInHero!.expToLevel)
+        healthSlider.value = Float(loggedInHero!.health)
+        ad.saveContext()
     }
     
     override func viewDidLoad() {

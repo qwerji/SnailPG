@@ -52,6 +52,7 @@ class BattleViewController: UIViewController {
             }
             // gain EXP when monster is slain
             loggedInHero?.gainsExp(amount: (target?.experience)!)
+            battleLog.text! += "\n\((loggedInHero?.name!)!) gained \((target?.experience)!) experience!"
             // Show win button
             
             update()

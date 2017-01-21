@@ -71,6 +71,33 @@ extension Hero {
     }
     func gainsExp(amount: Int){
         self.experience += amount
-        
+        if self.experience >= self.expToLevel {
+            experience -= expToLevel
+            self.level += 1
+            self.expToLevel = self.level * 100
+            //stat points go here
+            ad.saveContext()
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
