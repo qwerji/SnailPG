@@ -40,7 +40,7 @@
                                         <rect key="frame" x="0.0" y="20.5" width="228" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a job:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HS7-e1-FWF">
                                         <rect key="frame" x="0.0" y="50.5" width="228" height="20.5"/>
@@ -688,14 +688,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="OSy-pr-S8r" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
-                                <rect key="frame" x="13" y="69" width="243" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="OSy-pr-S8r" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
+                                <rect key="frame" x="14" y="69" width="292" height="31"/>
                                 <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Health" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHQ-CL-VNs">
-                                <rect key="frame" x="242" y="65" width="62" height="38"/>
+                                <rect key="frame" x="242" y="152" width="62" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -706,7 +705,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Sg7-oK-2HR" firstAttribute="top" secondItem="yv7-ce-N5T" secondAttribute="bottom" constant="8" id="3c3-Ep-Ddp"/>
+                            <constraint firstItem="OSy-pr-S8r" firstAttribute="leading" secondItem="JLD-Uu-h8b" secondAttribute="leading" constant="16" id="7rO-Y0-MF7"/>
                             <constraint firstItem="0rx-Ht-n4g" firstAttribute="top" secondItem="yv7-ce-N5T" secondAttribute="bottom" id="Eo2-nv-YAv"/>
+                            <constraint firstItem="OSy-pr-S8r" firstAttribute="top" secondItem="0rx-Ht-n4g" secondAttribute="bottom" constant="15" id="GQq-id-g00"/>
                             <constraint firstItem="Han-af-TJa" firstAttribute="top" secondItem="yv7-ce-N5T" secondAttribute="bottom" constant="80" id="Gxz-yP-5vn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GTV-gM-XwZ" secondAttribute="trailing" constant="0.5" id="J6t-Ug-FEZ"/>
                             <constraint firstItem="0xV-kO-XnJ" firstAttribute="top" secondItem="yv7-ce-N5T" secondAttribute="bottom" constant="94" id="KMG-bK-ezq"/>
@@ -714,6 +715,7 @@
                             <constraint firstItem="0xV-kO-XnJ" firstAttribute="leading" secondItem="JLD-Uu-h8b" secondAttribute="leadingMargin" id="Xds-80-tQP"/>
                             <constraint firstItem="0rx-Ht-n4g" firstAttribute="leading" secondItem="JLD-Uu-h8b" secondAttribute="leadingMargin" id="eRK-99-Vfu"/>
                             <constraint firstItem="GTV-gM-XwZ" firstAttribute="top" secondItem="yv7-ce-N5T" secondAttribute="bottom" constant="8" id="p1x-NN-obQ"/>
+                            <constraint firstAttribute="trailing" secondItem="OSy-pr-S8r" secondAttribute="trailing" constant="16" id="wIj-PP-Lqu"/>
                             <constraint firstItem="Han-af-TJa" firstAttribute="leading" secondItem="JLD-Uu-h8b" secondAttribute="leadingMargin" id="y6R-wZ-IyB"/>
                             <constraint firstItem="Sg7-oK-2HR" firstAttribute="trailing" secondItem="JLD-Uu-h8b" secondAttribute="trailingMargin" id="z6q-MD-23a"/>
                         </constraints>
@@ -734,6 +736,24 @@
             </objects>
             <point key="canvasLocation" x="1338.75" y="210.21126760563379"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="cKZ-BF-4ui">
+            <objects>
+                <viewController id="Azs-57-DM0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7iu-Zn-Pa1"/>
+                        <viewControllerLayoutGuide type="bottom" id="KgZ-x2-jK4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pwx-e6-m2K">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Uh-rv-ldO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1339" y="936"/>
+        </scene>
         <!--BattleViewController-->
         <scene sceneID="cX3-YS-K74">
             <objects>
@@ -746,8 +766,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YFi-fh-y5L">
+                                <rect key="frame" x="0.0" y="458" width="320" height="110"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biK-XD-LcS">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="110"/>
+                                        <color key="backgroundColor" red="1" green="0.2300107093" blue="0.24935875190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <state key="normal" title="Attack!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="attackButtonPressed:" destination="yKh-kP-0oH" eventType="touchUpInside" id="moX-7E-FSP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-Z1-Z4O">
+                                        <rect key="frame" x="80" y="0.0" width="80" height="110"/>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <state key="normal" title="Restart">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="died:" destination="yKh-kP-0oH" eventType="touchUpInside" id="gjv-nP-JBU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp6-N1-S5L">
+                                        <rect key="frame" x="160" y="0.0" width="80" height="110"/>
+                                        <color key="backgroundColor" red="0.46727055311203003" green="0.76425302028656006" blue="0.26648974418640137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <state key="normal" title="Back To Main">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="won:" destination="yKh-kP-0oH" eventType="touchUpInside" id="AAg-li-Xmm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KR3-5r-qdG">
+                                        <rect key="frame" x="240" y="0.0" width="80" height="110"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <state key="normal" title="Run...">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="runButtonPressed:" destination="yKh-kP-0oH" eventType="touchUpInside" id="sPi-y1-hP6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="Iv6-DT-rXS"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battle Log" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="3gQ-Se-gtR">
+                                <rect key="frame" x="16" y="146" width="288" height="304"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="X03-m0-vH4" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
+                                <rect key="frame" x="6" y="20" width="300" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xby-ci-T1k">
-                                <rect key="frame" x="8" y="28" width="304" height="110"/>
+                                <rect key="frame" x="8" y="113" width="304" height="110"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5LK-RL-vRI">
                                         <rect key="frame" x="0.0" y="0.0" width="147" height="110"/>
@@ -832,75 +916,17 @@
                                     <constraint firstAttribute="height" constant="110" id="Isg-aX-MK6"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YFi-fh-y5L">
-                                <rect key="frame" x="0.0" y="458" width="320" height="110"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biK-XD-LcS">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="110"/>
-                                        <color key="backgroundColor" red="1" green="0.2300107093" blue="0.24935875190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                        <state key="normal" title="Attack!">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="attackButtonPressed:" destination="yKh-kP-0oH" eventType="touchUpInside" id="moX-7E-FSP"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-Z1-Z4O">
-                                        <rect key="frame" x="80" y="0.0" width="80" height="110"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                        <state key="normal" title="Restart">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="died:" destination="yKh-kP-0oH" eventType="touchUpInside" id="gjv-nP-JBU"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp6-N1-S5L">
-                                        <rect key="frame" x="160" y="0.0" width="80" height="110"/>
-                                        <color key="backgroundColor" red="0.46727055311203003" green="0.76425302028656006" blue="0.26648974418640137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                        <state key="normal" title="Back To Main">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="won:" destination="yKh-kP-0oH" eventType="touchUpInside" id="AAg-li-Xmm"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KR3-5r-qdG">
-                                        <rect key="frame" x="240" y="0.0" width="80" height="110"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                        <state key="normal" title="Run...">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="runButtonPressed:" destination="yKh-kP-0oH" eventType="touchUpInside" id="sPi-y1-hP6"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="Iv6-DT-rXS"/>
-                                </constraints>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battle Log" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="3gQ-Se-gtR">
-                                <rect key="frame" x="16" y="146" width="288" height="304"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3gQ-Se-gtR" firstAttribute="trailing" secondItem="Rnf-CL-WKx" secondAttribute="trailingMargin" id="7we-qO-jjU"/>
                             <constraint firstItem="YFi-fh-y5L" firstAttribute="top" secondItem="3gQ-Se-gtR" secondAttribute="bottom" constant="8" id="AcY-Kj-O1P"/>
                             <constraint firstAttribute="trailing" secondItem="YFi-fh-y5L" secondAttribute="trailing" id="G1S-eq-Q79"/>
-                            <constraint firstItem="Xby-ci-T1k" firstAttribute="top" secondItem="DqC-L9-kqG" secondAttribute="bottom" constant="8" id="LeM-gn-YCn"/>
+                            <constraint firstItem="Xby-ci-T1k" firstAttribute="top" secondItem="DqC-L9-kqG" secondAttribute="bottom" constant="93" id="LeM-gn-YCn"/>
                             <constraint firstItem="8XT-9R-qKS" firstAttribute="top" secondItem="YFi-fh-y5L" secondAttribute="bottom" id="QeP-ok-fSb"/>
                             <constraint firstItem="Xby-ci-T1k" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leading" constant="8" id="c3f-H8-6KC"/>
                             <constraint firstAttribute="trailing" secondItem="Xby-ci-T1k" secondAttribute="trailing" constant="8" id="dxv-fp-tlp"/>
-                            <constraint firstItem="3gQ-Se-gtR" firstAttribute="top" secondItem="Xby-ci-T1k" secondAttribute="bottom" constant="8" id="qd1-T5-Ag2"/>
+                            <constraint firstItem="3gQ-Se-gtR" firstAttribute="top" secondItem="Xby-ci-T1k" secondAttribute="bottom" constant="-77" id="qd1-T5-Ag2"/>
                             <constraint firstItem="3gQ-Se-gtR" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leadingMargin" id="sfd-Mt-0rC"/>
                             <constraint firstItem="YFi-fh-y5L" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leading" id="xrr-4K-cRn"/>
                         </constraints>
@@ -910,6 +936,7 @@
                         <outlet property="backToMainButton" destination="Pp6-N1-S5L" id="K1u-p0-LAh"/>
                         <outlet property="battleLog" destination="3gQ-Se-gtR" id="RXz-6R-9Xa"/>
                         <outlet property="heroHealthLabel" destination="hOy-CC-aHB" id="xfz-Fa-v6s"/>
+                        <outlet property="heroHealthSlider" destination="X03-m0-vH4" id="NRB-s7-fXy"/>
                         <outlet property="heroNameLabel" destination="m0e-aK-HCK" id="yUA-Hk-496"/>
                         <outlet property="monsterDamageLabel" destination="QhW-Mu-jC5" id="dUc-Lr-LdR"/>
                         <outlet property="monsterHealthLabel" destination="3y9-Do-7x4" id="Ant-8h-qH2"/>

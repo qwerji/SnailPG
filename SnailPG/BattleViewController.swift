@@ -25,6 +25,7 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var backToMainButton: UIButton!
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var attackButton: UIButton!
+    @IBOutlet weak var heroHealthSlider: HealthBar!
     
     @IBAction func attackButtonPressed(_ sender: UIButton) {
         // Hero Attacks
@@ -98,7 +99,7 @@ class BattleViewController: UIViewController {
             }
         }
         
-        appDelegate.saveContext()
+        ad.saveContext()
         
         performSegue(withIdentifier: "unwindToMain", sender: nil)
     }
@@ -113,6 +114,8 @@ class BattleViewController: UIViewController {
     func update(){
         heroHealthLabel.text = String(describing: (loggedInHero?.health)!)
         monsterHealthLabel.text = String(describing: (target?.health)!)
+        heroHealthSlider.value = Float((loggedInHero?.health)!)
+        heroHealthSlider.maximumValue = Float((loggedInHero?.maxHealth)!)
     }
     
     func getMonster() {
@@ -146,15 +149,10 @@ class BattleViewController: UIViewController {
         attackButton.isHidden = false
         backToMainButton.isHidden = true
         restartButton.isHidden = true
-        
+        getMonster()
+        update()
+
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        // Load Monsters
-        getMonster()
-        
-        // Update health labels
-        update()
-    }
     
 }
