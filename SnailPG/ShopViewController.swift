@@ -12,6 +12,10 @@ import CoreData
 class ShopViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var heroGoldLabel: UILabel!
     
+    @IBOutlet weak var purchasedItemLabel: UILabel!
+    @IBOutlet weak var purchasedItemModal: UIView!
+    var timer = Timer()
+    
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
   
@@ -93,11 +97,27 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         if Int((loggedInHero?.gold)!) >= itemPrice {
             loggedInHero?.gold -= itemPrice
             loggedInHero?.addToBackpack(item["name"] as! String)
+            purchasedItemLabel.text = "Purchased \((item["name"])!)"
+            purchasedItemModal.backgroundColor = #colorLiteral(red: 0.1070112661, green: 0.5596725941, blue: 0, alpha: 1)
         } else {
-            print("Not enough monies")
+            purchasedItemLabel.text = "You don't have enough gold."
+            purchasedItemModal.backgroundColor = #colorLiteral(red: 0.9880134463, green: 0.2317890823, blue: 0.2497095466, alpha: 1)
         }
+        
+        purchasedItemModal.isHidden = false
+        purchasedItemLabel.isHidden = false
+        
+        timer.invalidate()
+        
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(modalTimerEnd), userInfo: nil, repeats: false)
+        
         heroGoldLabel.text = "\((loggedInHero?.name!)!)'s Gold: \((loggedInHero?.gold)!)"
         appDelegate.saveContext()
+    }
+    
+    func modalTimerEnd() {
+        purchasedItemLabel.isHidden = true
+        purchasedItemModal.isHidden = true
     }
     
     @IBAction func exitButtonPressed(_ sender: UIButton) {
@@ -113,6 +133,9 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         storeInventoryTable.delegate = self
         storeInventoryTable.dataSource = self
+        
+        purchasedItemLabel.isHidden = true
+        purchasedItemModal.isHidden = true
         
         storeInventoryTable.reloadData()
     }

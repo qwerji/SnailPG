@@ -90,6 +90,16 @@ class BattleViewController: UIViewController {
     }
     
     @IBAction func runButtonPressed(_ sender: UIButton) {
+        let backpack = loggedInHero?.backpack as! [String]
+        for i in 0..<backpack.count {
+            if backpack[i] == "Escape Potion" {
+                loggedInHero?.removeFromBackpack(at: i)
+                break
+            }
+        }
+        
+        appDelegate.saveContext()
+        
         performSegue(withIdentifier: "unwindToMain", sender: nil)
     }
     
@@ -108,9 +118,11 @@ class BattleViewController: UIViewController {
     func getMonster() {
         // Implement monster choosing logic here, making a more specific DB query
         
-        let randomMonsterIdx = Int(arc4random_uniform(UInt32(Area0Monsters.count)))
+//        let randomMonsterIdx = Int(arc4random_uniform(UInt32(Area0Monsters.count)))
+//        
+//        let monsterChoice = MonsterList[Area0Monsters[randomMonsterIdx]]!
         
-        let monsterChoice = MonsterList[Area0Monsters[randomMonsterIdx]]!
+        let monsterChoice = MonsterList["Goblin Pleb"]!
         
         target = Monster(name: monsterChoice["name"] as! String, health: monsterChoice["health"] as! Int, gold: monsterChoice["gold"] as! Int, damage: monsterChoice["damage"] as! Int, experience: monsterChoice["experience"] as! Int)
         
@@ -123,7 +135,14 @@ class BattleViewController: UIViewController {
         // Set Hero stats labels
         heroNameLabel.text = "\((loggedInHero?.name!)!)'s Health:"
         
-        runButton.isHidden = false
+        runButton.isHidden = true
+        
+        for item in loggedInHero?.backpack as! [String] {
+            if item == "Escape Potion" {
+                runButton.isHidden = false
+            }
+        }
+        
         attackButton.isHidden = false
         backToMainButton.isHidden = true
         restartButton.isHidden = true
