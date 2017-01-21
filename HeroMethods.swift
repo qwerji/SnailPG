@@ -9,6 +9,11 @@
 import UIKit
 
 extension Hero {
+    
+    func getGold(amount: Int) {
+        self.gold += amount
+    }
+    
     //adds item to backpack
     func addToBackpack(_ item: String) {
         var bp = self.backpack as! [String]

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC841E32E95D008E8971 /* weaponCell.swift */; };
+		A175AC871E32E967008E8971 /* potionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC861E32E967008E8971 /* potionCell.swift */; };
+		A175AC891E32E96E008E8971 /* armorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC881E32E96E008E8971 /* armorCell.swift */; };
 		102DD5A51E32F76B00274F72 /* ExperienceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5A41E32F76B00274F72 /* ExperienceBar.swift */; };
 		A1769C981E3161A200B8FC3D /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1769C971E3161A200B8FC3D /* Items.swift */; };
 		A1769C9A1E3164E000B8FC3D /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1769C991E3164E000B8FC3D /* Monster.swift */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A175AC841E32E95D008E8971 /* weaponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weaponCell.swift; sourceTree = "<group>"; };
+		A175AC861E32E967008E8971 /* potionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = potionCell.swift; sourceTree = "<group>"; };
+		A175AC881E32E96E008E8971 /* armorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = armorCell.swift; sourceTree = "<group>"; };
 		102DD5A41E32F76B00274F72 /* ExperienceBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceBar.swift; sourceTree = "<group>"; };
 		A1769C971E3161A200B8FC3D /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Items.swift; path = ../Items.swift; sourceTree = "<group>"; };
 		A1769C991E3164E000B8FC3D /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
