@@ -77,6 +77,7 @@ class MainViewController: UIViewController {
         experienceSlider.value = Float(loggedInHero!.experience)
         experienceSlider.maximumValue = Float(loggedInHero!.expToLevel)
         healthSlider.value = Float(loggedInHero!.health)
+        healthSlider.maximumValue = Float(loggedInHero!.maxHealth)
         ad.saveContext()
     }
     
