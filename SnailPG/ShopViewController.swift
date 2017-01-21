@@ -19,11 +19,68 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     var storeInventory = [[String:Any]]()
     @IBOutlet weak var storeInventoryTable: UITableView!
     
+    @IBAction func sortSegmentPressed(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            update(with: "Weapon")
+            break
+        case 1:
+            update(with: "Armor")
+            break
+        case 2:
+            update(with: "Potion")
+            break
+        default:
+            update(with: "All")
+        }
+        
+    }
+    
+    func update(with sorter: String) {
+        storeInventory = []
+        if sorter != "All" {
+            for (key, _) in ItemList {
+                if ItemList[key]?["type"] as! String == sorter {
+                    storeInventory.append(ItemList[key]!)
+                }
+            }
+        } else {
+            for (key, _) in ItemList {
+                storeInventory.append(ItemList[key]!)
+            }
+        }
+        
+        storeInventoryTable.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell")!
-        cell.textLabel?.text = "\(storeInventory[indexPath.row]["name"]!)"
-        cell.detailTextLabel?.text = "\(storeInventory[indexPath.row]["price"]!)"
-        return cell
+        let cell: UITableViewCell
+        let item = storeInventory[indexPath.row]
+        let itemType = item["type"] as! String
+        
+        if itemType == "Weapon" {
+
+            cell = tableView.dequeueReusableCell(withIdentifier: "weaponCell", for: indexPath) as! WeaponCell
+            let weaponCell = cell as! WeaponCell
+            weaponCell.configureCell(for: item)
+            return weaponCell
+            
+        } else if itemType == "Armor" {
+
+            cell = tableView.dequeueReusableCell(withIdentifier: "armorCell", for: indexPath) as! ArmorCell
+            let armorCell = cell as! ArmorCell
+            armorCell.configureCell(for: item)
+            return armorCell
+            
+        } else {
+
+            cell = tableView.dequeueReusableCell(withIdentifier: "potionCell", for: indexPath) as! PotionCell
+            let potionCell = cell as! PotionCell
+            potionCell.configureCell(for: item)
+            return potionCell
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,14 +103,13 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func exitButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         heroGoldLabel.text = "\((loggedInHero?.name)!)'s Gold: \((loggedInHero?.gold)!)"
         
-        for (key, _) in ItemList {
-            storeInventory.append(ItemList[key]!)
-        }
+        update(with: "Weapon")
         
         storeInventoryTable.delegate = self
         storeInventoryTable.dataSource = self

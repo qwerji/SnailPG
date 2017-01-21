@@ -39,6 +39,23 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
         update()
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let itemCost = ItemList[backpack[indexPath.row]]?["price"] as! Int
+        let itemReturn = itemCost/4
+        
+        let sell = UITableViewRowAction(style: .destructive, title: "Sell for \(itemReturn) gold") { (action, indexPath) in
+            self.loggedInHero?.removeFromBackpack(at: indexPath.row)
+            self.loggedInHero?.getGold(amount: itemReturn)
+            self.appDelegate.saveContext()
+            self.update()
+        }
+        
+        sell.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        
+        return [sell]
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let itemName = backpack[indexPath.row]
         let item = ItemList[itemName]

@@ -94,9 +94,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         heroRequest.predicate = NSPredicate(format: "%K > %D", "health", 0)
         do {
             let results = try managedObjectContext.fetch(heroRequest)
-            for hero in results {
-                print((hero as! Hero).backpack!)
-            }
             previousHeroes = results as! [Hero]
         } catch {
             print("\(error)")
