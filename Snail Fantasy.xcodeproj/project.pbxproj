@@ -55,6 +55,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A175AC8A1E32E975008E8971 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A175AC841E32E95D008E8971 /* weaponCell.swift */,
+				A175AC861E32E967008E8971 /* potionCell.swift */,
+				A175AC881E32E96E008E8971 /* armorCell.swift */,
+			);
+			name = Cells;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		A1769C9B1E31699A00B8FC3D /* GameAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +95,7 @@
 		A1AB90B31E285AFA00CF4750 /* SnailPG */ = {
 			isa = PBXGroup;
 			children = (
+				A175AC8A1E32E975008E8971 /* Cells */,
 				A1769C9B1E31699A00B8FC3D /* GameAssets */,
 				A1FA96041E2D453000EA3870 /* ShopViewController.swift */,
 				A184867A1E31A36B00661783 /* BackpackViewController.swift */,
@@ -176,12 +188,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A175AC871E32E967008E8971 /* potionCell.swift in Sources */,
 				A1769C981E3161A200B8FC3D /* Items.swift in Sources */,
 				A1769C9A1E3164E000B8FC3D /* Monster.swift in Sources */,
 				A1AB90BD1E285AFA00CF4750 /* SnailPG.xcdatamodeld in Sources */,
 				A1E14BC11E2EFA7F005133E3 /* HeroMethods.swift in Sources */,
 				A1AB90CE1E2860C000CF4750 /* WelcomeViewController.swift in Sources */,
 				A1FA96051E2D453000EA3870 /* ShopViewController.swift in Sources */,
+				A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */,
+				A175AC891E32E96E008E8971 /* armorCell.swift in Sources */,
 				A184867B1E31A36B00661783 /* BackpackViewController.swift in Sources */,
 				A1AB90B51E285AFA00CF4750 /* AppDelegate.swift in Sources */,
 				102DD5A51E32F76B00274F72 /* ExperienceBar.swift in Sources */,
