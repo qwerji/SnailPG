@@ -9,13 +9,13 @@
 import UIKit
 
 extension Hero {
-    
+    //adds item to backpack
     func addToBackpack(_ item: String) {
         var bp = self.backpack as! [String]
         bp.append(item)
         self.backpack = bp as NSObject?
     }
-    
+    //removes item from backpack when it is being equipped
     func removeFromBackpack(at index: Int) {
         var bp = self.backpack as! [String]
         bp.remove(at: index)
@@ -64,5 +64,8 @@ extension Hero {
         
         return log
     }
-    
+    func gainsExp(amount: Int){
+        self.experience += amount
+        
+    }
 }

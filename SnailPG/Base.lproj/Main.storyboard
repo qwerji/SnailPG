@@ -398,8 +398,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsF-74-dDB">
+                                <rect key="frame" x="16" y="483" width="111" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.2300107093" blue="0.24935875190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="To Battle!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toBattleButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="GjJ-gF-nrL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CU4-SU-t2D">
+                                <rect key="frame" x="193" y="483" width="111" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Exit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="exitButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="upy-wB-C5O"/>
+                                    <action selector="toBattleButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="esV-4Z-G1f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJ1-CP-53o">
+                                <rect key="frame" x="16" y="410" width="111" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.46727055311203003" green="0.76425302028656006" blue="0.26648974418640137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="To Shop">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toShopButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="hVi-oj-XBZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Q1-Bk-XYW">
+                                <rect key="frame" x="193" y="410" width="111" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Backpack">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backpackButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="Fbh-sS-aHo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Experience:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Han-af-TJa">
+                                <rect key="frame" x="16" y="28" width="98" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Oxq-yc-9X9"/>
+                                    <constraint firstAttribute="width" constant="98" id="mis-ai-ide"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="0xV-kO-XnJ" customClass="ExperienceBar" customModule="Snail_Fantasy" customModuleProvider="target">
+                                <rect key="frame" x="14" y="42" width="292" height="31"/>
+                                <color key="tintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ylP-LI-sdY">
-                                <rect key="frame" x="16" y="28" width="136.5" height="102.5"/>
+                                <rect key="frame" x="16" y="90" width="136.5" height="102.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4I3-hA-Nv9">
                                         <rect key="frame" x="0.0" y="0.0" width="136.5" height="20.5"/>
@@ -488,63 +552,20 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsF-74-dDB">
-                                <rect key="frame" x="16" y="483" width="111" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.2300107093" blue="0.24935875190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="To Battle!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toBattleButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="GjJ-gF-nrL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CU4-SU-t2D">
-                                <rect key="frame" x="193" y="483" width="111" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Exit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="exitButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="upy-wB-C5O"/>
-                                    <action selector="toBattleButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="esV-4Z-G1f"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJ1-CP-53o">
-                                <rect key="frame" x="16" y="410" width="111" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.46727055311203003" green="0.76425302028656006" blue="0.26648974418640137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="To Shop">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toShopButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="hVi-oj-XBZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Q1-Bk-XYW">
-                                <rect key="frame" x="193" y="410" width="111" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Backpack">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backpackButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="Fbh-sS-aHo"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ylP-LI-sdY" firstAttribute="top" secondItem="yv7-ce-N5T" secondAttribute="bottom" constant="8" id="Pgt-3N-K07"/>
+                            <constraint firstItem="Han-af-TJa" firstAttribute="top" secondItem="yv7-ce-N5T" secondAttribute="bottom" constant="8" id="Gxz-yP-5vn"/>
+                            <constraint firstItem="0xV-kO-XnJ" firstAttribute="top" secondItem="yv7-ce-N5T" secondAttribute="bottom" constant="22" id="KMG-bK-ezq"/>
+                            <constraint firstItem="ylP-LI-sdY" firstAttribute="top" secondItem="yv7-ce-N5T" secondAttribute="bottom" constant="70" id="Pgt-3N-K07"/>
                             <constraint firstItem="ylP-LI-sdY" firstAttribute="leading" secondItem="JLD-Uu-h8b" secondAttribute="leadingMargin" id="ULZ-Gh-rtg"/>
+                            <constraint firstItem="0xV-kO-XnJ" firstAttribute="trailing" secondItem="JLD-Uu-h8b" secondAttribute="trailingMargin" id="WEM-uc-db3"/>
+                            <constraint firstItem="0xV-kO-XnJ" firstAttribute="leading" secondItem="JLD-Uu-h8b" secondAttribute="leadingMargin" id="Xds-80-tQP"/>
+                            <constraint firstItem="Han-af-TJa" firstAttribute="leading" secondItem="JLD-Uu-h8b" secondAttribute="leadingMargin" id="y6R-wZ-IyB"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="experienceSlider" destination="0xV-kO-XnJ" id="tWB-mK-xOw"/>
                         <outlet property="goldLabel" destination="gEW-HN-XaG" id="7aC-sq-6Uu"/>
                         <outlet property="healthLabel" destination="AHQ-CL-VNs" id="bDw-LO-4yY"/>
                         <outlet property="heroNameLabel" destination="0rx-Ht-n4g" id="iuq-cy-Pb2"/>
@@ -557,7 +578,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OR4-El-Qdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1339" y="211"/>
+            <point key="canvasLocation" x="1338.75" y="210.21126760563379"/>
         </scene>
         <!--BattleViewController-->
         <scene sceneID="cX3-YS-K74">

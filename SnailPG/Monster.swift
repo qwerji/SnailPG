@@ -15,13 +15,15 @@ class Monster {
     var gold: Int
     var damage: Int
     var drop: String?
+    var experience: Int
     
-    init(name: String, health: Int, gold: Int, damage: Int, drop: String? = nil) {
+    init(name: String, health: Int, gold: Int, damage: Int, drop: String? = nil, experience: Int) {
         self.name = name
         self.health = health
         self.gold = gold
         self.damage = damage
         self.drop = drop
+        self.experience = experience
     }
     
     func attack(_ target: Hero) -> String {

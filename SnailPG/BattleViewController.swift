@@ -50,7 +50,8 @@ class BattleViewController: UIViewController {
                 bp.add(itemDrop)
                 battleLog.text! += "\n\((loggedInHero?.name!)!) picked up \(itemDrop)!"
             }
-            
+            // gain EXP when monster is slain
+            loggedInHero?.gainsExp(amount: (target?.experience)!)
             // Show win button
             
             update()
@@ -110,7 +111,7 @@ class BattleViewController: UIViewController {
         
         let monsterChoice = MonsterList[Area0Monsters[randomMonsterIdx]]!
         
-        target = Monster(name: monsterChoice["name"] as! String, health: monsterChoice["health"] as! Int, gold: monsterChoice["gold"] as! Int, damage: monsterChoice["damage"] as! Int)
+        target = Monster(name: monsterChoice["name"] as! String, health: monsterChoice["health"] as! Int, gold: monsterChoice["gold"] as! Int, damage: monsterChoice["damage"] as! Int, experience: monsterChoice["experience"] as! Int)
         
         // Set Monster stats labels
         monsterNameLabel.text = target?.name

@@ -15,6 +15,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var healthLabel: UILabel!
     @IBOutlet weak var goldLabel: UILabel!
+    @IBOutlet weak var expLabel: UILabel!
+    @IBOutlet weak var experienceSlider: UISlider!
+    
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -69,11 +72,11 @@ class MainViewController: UIViewController {
         levelLabel.text = String(describing: loggedInHero!.level)
         healthLabel.text = String(describing: loggedInHero!.health)
         goldLabel.text = String(describing: loggedInHero!.gold)
+        experienceSlider.value = Float(loggedInHero!.experience)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         update()
     }
     
