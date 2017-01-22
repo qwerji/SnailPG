@@ -121,17 +121,7 @@ class BattleViewController: UIViewController {
     
     func getMonster() {
         
-        var areaIdx: Int = 0
-        
-        if (loggedInHero?.level)! < 3 {
-            areaIdx = 0
-        } else if (loggedInHero?.level)! < 6 {
-            areaIdx = 1
-        } else  {
-            areaIdx = 2
-        }
-        
-        let area = AreaDataForIndex[areaIdx]
+        let area = AreaDataForIndex[Int((loggedInHero?.area)!)]
         
         let areaMonsters = area?["monsters"] as! Array<Any>
         
