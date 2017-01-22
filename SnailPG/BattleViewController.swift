@@ -20,13 +20,13 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var battleLog: UILabel!
     @IBOutlet weak var monsterNameLabel: UILabel!
     @IBOutlet weak var monsterHealthLabel: UILabel!
-    @IBOutlet weak var monsterDamageLabel: UILabel!
     
     @IBOutlet weak var runButton: UIButton!
     @IBOutlet weak var backToMainButton: UIButton!
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var attackButton: UIButton!
     @IBOutlet weak var heroHealthSlider: HealthBar!
+    @IBOutlet weak var monsterHealthSlider: UISlider!
     
     @IBAction func attackButtonPressed(_ sender: UIButton) {
         // Hero Attacks
@@ -117,6 +117,9 @@ class BattleViewController: UIViewController {
         monsterHealthLabel.text = String(describing: (target?.health)!)
         heroHealthSlider.value = Float((loggedInHero?.health)!)
         heroHealthSlider.maximumValue = Float((loggedInHero?.maxHealth)!)
+        monsterHealthSlider.maximumValue = Float((monsterMaxHealth))
+        monsterHealthSlider.value = Float((target?.health)!)
+        
     }
     
     func getMonster() {
@@ -147,7 +150,6 @@ class BattleViewController: UIViewController {
         
         // Set Monster stats labels
         monsterNameLabel.text = target?.name
-        monsterDamageLabel.text = String(describing: (target?.damage)!)
     }
     
     override func viewDidLoad() {
