@@ -117,7 +117,7 @@ class BattleViewController: UIViewController {
         monsterHealthLabel.text = String(describing: (target?.health)!)
         heroHealthSlider.value = Float((loggedInHero?.health)!)
         heroHealthSlider.maximumValue = Float((loggedInHero?.maxHealth)!)
-        monsterHealthSlider.maximumValue = Float((monsterMaxHealth))
+        monsterHealthSlider.maximumValue = Float((monsterMaxHealth!))
         monsterHealthSlider.value = Float((target?.health)!)
         
     }

@@ -1066,14 +1066,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Monster:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Zqz-Oe-UMG">
-                                <rect key="frame" x="16" y="28" width="110.5" height="36.5"/>
+                                <rect key="frame" x="16" y="20" width="111" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gorp" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Bi3-GH-pda">
-                                <rect key="frame" x="126" y="28" width="36.5" height="36.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gorp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Bi3-GH-pda">
+                                <rect key="frame" x="126" y="20" width="178" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -1106,8 +1106,8 @@
                                 <color key="tintColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battle Log" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="3gQ-Se-gtR">
-                                <rect key="frame" x="16" y="140" width="288" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Battle Log" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="3gQ-Se-gtR">
+                                <rect key="frame" x="20" y="136" width="288" height="190"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1115,11 +1115,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3gQ-Se-gtR" firstAttribute="trailing" secondItem="Rnf-CL-WKx" secondAttribute="trailingMargin" id="7we-qO-jjU"/>
-                            <constraint firstItem="YFi-fh-y5L" firstAttribute="top" secondItem="3gQ-Se-gtR" secondAttribute="bottom" constant="303.5" id="AcY-Kj-O1P"/>
+                            <constraint firstItem="3gQ-Se-gtR" firstAttribute="trailing" secondItem="Rnf-CL-WKx" secondAttribute="trailingMargin" constant="4" id="7we-qO-jjU"/>
+                            <constraint firstItem="YFi-fh-y5L" firstAttribute="top" secondItem="3gQ-Se-gtR" secondAttribute="bottom" constant="132" id="AcY-Kj-O1P"/>
                             <constraint firstAttribute="trailing" secondItem="YFi-fh-y5L" secondAttribute="trailing" id="G1S-eq-Q79"/>
                             <constraint firstItem="8XT-9R-qKS" firstAttribute="top" secondItem="YFi-fh-y5L" secondAttribute="bottom" id="QeP-ok-fSb"/>
-                            <constraint firstItem="3gQ-Se-gtR" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leadingMargin" id="sfd-Mt-0rC"/>
+                            <constraint firstItem="3gQ-Se-gtR" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leadingMargin" constant="4" id="sfd-Mt-0rC"/>
                             <constraint firstItem="YFi-fh-y5L" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leading" id="xrr-4K-cRn"/>
                         </constraints>
                     </view>
