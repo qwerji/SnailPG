@@ -15,9 +15,6 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var purchasedItemLabel: UILabel!
     @IBOutlet weak var purchasedItemModal: UIView!
     var timer = Timer()
-    
-    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
   
     var loggedInHero: Hero?
     var storeInventory = [[String:Any]]()
@@ -112,7 +109,7 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(modalTimerEnd), userInfo: nil, repeats: false)
         
         heroGoldLabel.text = "\((loggedInHero?.name!)!)'s Gold: \((loggedInHero?.gold)!)"
-        appDelegate.saveContext()
+        ad.saveContext()
     }
     
     func modalTimerEnd() {

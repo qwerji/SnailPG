@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class BackpackViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var loggedInHero: Hero?
     var backpack = [String]()
     
@@ -27,7 +27,7 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var heroNameLabel: UILabel!
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
-        appDelegate.saveContext()
+        ad.saveContext()
         dismiss(animated: true, completion: nil)
     }
     
@@ -47,7 +47,7 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
         let sell = UITableViewRowAction(style: .destructive, title: "Sell for \(itemReturn) gold") { (action, indexPath) in
             self.loggedInHero?.removeFromBackpack(at: indexPath.row)
             self.loggedInHero?.getGold(amount: itemReturn)
-            self.appDelegate.saveContext()
+            ad.saveContext()
             self.update()
         }
         
@@ -100,7 +100,7 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
         default:
             print("error")
         }
-        appDelegate.saveContext()
+        ad.saveContext()
         update()
     }
     

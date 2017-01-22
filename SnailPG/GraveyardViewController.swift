@@ -19,5 +19,4 @@ class GraveyardViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-
 }

@@ -12,10 +12,11 @@ import CoreData
 class BattleViewController: UIViewController {
     @IBOutlet weak var heroHealthLabel: UILabel!
     @IBOutlet weak var heroNameLabel: UILabel!
-    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var target: Monster?
     var loggedInHero: Hero?
+    var monsterMaxHealth: Int?
+    
     @IBOutlet weak var battleLog: UILabel!
     @IBOutlet weak var monsterNameLabel: UILabel!
     @IBOutlet weak var monsterHealthLabel: UILabel!
@@ -33,7 +34,7 @@ class BattleViewController: UIViewController {
         
         // Monster Health Check
         if (target?.health)! <= 0 {
-            appDelegate.saveContext()
+            ad.saveContext()
             
             runButton.isHidden = true
             attackButton.isHidden = true
@@ -65,7 +66,7 @@ class BattleViewController: UIViewController {
         
         // Hero Health Check
         if (loggedInHero?.health)! <= 0 {
-            appDelegate.saveContext()
+            ad.saveContext()
             
             runButton.isHidden = true
             attackButton.isHidden = true
@@ -119,13 +120,28 @@ class BattleViewController: UIViewController {
     }
     
     func getMonster() {
-        // Implement monster choosing logic here, making a more specific DB query
         
-//        let randomMonsterIdx = Int(arc4random_uniform(UInt32(Area0Monsters.count)))
-//        
-//        let monsterChoice = MonsterList[Area0Monsters[randomMonsterIdx]]!
+        var areaIdx: Int = 0
         
-        let monsterChoice = MonsterList["Goblin Pleb"]!
+        if (loggedInHero?.level)! < 3 {
+            areaIdx = 0
+        } else if (loggedInHero?.level)! < 6 {
+            areaIdx = 1
+        } else  {
+            areaIdx = 2
+        }
+        
+        let area = AreaDataForIndex[areaIdx]
+        
+        let areaMonsters = area?["monsters"] as! Array<Any>
+        
+        let randomMonsterIdx = Int(arc4random_uniform(UInt32(areaMonsters.count)))
+        
+        let randomMonster = areaMonsters[randomMonsterIdx]
+        
+        let monsterChoice = MonsterList[randomMonster as! String]!
+        
+        monsterMaxHealth = monsterChoice["health"] as! Int?
         
         target = Monster(name: monsterChoice["name"] as! String, health: monsterChoice["health"] as! Int, gold: monsterChoice["gold"] as! Int, damage: monsterChoice["damage"] as! Int, experience: monsterChoice["experience"] as! Int)
         
@@ -153,6 +169,5 @@ class BattleViewController: UIViewController {
         update()
 
     }
-    
     
 }

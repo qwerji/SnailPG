@@ -11,13 +11,9 @@ import CoreData
 
 class WelcomeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var previousHeroesLabel: UILabel!
-    
-    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let defaults = UserDefaults.standard
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var previousHeroes = [Hero]()
     @IBOutlet weak var previousHeroesTable: UITableView!
     @IBOutlet weak var heroName: UITextField!
+    var previousHeroes = [Hero]()
     var loggedInHero: Hero?
     
     @IBAction func unwindToWelcome(segue: UIStoryboardSegue) {
@@ -37,7 +33,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         } else {
             
             var jobChoice: String?
-            let hero = NSEntityDescription.insertNewObject(forEntityName: "Hero", into: managedObjectContext) as! Hero
+            let hero = NSEntityDescription.insertNewObject(forEntityName: "Hero", into: context) as! Hero
             
             // Set defaults for the selected job on creation
             switch sender.tag {
@@ -62,6 +58,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             default: print("Error")
             }
             
+            hero.area = 0
             hero.maxHealth = 50
             hero.defense = 0
             hero.health = 50
@@ -73,7 +70,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             hero.backpack = NSArray()
 
             // Save Hero instance in appDelegate and CoreData
-            appDelegate.saveContext()
+            ad.saveContext()
             loggedInHero = hero
             
             // Clear textbox
@@ -95,7 +92,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         let heroRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Hero")
         heroRequest.predicate = NSPredicate(format: "%K > %D", "health", 0)
         do {
-            let results = try managedObjectContext.fetch(heroRequest)
+            let results = try context.fetch(heroRequest)
             previousHeroes = results as! [Hero]
         } catch {
             print("\(error)")
