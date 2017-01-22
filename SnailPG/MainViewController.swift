@@ -11,13 +11,12 @@ import CoreData
 
 class MainViewController: UIViewController {
     @IBOutlet weak var heroNameLabel: UILabel!
-    @IBOutlet weak var jobLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var healthLabel: UILabel!
     @IBOutlet weak var goldLabel: UILabel!
-    @IBOutlet weak var expLabel: UILabel!
     @IBOutlet weak var experienceSlider: UISlider!
     @IBOutlet weak var healthSlider: UISlider!
+    @IBOutlet weak var locationLabel: UILabel!
     
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -26,10 +25,10 @@ class MainViewController: UIViewController {
     
     @IBAction func unwindToMain(segue: UIStoryboardSegue){}
     
-    // To Welcome
+    // To Title
     @IBAction func exitButtonPressed(_ sender: UIButton) {
         ad.saveContext()
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "unwindToTitle", sender: nil)
     }
     
     // To Battle
@@ -46,6 +45,15 @@ class MainViewController: UIViewController {
     @IBAction func backpackButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "backpack", sender: nil)
     }
+    //To Map
+    @IBAction func mapButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "mapSegue", sender: nil)
+    }
+    //To Hero select
+    @IBAction func changeHeroButtonPressed(_ sender: Any) {
+        ad.saveContext()
+        dismiss(animated: true, completion: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -60,6 +68,10 @@ class MainViewController: UIViewController {
             break
         case "backpack":
             let controller = segue.destination as! BackpackViewController
+            controller.loggedInHero = self.loggedInHero
+            break
+        case "mapSegue":
+            let controller = segue.destination as! MapViewController
             controller.loggedInHero = self.loggedInHero
             break
         default:
@@ -81,12 +93,8 @@ class MainViewController: UIViewController {
         ad.saveContext()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        update()
-    }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillLayoutSubviews() {
         update()
     }
     
