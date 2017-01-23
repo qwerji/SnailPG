@@ -42,18 +42,21 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
                 hero.strength = 10
                 hero.dexterity = 6
                 hero.intelligence = 2
+                hero.icon = #imageLiteral(resourceName: "warrior")
                 break
             case 1:
                 jobChoice = "Mage"
                 hero.strength = 2
                 hero.dexterity = 6
                 hero.intelligence = 10
+                hero.icon = #imageLiteral(resourceName: "mage")
                 break
             case 2:
                 jobChoice = "Thief"
                 hero.strength = 2
                 hero.dexterity = 10
                 hero.intelligence = 6
+                hero.icon = #imageLiteral(resourceName: "theif")
                 break
             default: print("Error")
             }
@@ -147,9 +150,13 @@ extension WelcomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     // Set rows to previous hero names
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "previousHero")!
-        cell.textLabel?.text = "\(previousHeroes[indexPath.row].name!) - \(previousHeroes[indexPath.row].job!)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "continueCell", for: indexPath) as! continueCell
+        cell.configureCell(for: previousHeroes[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     // When pressed, log into that hero

@@ -72,7 +72,7 @@ class MainViewController: UIViewController {
             controller.loggedInHero = self.loggedInHero
             break
         default:
-            print("error")
+            break
         }
     }
     

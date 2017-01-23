@@ -105,30 +105,42 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "item")!
-        let item = ItemList[backpack[indexPath.row]]
+        let itemName = backpack[indexPath.row]
+        let item = ItemList[itemName]
+        let cell: UITableViewCell
         
-        var itemDetail = ""
+        let itemType = item?["type"] as! String
         
-        switch item?["type"] as! String {
-        case "Weapon":
-            itemDetail = "Damage: \((item?["damage"]!)!)"
-            break
-        case "Armor":
-            itemDetail = "Defense: \((item?["defense"]!)!)"
-            break
-        default:
-            itemDetail = "\((item?["effect"]!)!)"
+        if itemType == "Weapon" {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "weaponCell", for: indexPath) as! WeaponCell
+            let weaponCell = cell as! WeaponCell
+            weaponCell.configureCell(for: item!)
+            return weaponCell
+            
+        } else if itemType == "Armor" {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "armorCell", for: indexPath) as! ArmorCell
+            let armorCell = cell as! ArmorCell
+            armorCell.configureCell(for: item!)
+            return armorCell
+            
+        } else {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "potionCell", for: indexPath) as! PotionCell
+            let potionCell = cell as! PotionCell
+            potionCell.configureCell(for: item!)
+            return potionCell
+            
         }
-        
-        cell.detailTextLabel?.text = itemDetail
-        cell.textLabel?.text = "\((item?["name"]!)!)"
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return backpack.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     func update() {
