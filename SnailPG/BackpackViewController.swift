@@ -58,6 +58,11 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let itemName = backpack[indexPath.row]
+        
+        if itemName == "Escape Potion" {
+            return
+        }
+        
         let item = ItemList[itemName]
         loggedInHero?.removeFromBackpack(at: indexPath.row)
         
