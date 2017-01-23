@@ -44,7 +44,7 @@
 		102DD5AF1E3455D600274F72 /* displayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayCell.swift; sourceTree = "<group>"; };
 		102DD5B31E35C0FA00274F72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10A7A24F1E35C59C0064EAC1 /* redAlert.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = redAlert.ttf; path = ../../../../../Desktop/redAlert/redAlert.ttf; sourceTree = "<group>"; };
-		10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Fipps-Regular.otf"; path = "../../../../../Desktop/fipps/Fipps-Regular.otf"; sourceTree = "<group>"; };
+		10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		A175AC841E32E95D008E8971 /* weaponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weaponCell.swift; sourceTree = "<group>"; };
 		A175AC861E32E967008E8971 /* potionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = potionCell.swift; sourceTree = "<group>"; };
 		A175AC881E32E96E008E8971 /* armorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = armorCell.swift; sourceTree = "<group>"; };
