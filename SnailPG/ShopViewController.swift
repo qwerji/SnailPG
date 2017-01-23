@@ -52,6 +52,10 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         
+        storeInventory.sort {
+            ($0["price"] as! Int) < ($1["price"] as! Int)
+        }
+        
         storeInventoryTable.reloadData()
     }
     

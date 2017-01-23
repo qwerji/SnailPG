@@ -13,7 +13,6 @@
 		102DD5AE1E343F3C00274F72 /* GraveyardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */; };
 		102DD5B01E3455D600274F72 /* displayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5AF1E3455D600274F72 /* displayCell.swift */; };
 		102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 102DD5B31E35C0FA00274F72 /* Assets.xcassets */; };
-		10A7A2501E35C59C0064EAC1 /* C&C Red Alert [INET].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A24F1E35C59C0064EAC1 /* C&C Red Alert [INET].ttf */; };
 		10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90C31E285AFA00CF4750 /* Info.plist */; };
 		10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */; };
 		A10EA19F1E365EB0005F9459 /* graveyardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EA19E1E365EB0005F9459 /* graveyardCell.swift */; };
@@ -43,7 +42,6 @@
 		102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraveyardViewController.swift; sourceTree = "<group>"; };
 		102DD5AF1E3455D600274F72 /* displayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayCell.swift; sourceTree = "<group>"; };
 		102DD5B31E35C0FA00274F72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		10A7A24F1E35C59C0064EAC1 /* C&C Red Alert [INET].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "C&C Red Alert [INET].ttf"; sourceTree = "<group>"; };
 		10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		A10EA19E1E365EB0005F9459 /* graveyardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = graveyardCell.swift; path = SnailPG/graveyardCell.swift; sourceTree = "<group>"; };
 		A10EA1A01E366B41005F9459 /* continueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = continueCell.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 				102DD5B31E35C0FA00274F72 /* Assets.xcassets */,
 				A1AB90B81E285AFA00CF4750 /* Main.storyboard */,
 				A1E14BC41E2F1440005133E3 /* finalf.ttf */,
-				10A7A24F1E35C59C0064EAC1 /* C&C Red Alert [INET].ttf */,
 				10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */,
 				A1AB90C01E285AFA00CF4750 /* LaunchScreen.storyboard */,
 				A1AB90C31E285AFA00CF4750 /* Info.plist */,
@@ -217,7 +214,6 @@
 				A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */,
 				10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */,
 				102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */,
-				10A7A2501E35C59C0064EAC1 /* C&C Red Alert [INET].ttf in Resources */,
 				10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */,
 				A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */,
 			);
