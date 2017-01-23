@@ -75,9 +75,104 @@ extension Hero {
             experience -= expToLevel
             self.level += 1
             self.expToLevel = self.level * 100
-            //stat points go here
+            self.statPoints += 5
+            if self.level == 10{
+                
+            }
             ad.saveContext()
         }
+    }
+    func addToStat(with index: Int){
+        switch index {
+        // HEALTH POINTS
+        case 0:
+            self.statPoints -= 1
+            self.maxHealth += 5
+            break
+        // STRENGTH
+        case 1:
+            self.statPoints -= 1
+            if self.job! == "Warrior" {
+                self.strength += 2
+            } else {
+                self.strength += 1
+            }
+            break
+        // DEXTERITY
+        case 2:
+            self.statPoints -= 1
+            switch self.job! {
+            case "Warrior":
+                self.dexterity += 2
+                break
+            case "Theif":
+                self.dexterity += 3
+                break
+            default:
+                self.dexterity += 1
+                break
+            }
+            break
+        // INTELLIGENCE
+        case 3:
+            self.statPoints -= 1
+            if self.job! == "Mage" {
+                self.intelligence += 4
+            } else {
+                self.intelligence += 1
+            }
+            break
+        default:
+            break
+        }
+    }
+    func removeFromStat(with index: Int){
+        
+        switch index {
+        // HEALTH POINTS
+        case 0:
+            self.statPoints += 1
+            self.maxHealth -= 5
+            break
+        // STRENGTH
+        case 1:
+            self.statPoints += 1
+            if self.job! == "Warrior" {
+                self.strength -= 2
+            } else {
+                self.strength -= 1
+            }
+            break
+        // DEXTERITY
+        case 2:
+            self.statPoints += 1
+            switch self.job! {
+            case "Warrior":
+                self.dexterity -= 2
+                break
+            case "Theif":
+                self.dexterity -= 3
+                break
+            default:
+                self.dexterity -= 1
+                break
+            }
+            break
+        // INTELLIGENCE
+        case 3:
+            self.statPoints += 1
+            if self.job! == "Mage" {
+                self.intelligence -= 4
+            } else {
+                self.intelligence -= 1
+            }
+            break
+        default:
+            break
+        }
+    }
+    func equip (armorPiece: String){
+        self.defense = Int64(ItemList[armorPiece]!["defense"] as! Int)
     }
 }
 

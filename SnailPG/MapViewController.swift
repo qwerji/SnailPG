@@ -41,7 +41,7 @@ class MapViewController: UIViewController {
         }
         
         ad.saveContext()
-        
+        dismiss(animated: true, completion: nil)
     }
     override func viewWillLayoutSubviews() {
         mapScrollView.contentOffset = CGPoint(x: 0.0, y: 430.5)

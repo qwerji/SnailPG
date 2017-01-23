@@ -63,8 +63,10 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             hero.defense = 0
             hero.health = 50
             hero.level = 1
-            hero.experience = 0
+            hero.experience = Int64(0.0)
             hero.expToLevel = 100
+            hero.statPoints = 5
+            hero.victories = 0
             hero.name = heroName.text!
             hero.job = jobChoice!
             hero.backpack = NSArray()

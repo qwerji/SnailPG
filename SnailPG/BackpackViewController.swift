@@ -96,6 +96,7 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
                 loggedInHero?.addToBackpack(armor)
             }
             loggedInHero?.armor = itemName
+            loggedInHero?.equip(armorPiece: itemName)
             break
         default:
             print("error")
