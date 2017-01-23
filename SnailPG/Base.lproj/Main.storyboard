@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Fipps-Regular.otf">
+            <string>Fipps-Regular</string>
+        </array>
         <array key="finalf.ttf">
             <string>New</string>
         </array>
@@ -70,61 +73,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-74" translatesAutoresizingMaskIntoConstraints="NO" id="ErS-Dp-g7j">
+                                <rect key="frame" x="32" y="70" width="256" height="258"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snailhero2" translatesAutoresizingMaskIntoConstraints="NO" id="T3e-Fw-mQ9">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="256" id="6jH-UF-vQ7"/>
+                                            <constraint firstAttribute="height" constant="256" id="9Wy-hc-CEC"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SNAIL FANTASY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="JXS-Rd-ET7">
+                                        <rect key="frame" x="0.0" y="182" width="256" height="76"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="76" id="ZtU-9f-oFD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="New" family="New" pointSize="55"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="slL-sf-6n3">
-                                <rect key="frame" x="24" y="359" width="272" height="122"/>
+                                <rect key="frame" x="24" y="349" width="272" height="173"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQA-IN-JHT">
-                                        <rect key="frame" x="0.0" y="0.0" width="272" height="30"/>
-                                        <state key="normal" title="Hero Select"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="47"/>
+                                        <fontDescription key="fontDescription" name="Fipps-Regular" family="Fipps" pointSize="14"/>
+                                        <state key="normal" title="Hero Select">
+                                            <color key="titleColor" red="0.33541578054428101" green="0.192909836769104" blue="0.38467466831207275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="heroSelectPressed:" destination="wgD-ie-olY" eventType="touchUpInside" id="bRb-Ju-aEf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAy-lA-1tI">
-                                        <rect key="frame" x="0.0" y="46" width="272" height="30"/>
-                                        <state key="normal" title="Graveyard"/>
+                                        <rect key="frame" x="0.0" y="63" width="272" height="47"/>
+                                        <fontDescription key="fontDescription" name="Fipps-Regular" family="Fipps" pointSize="14"/>
+                                        <state key="normal" title="Graveyard">
+                                            <color key="titleColor" red="0.33541578054428101" green="0.192909836769104" blue="0.38467466831207275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="graveyardButtonPressed:" destination="wgD-ie-olY" eventType="touchUpInside" id="RgC-C3-euw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nM1-pL-W1q">
-                                        <rect key="frame" x="0.0" y="92" width="272" height="30"/>
-                                        <state key="normal" title="Settings"/>
+                                        <rect key="frame" x="0.0" y="126" width="272" height="47"/>
+                                        <fontDescription key="fontDescription" name="Fipps-Regular" family="Fipps" pointSize="14"/>
+                                        <state key="normal" title="Settings">
+                                            <color key="titleColor" red="0.33541578054428101" green="0.192909836769104" blue="0.38467466831207275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="settingsButtonPressed:" destination="wgD-ie-olY" eventType="touchUpInside" id="zrB-ZG-BD8"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="-21" translatesAutoresizingMaskIntoConstraints="NO" id="ErS-Dp-g7j">
-                                <rect key="frame" x="40" y="116" width="240" height="183"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="snail" translatesAutoresizingMaskIntoConstraints="NO" id="T3e-Fw-mQ9">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="240" id="6jH-UF-vQ7"/>
-                                            <constraint firstAttribute="height" constant="128" id="9Wy-hc-CEC"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="SNAIL FANTASY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="JXS-Rd-ET7">
-                                        <rect key="frame" x="0.0" y="107" width="240" height="76"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="219" id="TzY-4i-GMg"/>
-                                            <constraint firstAttribute="height" constant="76" id="ZtU-9f-oFD"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="New" family="New" pointSize="53"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ErS-Dp-g7j" firstAttribute="top" secondItem="Syd-AA-CBK" secondAttribute="bottom" constant="50" id="5rC-PO-m9J"/>
+                            <constraint firstItem="ErS-Dp-g7j" firstAttribute="centerX" secondItem="Kb4-JC-G54" secondAttribute="centerX" id="DJE-cf-Xun"/>
                             <constraint firstAttribute="trailingMargin" secondItem="slL-sf-6n3" secondAttribute="trailing" constant="8" id="cbX-xY-5cC"/>
-                            <constraint firstItem="8zZ-zw-Vbi" firstAttribute="top" secondItem="slL-sf-6n3" secondAttribute="bottom" constant="87" id="lNw-eE-FJe"/>
+                            <constraint firstItem="8zZ-zw-Vbi" firstAttribute="top" secondItem="slL-sf-6n3" secondAttribute="bottom" constant="46" id="lNw-eE-FJe"/>
                             <constraint firstItem="slL-sf-6n3" firstAttribute="leading" secondItem="Kb4-JC-G54" secondAttribute="leadingMargin" constant="8" id="mQw-wQ-6mg"/>
+                            <constraint firstItem="ErS-Dp-g7j" firstAttribute="leading" secondItem="Kb4-JC-G54" secondAttribute="leadingMargin" constant="16" id="sbi-qQ-Cin"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ErS-Dp-g7j" secondAttribute="trailing" constant="16" id="tbj-FT-CJo"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1147,7 +1161,7 @@
     </scenes>
     <resources>
         <image name="mage" width="512" height="512"/>
-        <image name="snail" width="512" height="512"/>
+        <image name="snailhero2" width="256" height="256"/>
         <image name="theif" width="512" height="512"/>
         <image name="warrior" width="512" height="512"/>
     </resources>

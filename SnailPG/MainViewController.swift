@@ -82,8 +82,8 @@ class MainViewController: UIViewController {
         levelLabel.text = String(describing: loggedInHero!.level)
         healthLabel.text = String(describing: loggedInHero!.health)
         goldLabel.text = String(describing: loggedInHero!.gold)
-        experienceSlider.value = Float(loggedInHero!.experience)
         experienceSlider.maximumValue = Float(loggedInHero!.expToLevel)
+        experienceSlider.value = Float(loggedInHero!.experience)
         healthSlider.value = Float(loggedInHero!.health)
         healthSlider.maximumValue = Float(loggedInHero!.maxHealth)
         let area = AreaDataForIndex[Int((loggedInHero?.area)!)]!

@@ -13,6 +13,10 @@
 		102DD5AB1E343EDE00274F72 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5AA1E343EDE00274F72 /* TitleViewController.swift */; };
 		102DD5AE1E343F3C00274F72 /* GraveyardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */; };
 		102DD5B01E3455D600274F72 /* displayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5AF1E3455D600274F72 /* displayCell.swift */; };
+		102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 102DD5B31E35C0FA00274F72 /* Assets.xcassets */; };
+		10A7A2501E35C59C0064EAC1 /* redAlert.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A24F1E35C59C0064EAC1 /* redAlert.ttf */; };
+		10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90C31E285AFA00CF4750 /* Info.plist */; };
+		10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */; };
 		A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC841E32E95D008E8971 /* weaponCell.swift */; };
 		A175AC871E32E967008E8971 /* potionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC861E32E967008E8971 /* potionCell.swift */; };
 		A175AC891E32E96E008E8971 /* armorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC881E32E96E008E8971 /* armorCell.swift */; };
@@ -22,7 +26,6 @@
 		A1AB90B51E285AFA00CF4750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */; };
 		A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90B81E285AFA00CF4750 /* Main.storyboard */; };
 		A1AB90BD1E285AFA00CF4750 /* SnailPG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90BB1E285AFA00CF4750 /* SnailPG.xcdatamodeld */; };
-		A1AB90BF1E285AFA00CF4750 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90BE1E285AFA00CF4750 /* Assets.xcassets */; };
 		A1AB90C21E285AFA00CF4750 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90C01E285AFA00CF4750 /* LaunchScreen.storyboard */; };
 		A1AB90CE1E2860C000CF4750 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90CD1E2860C000CF4750 /* WelcomeViewController.swift */; };
 		A1AB90D01E28662500CF4750 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90CF1E28662500CF4750 /* MainViewController.swift */; };
@@ -39,6 +42,9 @@
 		102DD5AA1E343EDE00274F72 /* TitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraveyardViewController.swift; sourceTree = "<group>"; };
 		102DD5AF1E3455D600274F72 /* displayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayCell.swift; sourceTree = "<group>"; };
+		102DD5B31E35C0FA00274F72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		10A7A24F1E35C59C0064EAC1 /* redAlert.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = redAlert.ttf; path = ../../../../../Desktop/redAlert/redAlert.ttf; sourceTree = "<group>"; };
+		10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Fipps-Regular.otf"; path = "../../../../../Desktop/fipps/Fipps-Regular.otf"; sourceTree = "<group>"; };
 		A175AC841E32E95D008E8971 /* weaponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weaponCell.swift; sourceTree = "<group>"; };
 		A175AC861E32E967008E8971 /* potionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = potionCell.swift; sourceTree = "<group>"; };
 		A175AC881E32E96E008E8971 /* armorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = armorCell.swift; sourceTree = "<group>"; };
@@ -49,7 +55,6 @@
 		A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1AB90B91E285AFA00CF4750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1AB90BC1E285AFA00CF4750 /* SnailPG.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SnailPG.xcdatamodel; sourceTree = "<group>"; };
-		A1AB90BE1E285AFA00CF4750 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1AB90C11E285AFA00CF4750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1AB90C31E285AFA00CF4750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB90CD1E2860C000CF4750 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -133,9 +138,11 @@
 				A1769C9B1E31699A00B8FC3D /* GameAssets */,
 				102DD5AC1E343EF600274F72 /* Views */,
 				A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */,
+				102DD5B31E35C0FA00274F72 /* Assets.xcassets */,
 				A1AB90B81E285AFA00CF4750 /* Main.storyboard */,
 				A1E14BC41E2F1440005133E3 /* finalf.ttf */,
-				A1AB90BE1E285AFA00CF4750 /* Assets.xcassets */,
+				10A7A24F1E35C59C0064EAC1 /* redAlert.ttf */,
+				10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */,
 				A1AB90C01E285AFA00CF4750 /* LaunchScreen.storyboard */,
 				A1AB90C31E285AFA00CF4750 /* Info.plist */,
 				A1AB90BB1E285AFA00CF4750 /* SnailPG.xcdatamodeld */,
@@ -204,8 +211,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1AB90C21E285AFA00CF4750 /* LaunchScreen.storyboard in Resources */,
-				A1AB90BF1E285AFA00CF4750 /* Assets.xcassets in Resources */,
 				A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */,
+				10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */,
+				102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */,
+				10A7A2501E35C59C0064EAC1 /* redAlert.ttf in Resources */,
+				10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */,
 				A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

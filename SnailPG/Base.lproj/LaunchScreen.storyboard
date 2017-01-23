@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,37 +17,22 @@
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleAspectFit" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snail" translatesAutoresizingMaskIntoConstraints="NO" id="HGU-KP-50w">
-                                <rect key="frame" x="60" y="222" width="265" height="224"/>
-                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snailhero2" translatesAutoresizingMaskIntoConstraints="NO" id="hbh-yw-EUn">
+                                <rect key="frame" x="59" y="205" width="256" height="256"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="224" id="XQP-6E-TYa"/>
-                                    <constraint firstAttribute="width" constant="265" id="j31-wc-Juc"/>
+                                    <constraint firstAttribute="width" constant="256" id="J04-g3-cWJ"/>
+                                    <constraint firstAttribute="height" constant="256" id="zAU-Po-vp7"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2017 Team Snailed It" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6q4-G0-OWq">
-                                <rect key="frame" x="81" y="424" width="200" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="DrQ-Ql-0cs"/>
-                                    <constraint firstAttribute="height" constant="21" id="qhu-z5-op1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="HGU-KP-50w" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0rh-9z-ibC"/>
-                            <constraint firstItem="6q4-G0-OWq" firstAttribute="top" secondItem="HGU-KP-50w" secondAttribute="bottom" constant="-22" id="Ig2-ED-u0u"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6q4-G0-OWq" secondAttribute="trailing" constant="78" id="Ktm-3N-hij"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HGU-KP-50w" secondAttribute="trailing" constant="34" id="N46-az-D7y"/>
-                            <constraint firstItem="6q4-G0-OWq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="65" id="mP4-hB-5uB"/>
-                            <constraint firstItem="HGU-KP-50w" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="44" id="pPW-zn-Zq1"/>
+                            <constraint firstItem="hbh-yw-EUn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gC9-uK-7Xn"/>
+                            <constraint firstItem="hbh-yw-EUn" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="pMe-5B-Rgf"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -58,6 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="snail" width="512" height="512"/>
+        <image name="snailhero2" width="256" height="256"/>
     </resources>
 </document>
