@@ -13,7 +13,7 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 1,
         "damage" : 3,
-        "price" : 5
+        "price" : 15
     ],
     "Hammer of Nailing" : [
         "name" : "Hammer of Nailing",
@@ -21,7 +21,7 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 1,
         "damage" : 12,
-        "price" : 25
+        "price" : 35
     ],
     "Great Sword" : [
         "name" : "Great Sword",
@@ -29,7 +29,7 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 2,
         "damage" : 10,
-        "price" : 15
+        "price" : 25
     ],
     "Sword of the Snail King" : [
         "name" : "Sword of the Snail King",
@@ -37,7 +37,7 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 2,
         "damage" : 100,
-        "price" : 300
+        "price" : 3000
     ],
     "Staff of Wonder" : [
         "name" : "Staff of Wonder",
@@ -45,7 +45,7 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 2,
         "damage" : 20,
-        "price" : 30
+        "price" : 40
     ],
     "Crossbow" : [
         "name" : "Crossbow",
@@ -53,7 +53,7 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 2,
         "damage" : 30,
-        "price" : 40
+        "price" : 50
     ],
     "Mace" : [
         "name" : "Mace",
@@ -61,7 +61,7 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 2,
         "damage" : 40,
-        "price" : 100
+        "price" : 70
     ],
     "Tomahawk" : [
         "name" : "Tomahawk",
@@ -69,7 +69,7 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 1,
         "damage" : 5,
-        "price" : 8
+        "price" : 18
     ],
     "Snail Knife" : [
         "name" : "Snail Knife",
@@ -77,7 +77,7 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 1,
         "damage" : 4,
-        "price" : 7
+        "price" : 17
     ],
     "Brass Knuckles" : [
         "name" : "Brass Knuckles",
@@ -85,7 +85,7 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 1,
         "damage" : 10,
-        "price" : 20
+        "price" : 30
     ],
     "Battle Axe" : [
         "name" : "Battle Axe",
@@ -93,7 +93,7 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 2,
         "damage" : 15,
-        "price" : 20
+        "price" : 30
     ],
     "Pointy Stick" : [
         "name" : "Pointy Stick",
@@ -101,7 +101,7 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 1,
         "damage" : 2,
-        "price" : 2
+        "price" : 8
     ],
     "Magus Staff" : [
         "name" : "Magus Staff",
@@ -109,70 +109,70 @@ let ItemList: [String:[String:Any]] = [
         "type" : "Weapon",
         "handed" : 2,
         "damage" : 30,
-        "price" : 50
+        "price" : 60
     ],
     "Bubble Boots" : [
         "name" : "Bubble Boots",
         "area" : 0,
         "type" : "Armor",
         "defense" : 50,
-        "price" : 300
+        "price" : 500
     ],
     "Shin Guards" : [
         "name" : "Shin Guards",
         "area" : 0,
         "type" : "Armor",
         "defense" : 4,
-        "price" : 8
+        "price" : 18
     ],
     "Leather Cap" : [
         "name" : "Leather Cap",
         "area" : 0,
         "type" : "Armor",
         "defense" : 5,
-        "price" : 10
+        "price" : 20
     ],
     "Robes of Wonder" : [
         "name" : "Robes of Wonder",
         "area" : 0,
         "type" : "Armor",
         "defense" : 18,
-        "price" : 50
+        "price" : 60
     ],
     "Leather Armor" : [
         "name" : "Leather Armor",
         "area" : 0,
         "type" : "Armor",
         "defense" : 20,
-        "price" : 60
+        "price" : 70
     ],
     "Wool Cap" : [
         "name" : "Wool Cap",
         "area" : 0,
         "type" : "Armor",
         "defense" : 2,
-        "price" : 5
+        "price" : 15
     ],
     "Steel Helm" : [
         "name" : "Steel Helm",
         "area" : 0,
         "type" : "Armor",
         "defense" : 15,
-        "price" : 25
+        "price" : 35
     ],
     "Magus Robes" : [
         "name" : "Magus Robes",
         "area" : 0,
         "type" : "Armor",
         "defense" : 30,
-        "price" : 50
+        "price" : 60
     ],
     "Plate Armor" : [
         "name" : "Plate Armor",
         "area" : 0,
         "type" : "Armor",
         "defense" : 35,
-        "price" : 100
+        "price" : 110
     ],
     "Health Potion" : [
         "name" : "Health Potion",
@@ -186,6 +186,6 @@ let ItemList: [String:[String:Any]] = [
         "area" : 0,
         "type" : "Potion",
         "effect" : "Allows escape from a regular battle.",
-        "price" : 30
+        "price" : 35
     ],
 ]

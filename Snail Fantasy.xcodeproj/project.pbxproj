@@ -14,7 +14,7 @@
 		102DD5AE1E343F3C00274F72 /* GraveyardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */; };
 		102DD5B01E3455D600274F72 /* displayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5AF1E3455D600274F72 /* displayCell.swift */; };
 		102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 102DD5B31E35C0FA00274F72 /* Assets.xcassets */; };
-		10A7A2501E35C59C0064EAC1 /* redAlert.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A24F1E35C59C0064EAC1 /* redAlert.ttf */; };
+		10A7A2501E35C59C0064EAC1 /* .. in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A24F1E35C59C0064EAC1 /* .. */; };
 		10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90C31E285AFA00CF4750 /* Info.plist */; };
 		10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */; };
 		A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC841E32E95D008E8971 /* weaponCell.swift */; };
@@ -43,7 +43,7 @@
 		102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraveyardViewController.swift; sourceTree = "<group>"; };
 		102DD5AF1E3455D600274F72 /* displayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayCell.swift; sourceTree = "<group>"; };
 		102DD5B31E35C0FA00274F72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		10A7A24F1E35C59C0064EAC1 /* redAlert.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = redAlert.ttf; path = ../../../../../Desktop/redAlert/redAlert.ttf; sourceTree = "<group>"; };
+		10A7A24F1E35C59C0064EAC1 /* .. */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ..; sourceTree = "<group>"; };
 		10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		A175AC841E32E95D008E8971 /* weaponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weaponCell.swift; sourceTree = "<group>"; };
 		A175AC861E32E967008E8971 /* potionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = potionCell.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 				102DD5B31E35C0FA00274F72 /* Assets.xcassets */,
 				A1AB90B81E285AFA00CF4750 /* Main.storyboard */,
 				A1E14BC41E2F1440005133E3 /* finalf.ttf */,
-				10A7A24F1E35C59C0064EAC1 /* redAlert.ttf */,
+				10A7A24F1E35C59C0064EAC1 /* .. */,
 				10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */,
 				A1AB90C01E285AFA00CF4750 /* LaunchScreen.storyboard */,
 				A1AB90C31E285AFA00CF4750 /* Info.plist */,
@@ -182,7 +182,7 @@
 				TargetAttributes = {
 					A1AB90B01E285AFA00CF4750 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = ULXF9V6CXW;
+						DevelopmentTeam = SW67XSUQ7J;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -214,7 +214,7 @@
 				A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */,
 				10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */,
 				102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */,
-				10A7A2501E35C59C0064EAC1 /* redAlert.ttf in Resources */,
+				10A7A2501E35C59C0064EAC1 /* .. in Resources */,
 				10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */,
 				A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */,
 			);
@@ -368,7 +368,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ULXF9V6CXW;
+				DEVELOPMENT_TEAM = SW67XSUQ7J;
 				INFOPLIST_FILE = SnailPG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = qwerji.SnailPG;
@@ -381,7 +381,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ULXF9V6CXW;
+				DEVELOPMENT_TEAM = SW67XSUQ7J;
 				INFOPLIST_FILE = SnailPG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = qwerji.SnailPG;
