@@ -112,6 +112,7 @@
 				A1769C991E3164E000B8FC3D /* Monster.swift */,
 				A1769C971E3161A200B8FC3D /* Items.swift */,
 				A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */,
+				102802181E36985E00014B98 /* StatsViewController.swift */,
 			);
 			name = GameAssets;
 			sourceTree = "<group>";
@@ -244,6 +245,7 @@
 				A1AB90D01E28662500CF4750 /* MainViewController.swift in Sources */,
 				A1AB90D21E287A4200CF4750 /* BattleViewController.swift in Sources */,
 				102DD5AB1E343EDE00274F72 /* TitleViewController.swift in Sources */,
+				102802191E36985E00014B98 /* StatsViewController.swift in Sources */,
 				102DD5A91E34153E00274F72 /* MapViewController.swift in Sources */,
 				A10EA19F1E365EB0005F9459 /* graveyardCell.swift in Sources */,
 			);

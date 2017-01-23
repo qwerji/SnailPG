@@ -62,7 +62,7 @@ class BattleViewController: UIViewController {
         }
         
         // Monster Attacks
-        battleLog.text! += "\n" + (target?.attack(loggedInHero!))!
+        battleLog.text! += "\n" + (target?.attack(loggedInHero!))! 
         
         // Hero Health Check
         if (loggedInHero?.health)! <= 0 {

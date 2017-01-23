@@ -26,7 +26,7 @@ class Monster {
         self.experience = experience
     }
     
-    func attack(_ target: Hero) -> String {
+    func attack(_ hero: Hero) -> String {
         
         var log = ""
         var computedDamage = self.damage
@@ -43,18 +43,21 @@ class Monster {
         } else if hitChance == 10 {
             
             // Max damage
-            log = "Critical Hit! \(self.name) did \(computedDamage) damage to \(target.name!)!"
+            log = "Critical Hit! \(self.name) did \(computedDamage) damage to \(hero.name!)!"
             
         } else {
             
             // Base damage range
             computedDamage = Int(arc4random_uniform(UInt32(computedDamage - computedDamage/2))) + Int(computedDamage/2)
             
-            log = "\(self.name) did \(computedDamage) damage to \(target.name!)!"
+            log = "\(self.name) did \(computedDamage) damage to \(hero.name!)!"
             
         }
         
-        target.health -= computedDamage
+        if computedDamage > 0 && hero.defense > 0 {
+            log += " \(hero.defense) blocked by armor."
+        }
+        hero.health -= (computedDamage - Int(hero.defense))
         
         return log
     }
