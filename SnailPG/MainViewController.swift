@@ -49,6 +49,7 @@ class MainViewController: UIViewController {
     //To Hero select
     @IBAction func changeHeroButtonPressed(_ sender: Any) {
         ad.saveContext()
+        //This might need to change once two connections are made to Main
         dismiss(animated: true, completion: nil)
     }
     
