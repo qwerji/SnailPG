@@ -16,10 +16,6 @@ class TitleViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func heroSelectPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "heroSelectSegue", sender: nil)
-    }
-    
     @IBAction func graveyardButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "graveyardSegue", sender: nil)
     }
@@ -28,6 +24,5 @@ class TitleViewController: UIViewController {
         //settingsSegue
     }
     
-    @IBAction func unwindToTitle(sender: UIStoryboardSegue){}
 
 }

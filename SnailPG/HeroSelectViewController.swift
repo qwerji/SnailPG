@@ -10,18 +10,14 @@ import UIKit
 import CoreData
 
 class HeroSelectViewController: UIViewController {
-    @IBOutlet weak var previousHeroesLabel: UILabel!
+    
     @IBOutlet weak var previousHeroesTable: UITableView!
     var previousHeroes = [Hero]()
-    var loggedInHero: Hero?
     
-    @IBAction func unwindToWelcome(segue: UIStoryboardSegue) {
-        update()
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! MainViewController
-        controller.loggedInHero = self.loggedInHero
+        controller.loggedInHero = sender as? Hero
     }
     
     func update() {
@@ -35,13 +31,6 @@ class HeroSelectViewController: UIViewController {
             print("\(error)")
         }
         
-        if previousHeroes.isEmpty {
-            previousHeroesTable.isHidden = true
-            previousHeroesLabel.isHidden = true
-        } else {
-            previousHeroesTable.isHidden = false
-            previousHeroesLabel.isHidden = false
-        }
         previousHeroesTable.reloadData()
     }
     
@@ -49,16 +38,17 @@ class HeroSelectViewController: UIViewController {
         super.viewDidLoad()
         previousHeroesTable.dataSource = self
         previousHeroesTable.delegate = self
-        update()
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         update()
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
 
 }
@@ -83,8 +73,7 @@ extension HeroSelectViewController: UITableViewDataSource, UITableViewDelegate {
     
     // When pressed, log into that hero
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        loggedInHero = previousHeroes[indexPath.row]
-        self.performSegue(withIdentifier: "heroCreation", sender: nil)
+        self.performSegue(withIdentifier: "heroSelectSegue", sender: previousHeroes[indexPath.row])
     }
     
 }

@@ -126,11 +126,15 @@ class BattleViewController: UIViewController {
     }
     
     @IBAction func died(_ sender: UIButton) {
-        performSegue(withIdentifier: "unwindToWelcome", sender: nil)
+        if let navController = self.navigationController {
+            navController.popToRootViewController(animated: true)
+        }
     }
     
     @IBAction func won(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
     
     @IBAction func runButtonPressed(_ sender: UIButton) {

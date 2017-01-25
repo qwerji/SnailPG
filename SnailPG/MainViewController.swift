@@ -24,14 +24,19 @@ class MainViewController: UIViewController {
     // To Title
     @IBAction func exitButtonPressed(_ sender: UIButton) {
         ad.saveContext()
-        performSegue(withIdentifier: "unwindToTitle", sender: nil)
+        if let navController = self.navigationController {
+            navController.popToRootViewController(animated: true)
+        }
     }
     
     // To Battle
     @IBAction func toBattleButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "battleSegue", sender: nil)
     }
-    
+    //To Stats
+    @IBAction func toStatsButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "mainToStatsSegue", sender: nil)
+    }
     // To Shop
     @IBAction func toShopButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "mainToShopSegue", sender: nil)
@@ -48,8 +53,9 @@ class MainViewController: UIViewController {
     //To Hero select
     @IBAction func changeHeroButtonPressed(_ sender: Any) {
         ad.saveContext()
-        //This might need to change once two connections are made to Main
-        dismiss(animated: true, completion: nil)
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,6 +76,11 @@ class MainViewController: UIViewController {
         case "mapSegue":
             let controller = segue.destination as! MapViewController
             controller.loggedInHero = self.loggedInHero
+            break
+        case "mainToStatsSegue":
+            let controller = segue.destination as! StatViewController
+            controller.loggedInHero = self.loggedInHero
+            controller.isFromMain = true
             break
         default:
             break

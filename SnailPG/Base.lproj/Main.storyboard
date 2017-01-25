@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-ie-olY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Chj-aj-ELX">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -178,7 +178,7 @@
                                             <color key="titleColor" red="0.33541578049999998" green="0.19290983680000001" blue="0.38467466830000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="heroSelectPressed:" destination="wgD-ie-olY" eventType="touchUpInside" id="mRo-RK-epa"/>
+                                            <segue destination="acL-p8-qYQ" kind="show" id="mNj-RZ-52i"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAy-lA-1tI">
@@ -215,19 +215,19 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ErS-Dp-g7j" secondAttribute="trailing" constant="16" id="tbj-FT-CJo"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JYW-UA-d21"/>
                     <connections>
-                        <segue destination="acL-p8-qYQ" kind="show" identifier="heroSelectSegue" id="P1S-pG-NzD"/>
                         <segue destination="jRP-lc-q5q" kind="show" identifier="graveyardSegue" id="ReR-jW-T7e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxr-cz-n6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-368" y="210"/>
+            <point key="canvasLocation" x="628.125" y="209.1549295774648"/>
         </scene>
         <!--HeroSelectViewController-->
         <scene sceneID="Caw-Aq-Xfy">
             <objects>
-                <viewController title="WelcomeViewController" id="acL-p8-qYQ" userLabel="HeroSelectViewController" customClass="HeroSelectViewController" sceneMemberID="viewController">
+                <viewController title="WelcomeViewController" id="acL-p8-qYQ" userLabel="HeroSelectViewController" customClass="HeroSelectViewController" customModule="Snail_Fantasy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wcd-6Z-Rg2"/>
                         <viewControllerLayoutGuide type="bottom" id="iXd-hS-Jzv"/>
@@ -341,14 +341,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="previousHeroesLabel" destination="CSM-G1-tq5" id="mas-xd-V2H"/>
-                        <outlet property="previousHeroesTable" destination="9M0-NC-0IH" id="cI7-8s-w3r"/>
+                        <outlet property="previousHeroesTable" destination="9M0-NC-0IH" id="DzV-0O-epO"/>
                         <segue destination="BIC-vP-ecI" kind="show" identifier="heroSelectSegue" id="bhr-tG-y32"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kI4-L6-0VN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="525" y="549"/>
+            <point key="canvasLocation" x="1522.5" y="548.23943661971828"/>
         </scene>
         <!--Stat View Controller-->
         <scene sceneID="TXN-Gj-Qsy">
@@ -585,11 +584,13 @@
                         <outlet property="intLabel" destination="rIk-ks-k8y" id="Wif-ab-IUs"/>
                         <outlet property="statPointsLabel" destination="LeM-4h-mRX" id="cU4-jh-23i"/>
                         <outlet property="strLabel" destination="7ZC-xY-4Yw" id="akV-VW-oLt"/>
+                        <segue destination="BIC-vP-ecI" kind="show" identifier="newHeroCompletedSegue" animates="NO" id="f1C-43-Y4J"/>
+                        <segue destination="acL-p8-qYQ" kind="show" identifier="loadPreviousForNewHeroSegue" animates="NO" id="UIU-Qo-Vhc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Vb-Pe-avX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1496.25" y="-326.40845070422534"/>
+            <point key="canvasLocation" x="2493.75" y="-326.40845070422534"/>
         </scene>
         <!--Backpack View Controller-->
         <scene sceneID="8RW-OS-JAP">
@@ -891,7 +892,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzJ-0R-68Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2783" y="270"/>
+            <point key="canvasLocation" x="3780" y="269.36619718309862"/>
         </scene>
         <!--Shop View Controller-->
         <scene sceneID="IEP-1U-BkG">
@@ -1159,7 +1160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCj-FV-dA7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2786" y="-481"/>
+            <point key="canvasLocation" x="3683" y="-461"/>
         </scene>
         <!--MainViewController-->
         <scene sceneID="Mnq-qp-Hp2">
@@ -1338,6 +1339,9 @@
                                 <state key="normal" title="Stats">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="toStatsButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="xgh-fS-vBm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1370,12 +1374,13 @@
                         <segue destination="fig-IB-c3F" kind="show" identifier="backpack" id="SfM-h5-3XO"/>
                         <segue destination="Azs-57-DM0" kind="show" identifier="mapSegue" id="u8j-3t-f7q"/>
                         <segue destination="GzZ-Ke-wz0" kind="unwind" identifier="unwindToTitle" unwindAction="unwindToTitleWithSender:" id="Ohg-ri-3mj"/>
+                        <segue destination="kmR-XN-mdK" kind="show" identifier="mainToStatsSegue" id="t51-69-o9V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OR4-El-Qdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="GzZ-Ke-wz0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1556" y="517"/>
+            <point key="canvasLocation" x="2551.875" y="516.54929577464793"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="cKZ-BF-4ui">
@@ -1811,7 +1816,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEe-SZ-AqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="525" y="-326"/>
+            <point key="canvasLocation" x="1522.5" y="-326.40845070422534"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pk0-lJ-75V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Chj-aj-ELX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HUZ-Am-5vk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wgD-ie-olY" kind="relationship" relationship="rootViewController" id="ccL-Ew-J0I"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c4q-37-136" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-369.375" y="209.1549295774648"/>
         </scene>
     </scenes>
     <resources>
@@ -1820,4 +1843,9 @@
         <image name="theif" width="512" height="512"/>
         <image name="warrior" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="f1C-43-Y4J"/>
+        <segue reference="t51-69-o9V"/>
+        <segue reference="UIU-Qo-Vhc"/>
+    </inferredMetricsTieBreakers>
 </document>

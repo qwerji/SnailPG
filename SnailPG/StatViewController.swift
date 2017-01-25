@@ -19,6 +19,7 @@ class StatViewController: UIViewController {
     @IBOutlet weak var heroNameLabel: UILabel!
     @IBOutlet weak var heroLevelLabel: UILabel!
     @IBOutlet weak var heroIconImage: UIImageView!
+    var isFromMain = false
     
     var currentStats = [Int64]()
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +58,24 @@ class StatViewController: UIViewController {
     }
     @IBAction func saveStatsPressed(_ sender: UIButton) {
         ad.saveContext()
+        if isFromMain {
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            }
+        } else {
+            performSegue(withIdentifier: "loadPreviousForNewHeroSegue", sender: nil)
+            performSegue(withIdentifier: "newHeroCompletedSegue", sender: nil)
+            var stack = self.navigationController?.viewControllers
+            stack!.remove(at: 1)
+            stack!.remove(at: 2)
+        }
+ 
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newHeroCompletedSegue"{
+            let mainVC = segue.destination as! MainViewController
+            mainVC.loggedInHero = loggedInHero
+        }
     }
     
     

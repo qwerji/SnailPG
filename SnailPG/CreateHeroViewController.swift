@@ -12,7 +12,6 @@ import CoreData
 class CreateHeroViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var heroName: UITextField!
-    var previousHeroes = [Hero]()
     var loggedInHero: Hero?
     
     @IBAction func jobChosen(_ sender: UIButton) {
@@ -86,53 +85,21 @@ class CreateHeroViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! StatViewController
         controller.loggedInHero = self.loggedInHero
+        controller.isFromMain = false
     }
     
-    func update() {
-        // Get previous heroes that are not dead
-        let heroRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Hero")
-        heroRequest.predicate = NSPredicate(format: "%K > %D", "health", 0)
-        do {
-            let results = try context.fetch(heroRequest)
-            previousHeroes = results as! [Hero]
-        } catch {
-            print("\(error)")
-        }
-        
-        if previousHeroes.isEmpty {
-            previousHeroesTable.isHidden = true
-            previousHeroesLabel.isHidden = true
-        } else {
-            previousHeroesTable.isHidden = false
-            previousHeroesLabel.isHidden = false
-        }
-        previousHeroesTable.reloadData()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        previousHeroesTable.dataSource = self
-        previousHeroesTable.delegate = self
-        heroName.delegate = self
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        update()
-    }
+
     
     // Keyboard goes away when Done is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     @IBAction func backButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
     override func viewDidLoad() {
         heroName.delegate = self
