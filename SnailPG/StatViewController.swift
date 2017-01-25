@@ -32,7 +32,6 @@ class StatViewController: UIViewController {
     }
     @IBAction func addToStatPressed(_ sender: UIButton) {
         if (loggedInHero?.statPoints)! > 0 {
-            print(sender.tag)
             loggedInHero?.addToStat(with: sender.tag)
             update()
         }
