@@ -1427,7 +1427,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTV-gM-XwZ">
-                                <rect key="frame" x="206.5" y="28" width="97" height="21"/>
+                                <rect key="frame" x="207" y="28" width="97" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="IPA-53-GeQ"/>
                                     <constraint firstAttribute="width" constant="96.5" id="zHY-NU-cfk"/>
