@@ -14,6 +14,31 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
 
     var graveyard: [Hero] = []
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if let cell = graveyardTable.cellForRow(at: indexPath) as? graveyardCell {
+            if cell.revivable {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let cell = graveyardTable.cellForRow(at: indexPath) as! graveyardCell
+        let hero = graveyard[indexPath.row]
+        let revive = UITableViewRowAction(style: .destructive, title: "Revive Hero") { (action, indexPath) in
+            hero.health = hero.maxHealth / 10
+            hero.removeFromBackpack(at: cell.potionIndex!)
+            ad.saveContext()
+            self.update()
+            self.graveyardTable.reloadData()
+        }
+        
+        revive.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        
+        return [revive]
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "graveyardCell", for: indexPath) as! graveyardCell
         cell.configureCell(for: graveyard[indexPath.row])
@@ -28,9 +53,7 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
         return graveyard.count
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    func update() {
         let heroRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Hero")
         heroRequest.predicate = NSPredicate(format: "%K <= %D", "health", 0)
         do {
@@ -39,13 +62,18 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
         } catch {
             print("\(error)")
         }
+        graveyardTable.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         graveyardTable.delegate = self
         graveyardTable.dataSource = self
-        
-        graveyardTable.reloadData()
 
+        update()
     }
+    
     @IBAction func backButtonPressed(_ sender: UIButton) {
         if let navController = self.navigationController {
             navController.popViewController(animated: true)

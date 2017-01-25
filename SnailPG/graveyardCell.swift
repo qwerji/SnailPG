@@ -15,6 +15,9 @@ class graveyardCell: UITableViewCell {
     @IBOutlet weak var jobLabel: UILabel!
     @IBOutlet weak var victoriesLabel: UILabel!
     @IBOutlet weak var imageLabel: UIImageView!
+    
+    var revivable = false
+    var potionIndex: Int? = nil
 
     func configureCell(for hero: Hero) {
         heroNameLabel.text = hero.name
@@ -22,6 +25,15 @@ class graveyardCell: UITableViewCell {
         jobLabel.text = "Job: \(hero.job!)"
         victoriesLabel.text = "Victories: \(hero.victories)"
         imageLabel.image = hero.icon as! UIImage?
+
+        let backpack = hero.backpack as! [String]
+        
+        for i in 0..<backpack.count {
+            if backpack[i] == "Revive Potion" {
+                revivable = true
+                potionIndex = i
+            }
+        }
     }
 
 }

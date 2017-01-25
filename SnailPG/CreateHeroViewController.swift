@@ -50,7 +50,7 @@ class CreateHeroViewController: UIViewController, UITextFieldDelegate {
                 hero.strength = 2
                 hero.dexterity = 10
                 hero.intelligence = 6
-                hero.icon = #imageLiteral(resourceName: "theif")
+                hero.icon = #imageLiteral(resourceName: "thief")
                 break
             default: break
             }

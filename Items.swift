@@ -188,4 +188,11 @@ let ItemList: [String:[String:Any]] = [
         "effect" : "Allows escape from a regular battle.",
         "price" : 35
     ],
+    "Revive Potion" : [
+        "name" : "Revive Potion",
+        "area" : 0,
+        "type" : "Potion",
+        "effect" : "???",
+        "price" : 1
+    ],
 ]
