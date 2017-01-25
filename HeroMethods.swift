@@ -116,7 +116,7 @@ extension Hero {
             case "Warrior":
                 self.dexterity += 2
                 break
-            case "Theif":
+            case "Thief":
                 self.dexterity += 3
                 break
             default:
