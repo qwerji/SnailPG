@@ -27,6 +27,8 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var attackButton: UIButton!
     @IBOutlet weak var heroHealthSlider: HealthBar!
     @IBOutlet weak var monsterHealthSlider: UISlider!
+    @IBOutlet weak var heroManaLabel: UILabel!
+    @IBOutlet weak var heroManaSlider: HealthBar!
     
     @IBAction func attackButtonPressed(_ sender: UIButton) {
         // Choose who attacks first
@@ -173,6 +175,9 @@ class BattleViewController: UIViewController {
         monsterHealthLabel.text = String(describing: (target?.health)!)
         heroHealthSlider.maximumValue = Float((loggedInHero?.maxHealth)!)
         heroHealthSlider.value = Float((loggedInHero?.health)!)
+        heroManaLabel.text = String(describing: (loggedInHero?.mana)!)
+        heroManaSlider.maximumValue = Float((loggedInHero?.maxMana)!)
+        heroManaSlider.value = Float((loggedInHero?.mana)!)
         monsterHealthSlider.maximumValue = Float((monsterMaxHealth!))
         monsterHealthSlider.value = Float((target?.health)!)
         

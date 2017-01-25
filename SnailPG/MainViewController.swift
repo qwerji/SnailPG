@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var experienceSlider: UISlider!
     @IBOutlet weak var healthSlider: UISlider!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var manaSlider: UISlider!
     
     var loggedInHero: Hero?
     
@@ -90,12 +91,14 @@ class MainViewController: UIViewController {
     func update() {
         // Set hero stats labels
         heroNameLabel.text = "\((loggedInHero?.name!)!) the \((loggedInHero?.job!)!)"
-        levelLabel.text = String(describing: loggedInHero!.level)
+        levelLabel.text = String(describing: loggedInHero!.maxMana)
         goldLabel.text = String(describing: loggedInHero!.gold)
         experienceSlider.maximumValue = Float(loggedInHero!.expToLevel)
         experienceSlider.value = Float(loggedInHero!.experience)
         healthSlider.maximumValue = Float(loggedInHero!.maxHealth)
         healthSlider.value = Float(loggedInHero!.health)
+        manaSlider.maximumValue = Float(loggedInHero!.maxMana)
+        manaSlider.value = Float(loggedInHero!.mana)
         let area = AreaDataForIndex[Int((loggedInHero?.area)!)]!
         locationLabel.text = area["name"] as! String?
         ad.saveContext()

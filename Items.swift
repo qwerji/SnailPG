@@ -116,63 +116,63 @@ let ItemList: [String:[String:Any]] = [
         "area" : 0,
         "type" : "Armor",
         "defense" : 50,
-        "price" : 500
+        "price" : 5000
     ],
     "Shin Guards" : [
         "name" : "Shin Guards",
         "area" : 0,
         "type" : "Armor",
-        "defense" : 4,
-        "price" : 18
+        "defense" : 2,
+        "price" : 20
     ],
     "Leather Cap" : [
         "name" : "Leather Cap",
         "area" : 0,
         "type" : "Armor",
-        "defense" : 5,
-        "price" : 20
+        "defense" : 3,
+        "price" : 30
     ],
     "Robes of Wonder" : [
         "name" : "Robes of Wonder",
         "area" : 0,
         "type" : "Armor",
-        "defense" : 18,
-        "price" : 60
+        "defense" : 8,
+        "price" : 80
     ],
     "Leather Armor" : [
         "name" : "Leather Armor",
         "area" : 0,
         "type" : "Armor",
         "defense" : 20,
-        "price" : 70
+        "price" : 200
     ],
     "Wool Cap" : [
         "name" : "Wool Cap",
         "area" : 0,
         "type" : "Armor",
-        "defense" : 2,
+        "defense" : 1,
         "price" : 15
     ],
     "Steel Helm" : [
         "name" : "Steel Helm",
         "area" : 0,
         "type" : "Armor",
-        "defense" : 15,
-        "price" : 35
+        "defense" : 5,
+        "price" : 40
     ],
     "Magus Robes" : [
         "name" : "Magus Robes",
         "area" : 0,
         "type" : "Armor",
-        "defense" : 30,
-        "price" : 60
+        "defense" : 10,
+        "price" : 100
     ],
     "Plate Armor" : [
         "name" : "Plate Armor",
         "area" : 0,
         "type" : "Armor",
         "defense" : 35,
-        "price" : 110
+        "price" : 350
     ],
     "Health Potion" : [
         "name" : "Health Potion",

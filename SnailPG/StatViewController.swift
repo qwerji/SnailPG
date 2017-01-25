@@ -56,13 +56,14 @@ class StatViewController: UIViewController {
         intLabel.text = "\((loggedInHero?.intelligence)!)"
     }
     @IBAction func saveStatsPressed(_ sender: UIButton) {
-        
+        loggedInHero?.maxManaCalculation()
         if isFromMain {
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
             }
         } else {
             loggedInHero?.health = (loggedInHero?.maxHealth)!
+            loggedInHero?.mana = (loggedInHero?.maxMana)!
             performSegue(withIdentifier: "loadPreviousForNewHeroSegue", sender: nil)
             performSegue(withIdentifier: "newHeroCompletedSegue", sender: nil)
             var stack = self.navigationController?.viewControllers

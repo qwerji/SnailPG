@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Chj-aj-ELX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Chj-aj-ELX">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1447,14 +1447,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gold:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ct0-F0-H4l">
-                                <rect key="frame" x="23" y="163" width="100.5" height="20.5"/>
+                                <rect key="frame" x="23" y="191" width="100.5" height="20.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gold" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEW-HN-XaG">
-                                <rect key="frame" x="16" y="163" width="136.5" height="20.5"/>
+                                <rect key="frame" x="16" y="191" width="136.5" height="20.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1515,6 +1515,18 @@
                                     <action selector="toStatsButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="xgh-fS-vBm"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mana:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsX-gy-Zfv">
+                                <rect key="frame" x="16" y="141" width="47" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="biE-cV-zvp" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
+                                <rect key="frame" x="14" y="153" width="292" height="31"/>
+                                <color key="tintColor" red="0.1450980392" green="0.63996940560000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1525,9 +1537,12 @@
                             <constraint firstItem="Han-af-TJa" firstAttribute="top" secondItem="yv7-ce-N5T" secondAttribute="bottom" constant="80" id="Gxz-yP-5vn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GTV-gM-XwZ" secondAttribute="trailing" constant="0.5" id="J6t-Ug-FEZ"/>
                             <constraint firstItem="0xV-kO-XnJ" firstAttribute="top" secondItem="yv7-ce-N5T" secondAttribute="bottom" constant="94" id="KMG-bK-ezq"/>
+                            <constraint firstItem="biE-cV-zvp" firstAttribute="top" secondItem="0xV-kO-XnJ" secondAttribute="bottom" constant="9" id="KSH-Ll-nK9"/>
                             <constraint firstItem="0xV-kO-XnJ" firstAttribute="trailing" secondItem="JLD-Uu-h8b" secondAttribute="trailingMargin" id="WEM-uc-db3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="biE-cV-zvp" secondAttribute="trailing" id="XUt-93-KPq"/>
                             <constraint firstItem="0xV-kO-XnJ" firstAttribute="leading" secondItem="JLD-Uu-h8b" secondAttribute="leadingMargin" id="Xds-80-tQP"/>
                             <constraint firstItem="0rx-Ht-n4g" firstAttribute="leading" secondItem="JLD-Uu-h8b" secondAttribute="leadingMargin" id="eRK-99-Vfu"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="biE-cV-zvp" secondAttribute="leading" id="jpA-kE-sjx"/>
                             <constraint firstItem="GTV-gM-XwZ" firstAttribute="top" secondItem="yv7-ce-N5T" secondAttribute="bottom" constant="8" id="p1x-NN-obQ"/>
                             <constraint firstAttribute="trailing" secondItem="OSy-pr-S8r" secondAttribute="trailing" constant="16" id="wIj-PP-Lqu"/>
                             <constraint firstItem="Han-af-TJa" firstAttribute="leading" secondItem="JLD-Uu-h8b" secondAttribute="leadingMargin" id="y6R-wZ-IyB"/>
@@ -1541,6 +1556,7 @@
                         <outlet property="heroNameLabel" destination="0rx-Ht-n4g" id="iuq-cy-Pb2"/>
                         <outlet property="levelLabel" destination="Sg7-oK-2HR" id="L4c-s6-iss"/>
                         <outlet property="locationLabel" destination="IwP-ge-XYg" id="mzR-VU-n2p"/>
+                        <outlet property="manaSlider" destination="biE-cV-zvp" id="DzE-OG-8gY"/>
                         <segue destination="yKh-kP-0oH" kind="show" identifier="battleSegue" animates="NO" id="yQE-KJ-B4R"/>
                         <segue destination="FuI-Xf-Kte" kind="show" identifier="mainToShopSegue" id="BxR-Db-WJe"/>
                         <segue destination="fig-IB-c3F" kind="show" identifier="backpack" id="SfM-h5-3XO"/>
@@ -1751,7 +1767,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="hOy-CC-aHB">
-                                <rect key="frame" x="15" y="351" width="147" height="110"/>
+                                <rect key="frame" x="7" y="351" width="147" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -1836,6 +1852,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="hkM-Bu-ukc" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
+                                <rect key="frame" x="14" y="420" width="300" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mana:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcb-EU-cDr">
+                                <rect key="frame" x="175" y="396" width="47" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbo-IP-ZiE">
+                                <rect key="frame" x="230" y="396" width="74" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1859,6 +1895,8 @@
                         <outlet property="battleLogTable" destination="aZj-Zh-mA8" id="7OK-OY-oLH"/>
                         <outlet property="heroHealthLabel" destination="hOy-CC-aHB" id="xfz-Fa-v6s"/>
                         <outlet property="heroHealthSlider" destination="X03-m0-vH4" id="NRB-s7-fXy"/>
+                        <outlet property="heroManaLabel" destination="Rbo-IP-ZiE" id="tyU-Tg-qxr"/>
+                        <outlet property="heroManaSlider" destination="hkM-Bu-ukc" id="PUQ-ZA-6Sa"/>
                         <outlet property="heroNameLabel" destination="m0e-aK-HCK" id="yUA-Hk-496"/>
                         <outlet property="monsterHealthLabel" destination="3y9-Do-7x4" id="Ant-8h-qH2"/>
                         <outlet property="monsterHealthSlider" destination="GMw-yv-3CE" id="EZ2-jb-V82"/>
@@ -1872,7 +1910,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M87-cr-Q3j" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="b43-oY-wfz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="641" y="1400"/>
+            <point key="canvasLocation" x="639.375" y="1399.6478873239437"/>
         </scene>
         <!--CreateHeroViewController-->
         <scene sceneID="rFH-7d-SLo">

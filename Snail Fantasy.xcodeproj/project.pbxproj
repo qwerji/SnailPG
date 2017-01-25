@@ -19,6 +19,7 @@
 		105204251E37B48A00E78F5F /* Merchant Copy Doublesize.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 105204241E37B48A00E78F5F /* Merchant Copy Doublesize.ttf */; };
 		10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90C31E285AFA00CF4750 /* Info.plist */; };
 		10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */; };
+		3F566FAF1E393B9E00811DA7 /* heroAbilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F566FAE1E393B9E00811DA7 /* heroAbilities.swift */; };
 		A10EA19F1E365EB0005F9459 /* graveyardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EA19E1E365EB0005F9459 /* graveyardCell.swift */; };
 		A10EA1A11E366B41005F9459 /* continueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EA1A01E366B41005F9459 /* continueCell.swift */; };
 		A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC841E32E95D008E8971 /* weaponCell.swift */; };
@@ -53,6 +54,7 @@
 		105204221E37AFA100E78F5F /* Merchant Copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merchant Copy.ttf"; sourceTree = "<group>"; };
 		105204241E37B48A00E78F5F /* Merchant Copy Doublesize.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merchant Copy Doublesize.ttf"; sourceTree = "<group>"; };
 		10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
+		3F566FAE1E393B9E00811DA7 /* heroAbilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = heroAbilities.swift; sourceTree = "<group>"; };
 		A10EA19E1E365EB0005F9459 /* graveyardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = graveyardCell.swift; path = SnailPG/graveyardCell.swift; sourceTree = "<group>"; };
 		A10EA1A01E366B41005F9459 /* continueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = continueCell.swift; sourceTree = "<group>"; };
 		A175AC841E32E95D008E8971 /* weaponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weaponCell.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				A1769C991E3164E000B8FC3D /* Monster.swift */,
 				A1769C971E3161A200B8FC3D /* Items.swift */,
 				A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */,
+				3F566FAE1E393B9E00811DA7 /* heroAbilities.swift */,
 			);
 			name = GameAssets;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				A175AC891E32E96E008E8971 /* armorCell.swift in Sources */,
 				A184867B1E31A36B00661783 /* BackpackViewController.swift in Sources */,
 				A1AB90B51E285AFA00CF4750 /* AppDelegate.swift in Sources */,
+				3F566FAF1E393B9E00811DA7 /* heroAbilities.swift in Sources */,
 				A1AB90D01E28662500CF4750 /* MainViewController.swift in Sources */,
 				A1AB90D21E287A4200CF4750 /* BattleViewController.swift in Sources */,
 				102DD5AB1E343EDE00274F72 /* TitleViewController.swift in Sources */,
