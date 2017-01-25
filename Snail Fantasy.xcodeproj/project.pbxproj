@@ -15,6 +15,8 @@
 		102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 102DD5B31E35C0FA00274F72 /* Assets.xcassets */; };
 		1052041F1E36CF4B00E78F5F /* CreateHeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052041E1E36CF4B00E78F5F /* CreateHeroViewController.swift */; };
 		105204211E36DD6500E78F5F /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105204201E36DD6500E78F5F /* StatViewController.swift */; };
+		105204231E37AFA100E78F5F /* Merchant Copy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 105204221E37AFA100E78F5F /* Merchant Copy.ttf */; };
+		105204251E37B48A00E78F5F /* Merchant Copy Doublesize.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 105204241E37B48A00E78F5F /* Merchant Copy Doublesize.ttf */; };
 		10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90C31E285AFA00CF4750 /* Info.plist */; };
 		10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */; };
 		A10EA19F1E365EB0005F9459 /* graveyardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EA19E1E365EB0005F9459 /* graveyardCell.swift */; };
@@ -46,6 +48,8 @@
 		102DD5B31E35C0FA00274F72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1052041E1E36CF4B00E78F5F /* CreateHeroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateHeroViewController.swift; sourceTree = "<group>"; };
 		105204201E36DD6500E78F5F /* StatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
+		105204221E37AFA100E78F5F /* Merchant Copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merchant Copy.ttf"; sourceTree = "<group>"; };
+		105204241E37B48A00E78F5F /* Merchant Copy Doublesize.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merchant Copy Doublesize.ttf"; sourceTree = "<group>"; };
 		10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		A10EA19E1E365EB0005F9459 /* graveyardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = graveyardCell.swift; path = SnailPG/graveyardCell.swift; sourceTree = "<group>"; };
 		A10EA1A01E366B41005F9459 /* continueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = continueCell.swift; sourceTree = "<group>"; };
@@ -147,7 +151,9 @@
 				A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */,
 				102DD5B31E35C0FA00274F72 /* Assets.xcassets */,
 				A1AB90B81E285AFA00CF4750 /* Main.storyboard */,
+				105204241E37B48A00E78F5F /* Merchant Copy Doublesize.ttf */,
 				A1E14BC41E2F1440005133E3 /* finalf.ttf */,
+				105204221E37AFA100E78F5F /* Merchant Copy.ttf */,
 				10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */,
 				A1AB90C01E285AFA00CF4750 /* LaunchScreen.storyboard */,
 				A1AB90C31E285AFA00CF4750 /* Info.plist */,
@@ -219,7 +225,9 @@
 				A1AB90C21E285AFA00CF4750 /* LaunchScreen.storyboard in Resources */,
 				A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */,
 				10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */,
+				105204251E37B48A00E78F5F /* Merchant Copy Doublesize.ttf in Resources */,
 				102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */,
+				105204231E37AFA100E78F5F /* Merchant Copy.ttf in Resources */,
 				10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */,
 				A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */,
 			);

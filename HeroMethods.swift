@@ -126,45 +126,66 @@ extension Hero {
             break
         }
     }
-    func removeFromStat(with index: Int){
+    func removeFromStat(with index: Int, minStat: Int){
         
         switch index {
         // HEALTH POINTS
         case 0:
-            self.statPoints += 1
-            self.maxHealth -= 5
+            if self.maxHealth - 5 >= minStat {
+                self.statPoints += 1
+                self.maxHealth -= 5
+            }
             break
         // STRENGTH
         case 1:
-            self.statPoints += 1
+            
             if self.job! == "Warrior" {
-                self.strength -= 2
+                if self.strength - 2 >= minStat {
+                    self.strength -= 2
+                    self.statPoints += 1
+                }
             } else {
-                self.strength -= 1
+                if self.strength - 1 >= minStat {
+                    self.strength -= 1
+                    self.statPoints += 1
+                }
             }
             break
         // DEXTERITY
         case 2:
-            self.statPoints += 1
             switch self.job! {
             case "Warrior":
-                self.dexterity -= 2
+                if self.dexterity - 2 >= minStat {
+                    self.dexterity -= 2
+                    self.statPoints += 1
+                }
                 break
             case "Theif":
-                self.dexterity -= 3
+                if self.dexterity - 3 >= minStat {
+                    self.dexterity -= 3
+                    self.statPoints += 1
+                }
                 break
             default:
-                self.dexterity -= 1
+                if self.dexterity - 1 >= minStat {
+                    self.dexterity -= 1
+                    self.statPoints += 1
+                }
                 break
             }
             break
         // INTELLIGENCE
         case 3:
-            self.statPoints += 1
             if self.job! == "Mage" {
-                self.intelligence -= 4
+                if self.intelligence - 4 >= minStat {
+                    self.intelligence -= 4
+                    self.statPoints += 1
+                }
             } else {
-                self.intelligence -= 1
+                if self.intelligence - 1 >= minStat {
+                    self.intelligence -= 1
+                    self.statPoints += 1
+                }
             }
             break
         default:

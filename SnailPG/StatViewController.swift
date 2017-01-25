@@ -16,23 +16,48 @@ class StatViewController: UIViewController {
     @IBOutlet weak var strLabel: UILabel!
     @IBOutlet weak var hpLabel: UILabel!
     @IBOutlet weak var statPointsLabel: UILabel!
-    @IBOutlet weak var addToStatBtn: UIButton!
-    @IBOutlet weak var removeFromStatBtn: UIButton!
+    @IBOutlet weak var heroNameLabel: UILabel!
+    @IBOutlet weak var heroLevelLabel: UILabel!
+    @IBOutlet weak var heroIconImage: UIImageView!
+    
+    var currentStats = [Int64]()
+    override func viewWillAppear(_ animated: Bool) {
+        currentStats = [(loggedInHero?.maxHealth)!,(loggedInHero?.strength)!,(loggedInHero?.dexterity)!, (loggedInHero?.intelligence)!,(loggedInHero?.statPoints)!]
+        heroNameLabel.text = "\((loggedInHero?.name!)!) the \((loggedInHero?.job!)!)"
+        heroIconImage.image = loggedInHero?.icon as! UIImage?
+        heroLevelLabel.text = "\((loggedInHero?.level)!)"
+        update()
+        
+    }
     @IBAction func addToStatPressed(_ sender: UIButton) {
+        if (loggedInHero?.statPoints)! > 0 {
+            print(sender.tag)
+            loggedInHero?.addToStat(with: sender.tag)
+            update()
+        }
     }
     @IBAction func removeFromStatPressed(_ sender: UIButton) {
+        loggedInHero?.removeFromStat(with: sender.tag, minStat: Int(currentStats[sender.tag]))
+        update()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        addToStatBtn.setTitle("\u{25B2}", for: UIControlState.normal)
-        removeFromStatBtn.setTitle("\u{25BC}", for: UIControlState.normal)
-        var currentStats = [loggedInHero?.maxHealth,loggedInHero?.strength,loggedInHero?.dexterity, loggedInHero?.intelligence,loggedInHero?.statPoints]
+    @IBAction func resetButtonPressed(_ sender: UIButton) {
+        loggedInHero?.maxHealth = currentStats[0]
+        loggedInHero?.strength = currentStats[1]
+        loggedInHero?.dexterity = currentStats[2]
+        loggedInHero?.intelligence = currentStats[3]
+        loggedInHero?.statPoints = currentStats[4]
+        update()
+    }
+    func update(){
+        statPointsLabel.text = "\((loggedInHero?.statPoints)!)"
         hpLabel.text = "\((loggedInHero?.maxHealth)!)"
-        strLabel.text = String(describing:loggedInHero?.strength)
-        dexLabel.text = String(describing:loggedInHero?.dexterity)
-        intLabel.text = String(describing:loggedInHero?.intelligence)
+        strLabel.text = "\((loggedInHero?.strength)!)"
+        dexLabel.text = "\((loggedInHero?.dexterity)!)"
+        intLabel.text = "\((loggedInHero?.intelligence)!)"
     }
-    
-    
+    @IBAction func saveStatsPressed(_ sender: UIButton) {
+        ad.saveContext()
+    }
     
     
 
