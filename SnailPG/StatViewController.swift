@@ -56,19 +56,20 @@ class StatViewController: UIViewController {
         intLabel.text = "\((loggedInHero?.intelligence)!)"
     }
     @IBAction func saveStatsPressed(_ sender: UIButton) {
-        ad.saveContext()
+        
         if isFromMain {
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
             }
         } else {
+            loggedInHero?.health = (loggedInHero?.maxHealth)!
             performSegue(withIdentifier: "loadPreviousForNewHeroSegue", sender: nil)
             performSegue(withIdentifier: "newHeroCompletedSegue", sender: nil)
             var stack = self.navigationController?.viewControllers
             stack!.remove(at: 1)
             stack!.remove(at: 2)
         }
- 
+        ad.saveContext()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newHeroCompletedSegue"{
