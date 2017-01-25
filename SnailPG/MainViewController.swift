@@ -12,7 +12,6 @@ import CoreData
 class MainViewController: UIViewController {
     @IBOutlet weak var heroNameLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
-    @IBOutlet weak var healthLabel: UILabel!
     @IBOutlet weak var goldLabel: UILabel!
     @IBOutlet weak var experienceSlider: UISlider!
     @IBOutlet weak var healthSlider: UISlider!
@@ -49,6 +48,7 @@ class MainViewController: UIViewController {
     //To Hero select
     @IBAction func changeHeroButtonPressed(_ sender: Any) {
         ad.saveContext()
+        //This might need to change once two connections are made to Main
         dismiss(animated: true, completion: nil)
     }
     
@@ -80,7 +80,6 @@ class MainViewController: UIViewController {
         // Set hero stats labels
         heroNameLabel.text = "\((loggedInHero?.name!)!) the \((loggedInHero?.job!)!)"
         levelLabel.text = String(describing: loggedInHero!.level)
-        healthLabel.text = String(describing: loggedInHero!.health)
         goldLabel.text = String(describing: loggedInHero!.gold)
         experienceSlider.maximumValue = Float(loggedInHero!.expToLevel)
         experienceSlider.value = Float(loggedInHero!.experience)

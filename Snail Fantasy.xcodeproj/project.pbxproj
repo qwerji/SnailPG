@@ -13,6 +13,10 @@
 		102DD5AE1E343F3C00274F72 /* GraveyardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */; };
 		102DD5B01E3455D600274F72 /* displayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5AF1E3455D600274F72 /* displayCell.swift */; };
 		102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 102DD5B31E35C0FA00274F72 /* Assets.xcassets */; };
+		1052041F1E36CF4B00E78F5F /* CreateHeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052041E1E36CF4B00E78F5F /* CreateHeroViewController.swift */; };
+		105204211E36DD6500E78F5F /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105204201E36DD6500E78F5F /* StatViewController.swift */; };
+		105204231E37AFA100E78F5F /* Merchant Copy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 105204221E37AFA100E78F5F /* Merchant Copy.ttf */; };
+		105204251E37B48A00E78F5F /* Merchant Copy Doublesize.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 105204241E37B48A00E78F5F /* Merchant Copy Doublesize.ttf */; };
 		10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90C31E285AFA00CF4750 /* Info.plist */; };
 		10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */; };
 		A10EA19F1E365EB0005F9459 /* graveyardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EA19E1E365EB0005F9459 /* graveyardCell.swift */; };
@@ -27,7 +31,7 @@
 		A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90B81E285AFA00CF4750 /* Main.storyboard */; };
 		A1AB90BD1E285AFA00CF4750 /* SnailPG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90BB1E285AFA00CF4750 /* SnailPG.xcdatamodeld */; };
 		A1AB90C21E285AFA00CF4750 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90C01E285AFA00CF4750 /* LaunchScreen.storyboard */; };
-		A1AB90CE1E2860C000CF4750 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90CD1E2860C000CF4750 /* WelcomeViewController.swift */; };
+		A1AB90CE1E2860C000CF4750 /* HeroSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90CD1E2860C000CF4750 /* HeroSelectViewController.swift */; };
 		A1AB90D01E28662500CF4750 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90CF1E28662500CF4750 /* MainViewController.swift */; };
 		A1AB90D21E287A4200CF4750 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90D11E287A4200CF4750 /* BattleViewController.swift */; };
 		A1B0AE6C1E37FC1600F837A4 /* BattleLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B0AE6B1E37FC1600F837A4 /* BattleLogCell.swift */; };
@@ -43,6 +47,10 @@
 		102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraveyardViewController.swift; sourceTree = "<group>"; };
 		102DD5AF1E3455D600274F72 /* displayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayCell.swift; sourceTree = "<group>"; };
 		102DD5B31E35C0FA00274F72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1052041E1E36CF4B00E78F5F /* CreateHeroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateHeroViewController.swift; sourceTree = "<group>"; };
+		105204201E36DD6500E78F5F /* StatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
+		105204221E37AFA100E78F5F /* Merchant Copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merchant Copy.ttf"; sourceTree = "<group>"; };
+		105204241E37B48A00E78F5F /* Merchant Copy Doublesize.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merchant Copy Doublesize.ttf"; sourceTree = "<group>"; };
 		10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		A10EA19E1E365EB0005F9459 /* graveyardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = graveyardCell.swift; path = SnailPG/graveyardCell.swift; sourceTree = "<group>"; };
 		A10EA1A01E366B41005F9459 /* continueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = continueCell.swift; sourceTree = "<group>"; };
@@ -58,7 +66,7 @@
 		A1AB90BC1E285AFA00CF4750 /* SnailPG.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SnailPG.xcdatamodel; sourceTree = "<group>"; };
 		A1AB90C11E285AFA00CF4750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1AB90C31E285AFA00CF4750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1AB90CD1E2860C000CF4750 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		A1AB90CD1E2860C000CF4750 /* HeroSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroSelectViewController.swift; sourceTree = "<group>"; };
 		A1AB90CF1E28662500CF4750 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A1AB90D11E287A4200CF4750 /* BattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 		A1B0AE6B1E37FC1600F837A4 /* BattleLogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BattleLogCell.swift; path = SnailPG/BattleLogCell.swift; sourceTree = "<group>"; };
@@ -84,11 +92,13 @@
 				102DD5AA1E343EDE00274F72 /* TitleViewController.swift */,
 				102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */,
 				A1FA96041E2D453000EA3870 /* ShopViewController.swift */,
+				105204201E36DD6500E78F5F /* StatViewController.swift */,
 				A184867A1E31A36B00661783 /* BackpackViewController.swift */,
 				A1AB90D11E287A4200CF4750 /* BattleViewController.swift */,
 				A1AB90CF1E28662500CF4750 /* MainViewController.swift */,
 				102DD5A81E34153E00274F72 /* MapViewController.swift */,
-				A1AB90CD1E2860C000CF4750 /* WelcomeViewController.swift */,
+				A1AB90CD1E2860C000CF4750 /* HeroSelectViewController.swift */,
+				1052041E1E36CF4B00E78F5F /* CreateHeroViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -144,7 +154,9 @@
 				A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */,
 				102DD5B31E35C0FA00274F72 /* Assets.xcassets */,
 				A1AB90B81E285AFA00CF4750 /* Main.storyboard */,
+				105204241E37B48A00E78F5F /* Merchant Copy Doublesize.ttf */,
 				A1E14BC41E2F1440005133E3 /* finalf.ttf */,
+				105204221E37AFA100E78F5F /* Merchant Copy.ttf */,
 				10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */,
 				A1AB90C01E285AFA00CF4750 /* LaunchScreen.storyboard */,
 				A1AB90C31E285AFA00CF4750 /* Info.plist */,
@@ -185,7 +197,7 @@
 				TargetAttributes = {
 					A1AB90B01E285AFA00CF4750 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SW67XSUQ7J;
+						DevelopmentTeam = ULXF9V6CXW;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -216,7 +228,9 @@
 				A1AB90C21E285AFA00CF4750 /* LaunchScreen.storyboard in Resources */,
 				A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */,
 				10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */,
+				105204251E37B48A00E78F5F /* Merchant Copy Doublesize.ttf in Resources */,
 				102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */,
+				105204231E37AFA100E78F5F /* Merchant Copy.ttf in Resources */,
 				10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */,
 				A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */,
 			);
@@ -229,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				105204211E36DD6500E78F5F /* StatViewController.swift in Sources */,
 				102DD5AE1E343F3C00274F72 /* GraveyardViewController.swift in Sources */,
 				102DD5B01E3455D600274F72 /* displayCell.swift in Sources */,
 				A175AC871E32E967008E8971 /* potionCell.swift in Sources */,
@@ -238,8 +253,9 @@
 				A1769C9A1E3164E000B8FC3D /* Monster.swift in Sources */,
 				A1AB90BD1E285AFA00CF4750 /* SnailPG.xcdatamodeld in Sources */,
 				A1E14BC11E2EFA7F005133E3 /* HeroMethods.swift in Sources */,
-				A1AB90CE1E2860C000CF4750 /* WelcomeViewController.swift in Sources */,
+				A1AB90CE1E2860C000CF4750 /* HeroSelectViewController.swift in Sources */,
 				A1FA96051E2D453000EA3870 /* ShopViewController.swift in Sources */,
+				1052041F1E36CF4B00E78F5F /* CreateHeroViewController.swift in Sources */,
 				A10EA1A11E366B41005F9459 /* continueCell.swift in Sources */,
 				A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */,
 				A175AC891E32E96E008E8971 /* armorCell.swift in Sources */,
@@ -372,7 +388,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SW67XSUQ7J;
+				DEVELOPMENT_TEAM = ULXF9V6CXW;
 				INFOPLIST_FILE = SnailPG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = qwerji.SnailPG;
@@ -385,7 +401,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SW67XSUQ7J;
+				DEVELOPMENT_TEAM = ULXF9V6CXW;
 				INFOPLIST_FILE = SnailPG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = qwerji.SnailPG;
