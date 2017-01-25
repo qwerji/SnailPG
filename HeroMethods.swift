@@ -31,8 +31,8 @@ extension Hero {
         self.health -= damage
     }
     
-    func attack(_ target: Monster) -> String {
-        
+    func attack(_ target: Monster) -> (String, String) {
+        var result = ""
         var log = ""
         var computedDamage = Int(self.strength)
         
@@ -50,11 +50,13 @@ extension Hero {
             computedDamage = 0
             
             log = "\(self.name!) missed!"
+            result = "Miss"
             
         } else if hitChance == 10 {
             
             // Max damage
             log = "Critical hit! \(self.name!) did \(computedDamage) damage to \(target.name)!"
+            result = "Base Hit"
             
         } else {
             
@@ -62,23 +64,31 @@ extension Hero {
             computedDamage = Int(arc4random_uniform(UInt32(computedDamage - computedDamage/2))) + Int(computedDamage/2)
             
             log = "\(self.name!) did \(computedDamage) damage to \(target.name)!"
+            result = "Base Hit"
             
         }
         
         target.health -= computedDamage
         
-        return log
+        return (log, result)
     }
     func gainsExp(amount: Int){
         self.experience += amount
         if self.experience >= self.expToLevel {
-            experience -= expToLevel
+            self.experience -= expToLevel
             self.level += 1
             self.expToLevel = self.level * 100
             self.statPoints += 5
-            if self.level == 10{
+            
+            if self.level > 0 && self.level % 5 == 0 {
+                self.maxArea += 1
+                
+                if self.area < self.maxArea - 1 {
+                    self.area = self.maxArea - 1
+                }
                 
             }
+            
             ad.saveContext()
         }
     }

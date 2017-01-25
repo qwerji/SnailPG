@@ -20,7 +20,7 @@ class graveyardCell: UITableViewCell {
         heroNameLabel.text = hero.name
         levelLabel.text = "Level: \(hero.level)"
         jobLabel.text = "Job: \(hero.job!)"
-//        victoriesLabel = "Victories: \(hero.victories)"
+        victoriesLabel.text = "Victories: \(hero.victories)"
         imageLabel.image = hero.icon as! UIImage?
     }
 

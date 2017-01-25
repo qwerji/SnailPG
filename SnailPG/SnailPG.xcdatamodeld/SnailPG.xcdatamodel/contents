@@ -15,6 +15,7 @@
         <attribute name="job" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="leftHand" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="maxArea" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="maxHealth" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightHand" optional="YES" attributeType="String" syncable="YES"/>
@@ -23,6 +24,6 @@
         <attribute name="victories" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Hero" positionX="-63" positionY="-72" width="128" height="315"/>
+        <element name="Hero" positionX="-63" positionY="-72" width="128" height="360"/>
     </elements>
 </model>

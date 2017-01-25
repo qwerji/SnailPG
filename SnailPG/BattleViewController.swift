@@ -10,17 +10,17 @@ import UIKit
 import CoreData
 
 class BattleViewController: UIViewController {
-    @IBOutlet weak var heroHealthLabel: UILabel!
-    @IBOutlet weak var heroNameLabel: UILabel!
     
     var target: Monster?
     var loggedInHero: Hero?
     var monsterMaxHealth: Int?
+    var battleLog = [BattleCellConfig]()
     
-    @IBOutlet weak var battleLog: UILabel!
+    @IBOutlet weak var battleLogTable: UITableView!
+    @IBOutlet weak var heroHealthLabel: UILabel!
+    @IBOutlet weak var heroNameLabel: UILabel!
     @IBOutlet weak var monsterNameLabel: UILabel!
     @IBOutlet weak var monsterHealthLabel: UILabel!
-    
     @IBOutlet weak var runButton: UIButton!
     @IBOutlet weak var backToMainButton: UIButton!
     @IBOutlet weak var restartButton: UIButton!
@@ -29,40 +29,43 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var monsterHealthSlider: UISlider!
     
     @IBAction func attackButtonPressed(_ sender: UIButton) {
-        // Hero Attacks
-        battleLog.text! += "\n" + (loggedInHero?.attack(target!))!
+        // Choose who attacks first
         
-        // Monster Health Check
-        if (target?.health)! <= 0 {
-            ad.saveContext()
+        let total = Int((loggedInHero?.dexterity)!) + (target?.speed)!
+        
+        let heroRange = round((Double((loggedInHero?.dexterity)!) / Double(total)) * 100.0)
+        
+        let random = Int(arc4random_uniform(UInt32(100))) + 1
+        
+        if random < Int(heroRange) {
             
-            runButton.isHidden = true
-            attackButton.isHidden = true
-            backToMainButton.isHidden = false
-            restartButton.isHidden = true
+            let monsterDead = heroAttacks()
             
-            battleLog.text! += "\n\((target?.name)!) was defeated."
-            
-            if let goldDrop = target?.gold {
-                loggedInHero?.gold += goldDrop
-                battleLog.text! += "\n\((loggedInHero?.name!)!) got \(goldDrop) gold!"
+            if monsterDead == false {
+                let _ = monsterAttacks()
             }
-            if let itemDrop = target?.drop {
-                let bp = loggedInHero?.backpack as! NSMutableArray
-                bp.add(itemDrop)
-                battleLog.text! += "\n\((loggedInHero?.name!)!) picked up \(itemDrop)!"
-            }
-            // gain EXP when monster is slain
-            loggedInHero?.gainsExp(amount: (target?.experience)!)
-            battleLog.text! += "\n\((loggedInHero?.name!)!) gained \((target?.experience)!) experience!"
-            // Show win button
             
-            update()
-            return
+        } else {
+            
+            let heroDead = monsterAttacks()
+            
+            if heroDead == false {
+                let _ = heroAttacks()
+            }
+            
         }
         
-        // Monster Attacks
-        battleLog.text! += "\n" + (target?.attack(loggedInHero!))! 
+        update()
+        
+    }
+    
+    func monsterAttacks() -> Bool {
+        
+        let response = target?.attack(loggedInHero!)
+        let text = response?.0
+        let type = response?.1
+
+        battleLog.append(BattleCellConfig(text: text!, color: type!, image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
         
         // Hero Health Check
         if (loggedInHero?.health)! <= 0 {
@@ -73,14 +76,53 @@ class BattleViewController: UIViewController {
             backToMainButton.isHidden = true
             restartButton.isHidden = false
             
-            battleLog.text! += "\n\((loggedInHero?.name!)!) was defeated."
+            battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) was defeated.", color: "Defeat", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
             
-            // Show die button
-            
-            update()
-            return
+            return true
         }
-        update()
+        return false
+    }
+    
+    func heroAttacks() -> Bool {
+
+        let response = (loggedInHero?.attack(target!))!
+        let text = response.0
+        let type = response.1
+        
+        battleLog.append(BattleCellConfig(text: text, color: type, image1: loggedInHero?.icon as! UIImage, image2: #imageLiteral(resourceName: "snailhero2")))
+        
+        // Monster Health Check
+        if (target?.health)! <= 0 {
+            ad.saveContext()
+            
+            runButton.isHidden = true
+            attackButton.isHidden = true
+            backToMainButton.isHidden = false
+            restartButton.isHidden = true
+            
+            battleLog.append(BattleCellConfig(text: "\((target?.name)!) was defeated.", color: "Victory", image1: loggedInHero?.icon as! UIImage, image2: #imageLiteral(resourceName: "snailhero2")))
+            
+            if let goldDrop = target?.gold {
+                loggedInHero?.gold += goldDrop
+                
+                battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) got \(goldDrop) gold!", color: "Gold", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
+
+            }
+            if let itemDrop = target?.drop {
+                let bp = loggedInHero?.backpack as! NSMutableArray
+                bp.add(itemDrop)
+                
+                battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) picked up \(itemDrop)!", color: "Item", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
+
+            }
+            // gain EXP when monster is slain
+            loggedInHero?.gainsExp(amount: (target?.experience)!)
+            
+            battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) gained \((target?.experience)!) experience!", color: "Experience", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
+            
+            return true
+        }
+        return false
     }
     
     @IBAction func died(_ sender: UIButton) {
@@ -120,6 +162,16 @@ class BattleViewController: UIViewController {
         monsterHealthSlider.maximumValue = Float((monsterMaxHealth!))
         monsterHealthSlider.value = Float((target?.health)!)
         
+        battleLogTable.reloadData()
+        
+        if battleLog.count > 0 {
+            scrollToLastRow()
+        }
+    }
+    
+    func scrollToLastRow() {
+        let indexPath = IndexPath(row: max(battleLog.count - 1,0), section: 0)
+        battleLogTable.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: true)
     }
     
     func getMonster() {
@@ -136,13 +188,16 @@ class BattleViewController: UIViewController {
         
         monsterMaxHealth = monsterChoice["health"] as! Int?
         
-        target = Monster(name: monsterChoice["name"] as! String, health: monsterChoice["health"] as! Int, gold: monsterChoice["gold"] as! Int, damage: monsterChoice["damage"] as! Int, experience: monsterChoice["experience"] as! Int)
-        
+        target = Monster(name: monsterChoice["name"] as! String, health: monsterChoice["health"] as! Int, gold: monsterChoice["gold"] as! Int, damage: monsterChoice["damage"] as! Int, experience: monsterChoice["experience"] as! Int, speed: monsterChoice["speed"] as! Int)
+
         // Set Monster stats labels
         monsterNameLabel.text = target?.name
     }
     
     override func viewDidLoad() {
+        battleLogTable.delegate = self
+        battleLogTable.dataSource = self
+
         // Set Hero stats labels
         heroNameLabel.text = "\((loggedInHero?.name!)!)'s Health:"
         
@@ -162,4 +217,21 @@ class BattleViewController: UIViewController {
 
     }
     
+}
+
+extension BattleViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "battleLogCell", for: indexPath) as! BattleLogCell
+        cell.configureCell(with: battleLog[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return battleLog.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
 }

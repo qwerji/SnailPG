@@ -58,9 +58,10 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
                 hero.intelligence = 6
                 hero.icon = #imageLiteral(resourceName: "theif")
                 break
-            default: print("Error")
+            default: break
             }
             
+            hero.maxArea = 0
             hero.area = 0
             hero.maxHealth = 50
             hero.defense = 0
@@ -73,7 +74,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             hero.name = heroName.text!
             hero.job = jobChoice!
             hero.backpack = NSArray()
-
+            
             // Save Hero instance in appDelegate and CoreData
             ad.saveContext()
             loggedInHero = hero
@@ -119,11 +120,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         previousHeroesTable.delegate = self
         heroName.delegate = self
         
-        update()
-        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         update()
     }
     

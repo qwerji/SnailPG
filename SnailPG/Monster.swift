@@ -16,18 +16,20 @@ class Monster {
     var damage: Int
     var drop: String?
     var experience: Int
+    var speed: Int
     
-    init(name: String, health: Int, gold: Int, damage: Int, drop: String? = nil, experience: Int) {
+    init(name: String, health: Int, gold: Int, damage: Int, drop: String? = nil, experience: Int, speed: Int) {
         self.name = name
         self.health = health
         self.gold = gold
         self.damage = damage
         self.drop = drop
         self.experience = experience
+        self.speed = speed
     }
     
-    func attack(_ hero: Hero) -> String {
-        
+    func attack(_ hero: Hero) -> (String, String) {
+        var result = ""
         var log = ""
         var computedDamage = self.damage
         
@@ -39,11 +41,13 @@ class Monster {
             computedDamage = 0
             
             log = "\(self.name) missed!"
+            result = "Miss"
             
         } else if hitChance == 10 {
             
             // Max damage
             log = "Critical Hit! \(self.name) did \(computedDamage) damage to \(hero.name!)!"
+            result = "Base Damage"
             
         } else {
             
@@ -51,15 +55,19 @@ class Monster {
             computedDamage = Int(arc4random_uniform(UInt32(computedDamage - computedDamage/2))) + Int(computedDamage/2)
             
             log = "\(self.name) did \(computedDamage) damage to \(hero.name!)!"
+            result = "Base Damage"
             
         }
         
         if computedDamage > 0 && hero.defense > 0 {
             log += " \(hero.defense) blocked by armor."
         }
-        hero.health -= (computedDamage - Int(hero.defense))
         
-        return log
+        if computedDamage - Int(hero.defense) > 0 {
+            hero.health -= (computedDamage - Int(hero.defense))
+        }
+        
+        return (log, result)
     }
 }
 
@@ -104,6 +112,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 30,
         "damage"     : 8,
+        "speed"      : 3,
         "gold"       : 10,
         "experience" : 15
     ],
@@ -112,7 +121,8 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 20,
         "damage"     : 5,
-        "gold"       : 5,
+        "speed"      : 2,
+        "gold"       : 10,
         "experience" : 5
     ],
     "Mecha Snail" : [
@@ -120,6 +130,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 35,
         "damage"     : 10,
+        "speed"      : 4,
         "gold"       : 20,
         "experience" : 30
     ],
@@ -128,6 +139,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 25,
         "damage"     : 7,
+        "speed"      : 8,
         "gold"       : 10,
         "experience" : 15
     ],
@@ -136,6 +148,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 30,
         "damage"     : 10,
+        "speed"      : 4,
         "gold"       : 35,
         "experience" : 35
     ],
@@ -144,6 +157,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 40,
         "damage"     : 15,
+        "speed"      : 6,
         "gold"       : 50,
         "experience" : 50
     ],
@@ -152,6 +166,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 15,
         "damage"     : 10,
+        "speed"      : 7,
         "gold"       : 10,
         "experience" : 15
     ],
@@ -160,6 +175,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 20,
         "damage"     : 12,
+        "speed"      : 4,
         "gold"       : 15,
         "experience" : 20
     ],
@@ -168,6 +184,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 40,
         "damage"     : 20,
+        "speed"      : 6,
         "gold"       : 100,
         "experience" : 100
     ],
@@ -176,6 +193,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 20,
         "damage"     : 10,
+        "speed"      : 5,
         "gold"       : 30,
         "experience" : 20
     ],
@@ -184,6 +202,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 80,
         "damage"     : 7,
+        "speed"      : 2,
         "gold"       : 80,
         "experience" : 70
     ],
@@ -192,6 +211,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 35,
         "damage"     : 20,
+        "speed"      : 5,
         "gold"       : 50,
         "experience" : 50
     ],
@@ -200,6 +220,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 50,
         "damage"     : 18,
+        "speed"      : 5,
         "gold"       : 20,
         "experience" : 30
     ],
@@ -208,6 +229,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 45,
         "damage"     : 20,
+        "speed"      : 10,
         "gold"       : 60,
         "experience" : 60
     ],
@@ -216,6 +238,7 @@ let MonsterList: [String:[String:Any]] = [
         "area"       : 0,
         "health"     : 40,
         "damage"     : 15,
+        "speed"      : 6,
         "gold"       : 40,
         "experience" : 40
     ],
