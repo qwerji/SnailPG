@@ -27,6 +27,7 @@
 		A1769C981E3161A200B8FC3D /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1769C971E3161A200B8FC3D /* Items.swift */; };
 		A1769C9A1E3164E000B8FC3D /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1769C991E3164E000B8FC3D /* Monster.swift */; };
 		A184867B1E31A36B00661783 /* BackpackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184867A1E31A36B00661783 /* BackpackViewController.swift */; };
+		A18CEB441E392BD2000FA989 /* GraveyardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CEB431E392BD2000FA989 /* GraveyardDetailViewController.swift */; };
 		A1AB90B51E285AFA00CF4750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */; };
 		A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90B81E285AFA00CF4750 /* Main.storyboard */; };
 		A1AB90BD1E285AFA00CF4750 /* SnailPG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90BB1E285AFA00CF4750 /* SnailPG.xcdatamodeld */; };
@@ -60,6 +61,7 @@
 		A1769C971E3161A200B8FC3D /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Items.swift; path = ../Items.swift; sourceTree = "<group>"; };
 		A1769C991E3164E000B8FC3D /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A184867A1E31A36B00661783 /* BackpackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackpackViewController.swift; sourceTree = "<group>"; };
+		A18CEB431E392BD2000FA989 /* GraveyardDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraveyardDetailViewController.swift; path = ../GraveyardDetailViewController.swift; sourceTree = "<group>"; };
 		A1AB90B11E285AFA00CF4750 /* Snail Fantasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snail Fantasy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1AB90B91E285AFA00CF4750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		102DD5AC1E343EF600274F72 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A18CEB431E392BD2000FA989 /* GraveyardDetailViewController.swift */,
 				102DD5AA1E343EDE00274F72 /* TitleViewController.swift */,
 				102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */,
 				A1FA96041E2D453000EA3870 /* ShopViewController.swift */,
@@ -248,6 +251,7 @@
 				102DD5B01E3455D600274F72 /* displayCell.swift in Sources */,
 				A175AC871E32E967008E8971 /* potionCell.swift in Sources */,
 				102DD5A71E33274D00274F72 /* HealthBar.swift in Sources */,
+				A18CEB441E392BD2000FA989 /* GraveyardDetailViewController.swift in Sources */,
 				A1769C981E3161A200B8FC3D /* Items.swift in Sources */,
 				A1B0AE6C1E37FC1600F837A4 /* BattleLogCell.swift in Sources */,
 				A1769C9A1E3164E000B8FC3D /* Monster.swift in Sources */,

@@ -78,6 +78,16 @@ class BattleViewController: UIViewController {
             
             battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) was defeated.", color: "Defeat", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
             
+            var cleanBackpack = [String]()
+            
+            for item in loggedInHero?.backpack as! [String] {
+                if item == "Revive Potion" {
+                    cleanBackpack.append(item)
+                }
+            }
+            
+            loggedInHero?.backpack = cleanBackpack as NSObject?
+            
             return true
         }
         return false

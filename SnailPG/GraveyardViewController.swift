@@ -14,6 +14,10 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
 
     var graveyard: [Hero] = []
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "graveyardDetailSegue", sender: graveyard[indexPath.row])
+    }
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if let cell = graveyardTable.cellForRow(at: indexPath) as? graveyardCell {
             if cell.revivable {
@@ -51,6 +55,13 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return graveyard.count
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "graveyardDetailSegue" {
+            let controller = segue.destination as! GraveyardDetailViewController
+            controller.hero = sender as! Hero
+        }
     }
     
     func update() {

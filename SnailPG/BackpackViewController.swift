@@ -169,7 +169,7 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
         if let armor = loggedInHero?.armor {
             armorLabel.text = "Armor: \(armor)"
         } else {
-            armorLabel.text = "Armor: Empty"
+            armorLabel.text = "Armor: Naked"
         }
         
         healthLabel.text = "Health: \((loggedInHero?.health)!)"
