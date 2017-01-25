@@ -14,6 +14,26 @@ class CreateHeroViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var heroName: UITextField!
     var loggedInHero: Hero?
     
+    @IBAction func nameGeneratorPressed(_ sender: UIButton) {
+        var randomNames = ["Jill","Bill","Phil","Stranky","Mooper","Bryit","Andu","Vulf","Victor","Timmy","Wilthas","Ophelia","Pappy","Pamela","Vicki","Coni","Amber","Sara","Leah","Dan","Benjamin","Michelle","Nasim","Luca","Algore","Maloc","Brandon","Doj", "Porkle", "Pem", "Fiaz", "Django","Nancy","Sparkle","Grampy","Jack","Glenn","Lars","Berry","Magic","Spider","Taco","Hawaiian","Magnus","Frothgar","Gorlok","Colon","The","Ty","Beanbag","Plebby","Mad","Andy","Larry", "Karl", "Margie"]
+        var randomLastNames = ["People", "Buckets", "Dustkeeper","Hawkarrow","LoneMane","Boulderbreaker","Ashridge","Bryit","Deathseeker","Mandu","Snowmane","Kingslayer","Swiftfoot","Mountainscream","Moonshadow", "Voidstrider","Moonthorn","Grandcrest","Stinkz","Rythms","Pem","Ponies", "Darksider","Saltshaker","Riverchaser","Wyvernbeard","Treegazer","Fogbinder","Dragonblood","Dawncrest","WildShard","Bronzefist","Shieldbearer","Gangletoes","FizzBuzz","Donglegoblin","Cloudstriker","Goodbrancher","Bluejeans","Coffee","Brian","Powell","Donald","Ben","the Pleb","Bingo"]
+        
+        func randomBool() -> Bool {
+            return arc4random_uniform(2) == 0
+        }
+        func nameGenerator () -> String {
+            var generatedName: String
+            if randomBool(){
+                generatedName = "\(randomNames[Int(arc4random_uniform(UInt32(randomNames.count)))])"
+                
+            } else {
+                generatedName = "\(randomNames[Int(arc4random_uniform(UInt32(randomNames.count)))]) \(randomLastNames[Int(arc4random_uniform(UInt32(randomLastNames.count)))])"
+            }
+            return generatedName
+        }
+        
+        heroName.text = nameGenerator()
+    }
     @IBAction func jobChosen(_ sender: UIButton) {
         if heroName.text! == "" {
             
