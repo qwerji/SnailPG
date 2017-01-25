@@ -72,6 +72,11 @@ extension Hero {
         
         return (log, result)
     }
+    
+    func maxManaCalculation(){
+        self.maxMana = self.intelligence * 5
+    }
+    
     func gainsExp(amount: Int){
         self.experience += amount
         self.victories += 1

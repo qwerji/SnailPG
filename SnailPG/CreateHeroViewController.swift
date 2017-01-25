@@ -60,8 +60,10 @@ class CreateHeroViewController: UIViewController, UITextFieldDelegate {
             hero.maxHealth = 50
             hero.defense = 0
             hero.health = 50
+            hero.maxMana = hero.intelligence * 5
+            hero.mana = hero.intelligence * 5
             hero.level = 1
-            hero.experience = Int64(0.0)
+            hero.experience = 0
             hero.expToLevel = 100
             hero.statPoints = 5
             hero.victories = 0

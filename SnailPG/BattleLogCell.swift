@@ -39,7 +39,8 @@ struct BattleCellConfig {
             "Experience"  : (#colorLiteral(red: 0.4500938654, green: 0.9813225865, blue: 0.4743030667, alpha: 1),#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)),
             "Victory"     : (#colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1),#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)),
             "Defeat"      : (#colorLiteral(red: 0.370555222, green: 0.3705646992, blue: 0.3705595732, alpha: 1),#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)),
-            "Item"        : (#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+            "Item"        : (#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)),
+            "Spell Cast"  : (#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1),#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1))
         ]
         
         self.text = text
