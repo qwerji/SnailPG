@@ -28,7 +28,9 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         ad.saveContext()
-        dismiss(animated: true, completion: nil)
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
     
     override func viewDidLoad() {

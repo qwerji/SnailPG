@@ -47,7 +47,9 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
 
     }
     @IBAction func backButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
 
 }

@@ -18,7 +18,9 @@ class MapViewController: UIViewController {
     var loggedInHero: Hero?
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
     
     override func viewDidLoad() {
@@ -64,7 +66,9 @@ class MapViewController: UIViewController {
         }
         
         ad.saveContext()
-        dismiss(animated: true, completion: nil)
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
     override func viewWillLayoutSubviews() {
         mapScrollView.contentOffset = CGPoint(x: 0.0, y: 430.5)

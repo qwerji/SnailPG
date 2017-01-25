@@ -122,7 +122,9 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func exitButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
     
 

@@ -74,6 +74,7 @@ extension Hero {
     }
     func gainsExp(amount: Int){
         self.experience += amount
+        self.victories += 1
         if self.experience >= self.expToLevel {
             self.experience -= expToLevel
             self.level += 1
