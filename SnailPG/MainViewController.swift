@@ -91,7 +91,7 @@ class MainViewController: UIViewController {
     func update() {
         // Set hero stats labels
         heroNameLabel.text = "\((loggedInHero?.name!)!) the \((loggedInHero?.job!)!)"
-        levelLabel.text = String(describing: loggedInHero!.maxMana)
+        levelLabel.text = String(describing: loggedInHero!.level)
         goldLabel.text = String(describing: loggedInHero!.gold)
         experienceSlider.maximumValue = Float(loggedInHero!.expToLevel)
         experienceSlider.value = Float(loggedInHero!.experience)
