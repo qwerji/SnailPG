@@ -201,9 +201,9 @@ class BattleViewController: UIViewController {
         
         let randomMonsterIdx = Int(arc4random_uniform(UInt32(areaMonsters.count)))
         
-        let randomMonster = areaMonsters[randomMonsterIdx]
+//        let randomMonster = areaMonsters[randomMonsterIdx]
         
-        let monsterChoice = MonsterList[randomMonster as! String]!
+        let monsterChoice = MonsterList["Goblin Pleb"]!
         
         monsterMaxHealth = monsterChoice["health"] as! Int?
         

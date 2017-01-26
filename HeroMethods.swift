@@ -35,7 +35,7 @@ extension Hero {
         var result = ""
         var log = ""
         var computedDamage = Int(self.strength)
-        
+
         if let weapon = self.leftHand {
             computedDamage += ItemList[weapon]?["damage"] as! Int
         }
@@ -57,20 +57,37 @@ extension Hero {
             // Max damage
             log = "Critical hit! \(self.name!) did \(computedDamage) damage to \(target.name)!"
             result = "Base Hit"
+            if self.job == "Mage" {
+                let sparks = mageSparkDamage()
+                log += sparks.0
+                target.health -= sparks.1
+            }
             
         } else {
-            
             // Base damage range
             computedDamage = Int(arc4random_uniform(UInt32(computedDamage - computedDamage/2))) + Int(computedDamage/2)
             
             log = "\(self.name!) did \(computedDamage) damage to \(target.name)!"
             result = "Base Hit"
             
+            if self.job == "Mage" {
+                let sparkChance = arc4random_uniform(UInt32(10)) + 1
+                if Int(sparkChance) <= Int(4 + (intelligence/480)) {
+                    let sparks = mageSparkDamage()
+                    log += sparks.0
+                    target.health -= sparks.1
+                }
+            }
         }
         
         target.health -= computedDamage
-        
         return (log, result)
+    }
+    func mageSparkDamage()-> (String,Int){
+            let roundedDOWNIntelligence = floor(Double(self.intelligence)/4.0)
+            let roundedUPIntelligence = ceil(Double(self.intelligence)/4.0)
+            let sparkDamage = Int(arc4random_uniform(UInt32(roundedUPIntelligence)+1)) + Int(roundedDOWNIntelligence)
+            return (" +\(sparkDamage) dealt from spark!", sparkDamage)
     }
     
     func maxManaCalculation(){
