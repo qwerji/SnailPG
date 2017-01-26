@@ -135,6 +135,9 @@ class BattleViewController: UIViewController {
             var potentialAchievement: String?
             
             switch Int((loggedInHero?.victories)!) {
+            case 1:
+                potentialAchievement = "Won A Battle"
+                break
             case 50:
                 potentialAchievement = "50 Enemies"
                 break

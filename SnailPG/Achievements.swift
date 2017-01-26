@@ -11,28 +11,33 @@ import UIKit
 let Achievements: [String:[String:Any]] = [
     
     // Snailed It Series
-    "50 Enemies" : [
+    "Won A Battle" : [
         "name" : "Snailin' It: I",
+        "description" : "You won your first battle!",
+        "icon" : #imageLiteral(resourceName: "snailhero2")
+    ],
+    "50 Enemies" : [
+        "name" : "Snailin' It: II",
         "description" : "50 Enemies Defeated!",
         "icon" : #imageLiteral(resourceName: "snailhero2")
     ],
     "100 Enemies" : [
-        "name" : "Snailin' It: II",
+        "name" : "Snailin' It: III",
         "description" : "100 Enemies Defeated!",
         "icon" : #imageLiteral(resourceName: "snailhero2")
     ],
     "200 Enemies" : [
-        "name" : "Snailin' It: III",
+        "name" : "Snailin' It: IV",
         "description" : "200 Enemies Defeated!",
         "icon" : #imageLiteral(resourceName: "snailhero2")
     ],
     "500 Enemies" : [
-        "name" : "Snailin' It: IV",
+        "name" : "Snailin' It: V",
         "description" : "500 Enemies Defeated!",
         "icon" : #imageLiteral(resourceName: "snailhero2")
     ],
     "1000 Enemies" : [
-        "name" : "Snailin' It: V",
+        "name" : "Snailin' It: VI",
         "description" : "1000 Enemies Defeated!",
         "icon" : #imageLiteral(resourceName: "snailhero2")
     ],
