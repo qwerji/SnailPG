@@ -78,8 +78,8 @@ let MonsterList: [String:[String:Any]] = [
         "health"     : 75,
         "damage"     : 2,
         "speed"      : 3,
-        "gold"       : 10,
-        "experience" : 5
+        "gold"       : 15,
+        "experience" : 10
     ],
     "Basic Snail" : [
         "name"       : "Basic Snail",
