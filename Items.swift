@@ -20,7 +20,7 @@ let ItemList: [String:[String:Any]] = [
         "area" : 0,
         "type" : "Weapon",
         "handed" : 1,
-        "damage" : 12,
+        "damage" : 7,
         "price" : 35
     ],
     "Great Sword" : [

@@ -75,11 +75,11 @@ let MonsterList: [String:[String:Any]] = [
     "Goblin Pleb" : [
         "name"       : "Goblin Pleb",
         "area"       : 0,
-        "health"     : 30,
-        "damage"     : 10,
+        "health"     : 75,
+        "damage"     : 2,
         "speed"      : 3,
-        "gold"       : 12,
-        "experience" : 15
+        "gold"       : 10,
+        "experience" : 5
     ],
     "Basic Snail" : [
         "name"       : "Basic Snail",
@@ -183,8 +183,8 @@ let MonsterList: [String:[String:Any]] = [
     "Snail Junkie" : [
         "name"       : "Snail Junkie",
         "area"       : 0,
-        "health"     : 45,
-        "damage"     : 18,
+        "health"     : 30,
+        "damage"     : 15,
         "speed"      : 5,
         "gold"       : 35,
         "experience" : 30

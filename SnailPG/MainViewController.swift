@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var healthSlider: UISlider!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var manaSlider: UISlider!
+    @IBOutlet weak var victoryLabel: UILabel!
     
     var loggedInHero: Hero?
     
@@ -98,6 +99,7 @@ class MainViewController: UIViewController {
         manaSlider.value = Float(loggedInHero!.mana)
         let area = AreaDataForIndex[Int((loggedInHero?.area)!)]!
         locationLabel.text = area["name"] as! String?
+        victoryLabel.text = String(describing: loggedInHero!.victories)
         ad.saveContext()
     }
     
