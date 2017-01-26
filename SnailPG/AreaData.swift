@@ -22,7 +22,20 @@ let AreaDataForIndex: [Int:[String:Any]] = [
         "shop": [
             "name"  : "Ye Olde Snail General Store",
             "items" : [
-                "Copper Sword"
+                "Copper Sword",
+                "Health Potion",
+                "Escape Potion",
+                "Hammer of Nailing",
+                "Great Sword",
+                "Tomahawk",
+                "Shin Guards",
+                "Leather Cap",
+                "Robes of Wonder",
+                "Leather Armor",
+                "Wool Cap",
+                "Steel Helm",
+                "Magus Robes"
+                
             ]
         ]
     ],
