@@ -20,8 +20,6 @@ class MainViewController: UIViewController {
     
     var loggedInHero: Hero?
     
-    @IBAction func unwindToMain(segue: UIStoryboardSegue){}
-    
     // To Title
     @IBAction func exitButtonPressed(_ sender: UIButton) {
         ad.saveContext()
@@ -29,7 +27,6 @@ class MainViewController: UIViewController {
             navController.popToRootViewController(animated: true)
         }
     }
-    
     // To Battle
     @IBAction func toBattleButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "battleSegue", sender: nil)
@@ -42,7 +39,6 @@ class MainViewController: UIViewController {
     @IBAction func toShopButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "mainToShopSegue", sender: nil)
     }
-    
     // To Backpack
     @IBAction func backpackButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "backpack", sender: nil)
@@ -86,6 +82,7 @@ class MainViewController: UIViewController {
         default:
             break
         }
+        
     }
     
     func update() {
@@ -107,9 +104,5 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         update()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
 }

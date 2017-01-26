@@ -71,41 +71,6 @@ class Monster {
     }
 }
 
-let AreaDataForIndex: [Int:[String:Any]] = [
-    0 : [
-        "name"     : "Snail Meadow",
-        "monsters" : [
-            "Goblin Pleb",
-            "Basic Snail",
-            "Prancing Pony",
-            "Slimer",
-            "Greater Snail",
-            "Snail Junkie"
-        ]
-    ],
-    1 : [
-        "name"     : "Haunted Forest",
-        "monsters" : [
-            "Mecha Snail",
-            "Snail Dragon",
-            "Land Shark",
-            "Greater Snail",
-            "Lava Lord"
-        ]
-    ],
-    2 : [
-        "name"     : "Goblin Outpost",
-        "monsters" : [
-            "Snail Dragon",
-            "Lesser Dragon",
-            "Vampire Snail",
-            "Evil Shopkeep",
-            "Rat Monkey",
-            "Goblin Elite"
-        ]
-    ]
-]
-
 let MonsterList: [String:[String:Any]] = [
     "Goblin Pleb" : [
         "name"       : "Goblin Pleb",

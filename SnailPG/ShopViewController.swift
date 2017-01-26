@@ -10,14 +10,16 @@ import UIKit
 import CoreData
 
 class ShopViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var shopNameLabel: UILabel!
     @IBOutlet weak var heroGoldLabel: UILabel!
-    
     @IBOutlet weak var purchasedItemLabel: UILabel!
     @IBOutlet weak var purchasedItemModal: UIView!
     var timer = Timer()
   
     var loggedInHero: Hero?
-    var storeInventory = [[String:Any]]()
+    var shopInventory = [[String:Any]]()
+    var shop = [String:Any]()
+    
     @IBOutlet weak var storeInventoryTable: UITableView!
     
     @IBAction func sortSegmentPressed(_ sender: UISegmentedControl) {
@@ -39,20 +41,23 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func update(with sorter: String) {
-        storeInventory = []
+
+        shopInventory = []
+        let itemStrings = shop["items"] as! [String]
+        
         if sorter != "All" {
-            for (key, _) in ItemList {
+            for key in itemStrings {
                 if ItemList[key]?["type"] as! String == sorter {
-                    storeInventory.append(ItemList[key]!)
+                    shopInventory.append(ItemList[key]!)
                 }
             }
         } else {
-            for (key, _) in ItemList {
-                storeInventory.append(ItemList[key]!)
+            for key in itemStrings {
+                shopInventory.append(ItemList[key]!)
             }
         }
         
-        storeInventory.sort {
+        shopInventory.sort {
             ($0["price"] as! Int) < ($1["price"] as! Int)
         }
         
@@ -61,7 +66,7 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
-        let item = storeInventory[indexPath.row]
+        let item = shopInventory[indexPath.row]
         let itemType = item["type"] as! String
         
         if itemType == "Weapon" {
@@ -89,11 +94,11 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeInventory.count
+        return shopInventory.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = storeInventory[indexPath.row]
+        let item = shopInventory[indexPath.row]
         let itemPrice = item["price"] as! Int
         if Int((loggedInHero?.gold)!) >= itemPrice {
             loggedInHero?.gold -= itemPrice
@@ -131,6 +136,12 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         heroGoldLabel.text = "\((loggedInHero?.name)!)'s Gold: \((loggedInHero?.gold)!)"
+        
+        let area = Int((loggedInHero?.area)!)
+        
+        shop = AreaDataForIndex[area]!["shop"] as! [String : Any]
+        
+        shopNameLabel.text = shop["name"] as! String?
         
         update(with: "Weapon")
         

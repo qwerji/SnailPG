@@ -1064,7 +1064,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzJ-0R-68Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3780" y="269.36619718309862"/>
+            <point key="canvasLocation" x="3518" y="517"/>
         </scene>
         <!--Shop View Controller-->
         <scene sceneID="IEP-1U-BkG">
@@ -1327,6 +1327,7 @@
                         <outlet property="heroGoldLabel" destination="XGs-lF-kko" id="4eh-1i-chr"/>
                         <outlet property="purchasedItemLabel" destination="gts-Zf-Hy0" id="K7f-YM-TAt"/>
                         <outlet property="purchasedItemModal" destination="jRa-ZR-WbN" id="faZ-mw-IbM"/>
+                        <outlet property="shopNameLabel" destination="KkB-Sz-9bC" id="K2e-V7-RaL"/>
                         <outlet property="storeInventoryTable" destination="kvp-s0-oWh" id="ovn-Ce-MRe"/>
                     </connections>
                 </viewController>

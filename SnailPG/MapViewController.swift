@@ -46,7 +46,7 @@ class MapViewController: UIViewController {
         let level = Int((loggedInHero?.level)!)
         
         if sender.tag == 0 {
-            if level < 5 {
+            if level < 10 {
                 loggedInHero?.area = Int64(sender.tag)
             } else {
                 // Level too high

@@ -29,6 +29,9 @@
 		A1769C9A1E3164E000B8FC3D /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1769C991E3164E000B8FC3D /* Monster.swift */; };
 		A184867B1E31A36B00661783 /* BackpackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184867A1E31A36B00661783 /* BackpackViewController.swift */; };
 		A18CEB441E392BD2000FA989 /* GraveyardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CEB431E392BD2000FA989 /* GraveyardDetailViewController.swift */; };
+		A18CEB461E3968EE000FA989 /* AreaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CEB451E3968EE000FA989 /* AreaData.swift */; };
+		A18CEB481E3970B7000FA989 /* HeroInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CEB471E3970B7000FA989 /* HeroInit.swift */; };
+		A18CEB4A1E397A5A000FA989 /* RandomNameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CEB491E397A5A000FA989 /* RandomNameGenerator.swift */; };
 		A1AB90B51E285AFA00CF4750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */; };
 		A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90B81E285AFA00CF4750 /* Main.storyboard */; };
 		A1AB90BD1E285AFA00CF4750 /* SnailPG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90BB1E285AFA00CF4750 /* SnailPG.xcdatamodeld */; };
@@ -64,6 +67,9 @@
 		A1769C991E3164E000B8FC3D /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A184867A1E31A36B00661783 /* BackpackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackpackViewController.swift; sourceTree = "<group>"; };
 		A18CEB431E392BD2000FA989 /* GraveyardDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraveyardDetailViewController.swift; path = ../GraveyardDetailViewController.swift; sourceTree = "<group>"; };
+		A18CEB451E3968EE000FA989 /* AreaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaData.swift; sourceTree = "<group>"; };
+		A18CEB471E3970B7000FA989 /* HeroInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroInit.swift; sourceTree = "<group>"; };
+		A18CEB491E397A5A000FA989 /* RandomNameGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomNameGenerator.swift; sourceTree = "<group>"; };
 		A1AB90B11E285AFA00CF4750 /* Snail Fantasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snail Fantasy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1AB90B91E285AFA00CF4750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -128,9 +134,12 @@
 			children = (
 				102DD5A61E33274D00274F72 /* HealthBar.swift */,
 				A1769C991E3164E000B8FC3D /* Monster.swift */,
+				A18CEB451E3968EE000FA989 /* AreaData.swift */,
 				A1769C971E3161A200B8FC3D /* Items.swift */,
 				A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */,
 				3F566FAE1E393B9E00811DA7 /* heroAbilities.swift */,
+				A18CEB471E3970B7000FA989 /* HeroInit.swift */,
+				A18CEB491E397A5A000FA989 /* RandomNameGenerator.swift */,
 			);
 			name = GameAssets;
 			sourceTree = "<group>";
@@ -203,7 +212,7 @@
 				TargetAttributes = {
 					A1AB90B01E285AFA00CF4750 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = ULXF9V6CXW;
+						DevelopmentTeam = SW67XSUQ7J;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -258,12 +267,14 @@
 				A1769C981E3161A200B8FC3D /* Items.swift in Sources */,
 				A1B0AE6C1E37FC1600F837A4 /* BattleLogCell.swift in Sources */,
 				A1769C9A1E3164E000B8FC3D /* Monster.swift in Sources */,
+				A18CEB4A1E397A5A000FA989 /* RandomNameGenerator.swift in Sources */,
 				A1AB90BD1E285AFA00CF4750 /* SnailPG.xcdatamodeld in Sources */,
 				A1E14BC11E2EFA7F005133E3 /* HeroMethods.swift in Sources */,
 				A1AB90CE1E2860C000CF4750 /* HeroSelectViewController.swift in Sources */,
 				A1FA96051E2D453000EA3870 /* ShopViewController.swift in Sources */,
 				1052041F1E36CF4B00E78F5F /* CreateHeroViewController.swift in Sources */,
 				A10EA1A11E366B41005F9459 /* continueCell.swift in Sources */,
+				A18CEB481E3970B7000FA989 /* HeroInit.swift in Sources */,
 				A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */,
 				A175AC891E32E96E008E8971 /* armorCell.swift in Sources */,
 				A184867B1E31A36B00661783 /* BackpackViewController.swift in Sources */,
@@ -271,6 +282,7 @@
 				3F566FAF1E393B9E00811DA7 /* heroAbilities.swift in Sources */,
 				A1AB90D01E28662500CF4750 /* MainViewController.swift in Sources */,
 				A1AB90D21E287A4200CF4750 /* BattleViewController.swift in Sources */,
+				A18CEB461E3968EE000FA989 /* AreaData.swift in Sources */,
 				102DD5AB1E343EDE00274F72 /* TitleViewController.swift in Sources */,
 				102DD5A91E34153E00274F72 /* MapViewController.swift in Sources */,
 				A10EA19F1E365EB0005F9459 /* graveyardCell.swift in Sources */,
@@ -396,7 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ULXF9V6CXW;
+				DEVELOPMENT_TEAM = SW67XSUQ7J;
 				INFOPLIST_FILE = SnailPG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = qwerji.SnailPG;
@@ -409,7 +421,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ULXF9V6CXW;
+				DEVELOPMENT_TEAM = SW67XSUQ7J;
 				INFOPLIST_FILE = SnailPG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = qwerji.SnailPG;
