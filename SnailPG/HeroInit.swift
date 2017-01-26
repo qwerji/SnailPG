@@ -49,7 +49,9 @@ extension Hero {
         statPoints = 5
         victories  = 0
         name       = _name
-        backpack   = NSArray()
+        backpack   = [String]() as NSObject?
+        achievements = [String]() as NSObject?
+        
     }
     
 }

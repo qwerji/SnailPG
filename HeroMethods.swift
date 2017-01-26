@@ -10,6 +10,18 @@ import UIKit
 
 extension Hero {
     
+    func achieve(_ potentialAchievement: String) -> Bool {
+        var achievements = self.achievements as! [String]
+        for achievement in achievements {
+            if achievement == potentialAchievement {
+                return false
+            }
+        }
+        achievements.append(potentialAchievement)
+        self.achievements = achievements as NSObject?
+        return true
+    }
+    
     func getGold(amount: Int) {
         self.gold += amount
     }

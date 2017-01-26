@@ -132,6 +132,34 @@ class BattleViewController: UIViewController {
             
             battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) gained \((target?.experience)!) experience!", color: "Experience", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
             
+            var potentialAchievement: String?
+            
+            switch Int((loggedInHero?.victories)!) {
+            case 50:
+                potentialAchievement = "50 Enemies"
+                break
+            case 100:
+                potentialAchievement = "100 Enemies"
+                break
+            case 200:
+                potentialAchievement = "200 Enemies"
+                break
+            case 500:
+                potentialAchievement = "500 Enemies"
+                break
+            case 1000:
+                potentialAchievement = "1000 Enemies"
+                break
+            default: break
+            }
+            
+            if let ach = potentialAchievement {
+                let heroDidNotAlreadyHaveAchievement = loggedInHero?.achieve(ach)
+                if heroDidNotAlreadyHaveAchievement! {
+                    achieve(ach)
+                }
+            }
+            
             return true
         }
         return false
@@ -144,9 +172,18 @@ class BattleViewController: UIViewController {
     }
     
     @IBAction func won(_ sender: UIButton) {
+        
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
         }
+    }
+    
+    func achieve(_ key: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let modal = storyboard.instantiateViewController(withIdentifier: "achievement") as! AchievementModalViewController
+        let chieve = Achievements[key]
+        modal.configureModal(name: chieve?["name"] as! String, description: chieve?["description"] as! String, icon: chieve?["icon"] as! UIImage)
+        self.present(modal, animated: true, completion: nil)
     }
     
     @IBAction func runButtonPressed(_ sender: UIButton) {
