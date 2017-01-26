@@ -212,7 +212,7 @@
 				TargetAttributes = {
 					A1AB90B01E285AFA00CF4750 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SW67XSUQ7J;
+						DevelopmentTeam = ULXF9V6CXW;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -408,7 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SW67XSUQ7J;
+				DEVELOPMENT_TEAM = ULXF9V6CXW;
 				INFOPLIST_FILE = SnailPG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = qwerji.SnailPG;
@@ -421,7 +421,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SW67XSUQ7J;
+				DEVELOPMENT_TEAM = ULXF9V6CXW;
 				INFOPLIST_FILE = SnailPG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = qwerji.SnailPG;
