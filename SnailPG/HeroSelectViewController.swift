@@ -47,7 +47,7 @@ class HeroSelectViewController: UIViewController {
 
     @IBAction func backButtonPressed(_ sender: Any) {
         if let navController = self.navigationController {
-            navController.popViewController(animated: true)
+            navController.popToRootViewController(animated: true)
         }
     }
 
