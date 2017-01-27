@@ -7,13 +7,13 @@
 //
 
 let ItemList: [String:[String:Any]] = [
-    "Copper Sword" : [
-        "name" : "Copper Sword",
+    "Old Spellbook" : [
+        "name" : "Old Spellbook",
         "area" : 0,
         "type" : "Weapon",
         "handed" : 1,
         "damage" : 3,
-        "price" : 15
+        "price" : 20
     ],
     "Hammer of Nailing" : [
         "name" : "Hammer of Nailing",
@@ -111,12 +111,12 @@ let ItemList: [String:[String:Any]] = [
         "damage" : 30,
         "price" : 60
     ],
-    "Bubble Boots" : [
-        "name" : "Bubble Boots",
+    "Dirty Robes" : [
+        "name" : "Dirty Robes",
         "area" : 0,
         "type" : "Armor",
-        "defense" : 50,
-        "price" : 5000
+        "defense" : 1,
+        "price" : 8
     ],
     "Shin Guards" : [
         "name" : "Shin Guards",
@@ -178,8 +178,8 @@ let ItemList: [String:[String:Any]] = [
         "name" : "Health Potion",
         "area" : 0,
         "type" : "Potion",
-        "effect" : "Heals 10",
-        "price" : 10
+        "effect" : "Heals 20",
+        "price" : 5
     ],
     "Escape Potion" : [
         "name" : "Escape Potion",

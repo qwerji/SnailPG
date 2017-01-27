@@ -23,6 +23,7 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var monsterHealthLabel: UILabel!
     @IBOutlet weak var runButton: UIButton!
     @IBOutlet weak var backToMainButton: UIButton!
+    @IBOutlet weak var battleAgainButton: UIButton!
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var attackButton: UIButton!
     @IBOutlet weak var heroHealthSlider: HealthBar!
@@ -73,10 +74,12 @@ class BattleViewController: UIViewController {
         if (loggedInHero?.health)! <= 0 {
             ad.saveContext()
             
+            //Button visibility
             runButton.isHidden = true
             attackButton.isHidden = true
             backToMainButton.isHidden = true
             restartButton.isHidden = false
+            battleAgainButton.isHidden = true
             
             battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) was defeated.", color: "Defeat", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
             
@@ -109,6 +112,7 @@ class BattleViewController: UIViewController {
             
             runButton.isHidden = true
             attackButton.isHidden = true
+            battleAgainButton.isHidden = false
             backToMainButton.isHidden = false
             restartButton.isHidden = true
             
@@ -169,6 +173,14 @@ class BattleViewController: UIViewController {
             controller.loggedInHero = self.loggedInHero
         }
     }
+    @IBAction func battleAgainButtonPressed(_ sender: Any) {
+        attackButton.isHidden = false
+        backToMainButton.isHidden = true
+        restartButton.isHidden = true
+        battleAgainButton.isHidden = true
+        getMonster()
+        update()
+    }
     
     func update(){
         heroHealthLabel.text = String(describing: (loggedInHero?.health)!)
@@ -180,6 +192,9 @@ class BattleViewController: UIViewController {
         heroManaSlider.value = Float((loggedInHero?.mana)!)
         monsterHealthSlider.maximumValue = Float((monsterMaxHealth!))
         monsterHealthSlider.value = Float((target?.health)!)
+        
+
+
         
         battleLogTable.reloadData()
         
@@ -196,14 +211,18 @@ class BattleViewController: UIViewController {
     func getMonster() {
         
         let area = AreaDataForIndex[Int((loggedInHero?.area)!)]
-        
-        let areaMonsters = area?["monsters"] as! Array<Any>
-        
+        let monsterPoolPick = Int(arc4random_uniform(100)) + 1
+        var areaMonsters = [String]()
+        if monsterPoolPick <= 5 {
+            areaMonsters = area?["elites"] as! [String]
+        } else {
+            areaMonsters = area?["monsters"] as! [String]
+        }
         let randomMonsterIdx = Int(arc4random_uniform(UInt32(areaMonsters.count)))
         
-//        let randomMonster = areaMonsters[randomMonsterIdx]
+        let randomMonster = areaMonsters[randomMonsterIdx]
         
-        let monsterChoice = MonsterList["Goblin Pleb"]!
+        let monsterChoice = MonsterList[randomMonster]!
         
         monsterMaxHealth = monsterChoice["health"] as! Int?
         
@@ -231,6 +250,7 @@ class BattleViewController: UIViewController {
         attackButton.isHidden = false
         backToMainButton.isHidden = true
         restartButton.isHidden = true
+        battleAgainButton.isHidden = true
         getMonster()
         update()
 
