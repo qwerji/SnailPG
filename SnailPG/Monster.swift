@@ -58,64 +58,120 @@ class Monster {
             result = "Base Damage"
             
         }
-        
-        if computedDamage > 0 && hero.defense > 0 {
-            log += " \(hero.defense) blocked by armor."
+        var blockedDmg = 0
+        let blockChance = Int(arc4random_uniform(100))+1
+        if computedDamage > 0 && blockChance <= Int(hero.defense) {
+            log += " \(hero.defense) blocked by armor. Total damage(\(computedDamage - Int(hero.defense)))"
+            blockedDmg = Int(hero.defense)
+        } else {
+            blockedDmg = 0
         }
-        
-        if computedDamage - Int(hero.defense) > 0 {
-            hero.health -= (computedDamage - Int(hero.defense))
-        }
+        hero.health -= (computedDamage - blockedDmg)
         
         return (log, result)
     }
 }
 
 let MonsterList: [String:[String:Any]] = [
-    "Goblin Pleb" : [
-        "name"       : "Goblin Pleb",
+    //Trash mob - Area 0
+    "Evil Dandelion" : [
+        "name"       : "Evil Dandelion",
         "area"       : 0,
-        "health"     : 75,
+        "health"     : 15,
         "damage"     : 2,
         "speed"      : 3,
-        "gold"       : 15,
+        "gold"       : 1,
+        "experience" : 3
+    ],
+    //Trash mob - Area 0
+    "Zoop Zoop" : [
+        "name"       : "Zoop Zoop",
+        "area"       : 0,
+        "health"     : 15,
+        "damage"     : 2,
+        "speed"      : 3,
+        "gold"       : 1,
+        "experience" : 3
+    ],
+    //Trash mob - Area 0
+    "Angry Squirrel" : [
+        "name"       : "Angry Squirrel",
+        "area"       : 0,
+        "health"     : 20,
+        "damage"     : 4,
+        "speed"      : 2,
+        "gold"       : 3,
         "experience" : 10
     ],
+    //Trash mob - Area 0
+    "Overgrown Centipede" : [
+        "name"       : "Overgrown Centipede",
+        "area"       : 0,
+        "health"     : 40,
+        "damage"     : 2,
+        "speed"      : 2,
+        "gold"       : 5,
+        "experience" : 10
+    ],
+    //Trash mob - Area 0
+    "King Zooper" : [
+        "name"       : "King Zooper, King of Zoop Zoops",
+        "area"       : 0,
+        "health"     : 50,
+        "damage"     : 3,
+        "speed"      : 2,
+        "gold"       : 5,
+        "experience" : 10
+    ],
+    //Trash mob - Area 1
+    "Farm Snail" : [
+        "name"       : "Farm Snail",
+        "area"       : 1,
+        "health"     : 95,
+        "damage"     : 2,
+        "speed"      : 3,
+        "gold"       : 20,
+        "experience" : 60
+    ],
+    //Trash mob - Area 1
     "Basic Snail" : [
         "name"       : "Basic Snail",
-        "area"       : 0,
-        "health"     : 25,
-        "damage"     : 6,
-        "speed"      : 2,
-        "gold"       : 10,
-        "experience" : 5
-    ],
-    "Mecha Snail" : [
-        "name"       : "Mecha Snail",
-        "area"       : 0,
-        "health"     : 35,
+        "area"       : 1,
+        "health"     : 60,
         "damage"     : 10,
-        "speed"      : 4,
-        "gold"       : 20,
-        "experience" : 30
+        "speed"      : 2,
+        "gold"       : 15,
+        "experience" : 50
     ],
+    //Trash mob - Area 1
+    "Slimer" : [
+        "name"       : "Slimer",
+        "area"       : 1,
+        "health"     : 145,
+        "damage"     : 5,
+        "speed"      : 4,
+        "gold"       : 30,
+        "experience" : 35
+    ],
+    //Trash mob - Area 1
     "Prancing Pony" : [
         "name"       : "Prancing Pony",
-        "area"       : 0,
-        "health"     : 25,
-        "damage"     : 8,
+        "area"       : 1,
+        "health"     : 155,
+        "damage"     : 4,
         "speed"      : 8,
-        "gold"       : 10,
-        "experience" : 15
+        "gold"       : 16,
+        "experience" : 30
     ],
-    "Snail Dragon" : [
-        "name"       : "Snail Dragon",
-        "area"       : 0,
-        "health"     : 30,
-        "damage"     : 10,
+    //Elite mob - Area 1
+    "Greater Snail" : [
+        "name"       : "Greater Snail",
+        "area"       : 1,
+        "health"     : 260,
+        "damage"     : 14,
         "speed"      : 4,
         "gold"       : 35,
-        "experience" : 35
+        "experience" : 100
     ],
     "Lesser Dragon" : [
         "name"       : "Lesser Dragon",
@@ -126,8 +182,8 @@ let MonsterList: [String:[String:Any]] = [
         "gold"       : 50,
         "experience" : 50
     ],
-    "Slimer" : [
-        "name"       : "Slimer",
+    "Mecha Snail" : [
+        "name"       : "Mecha Snail",
         "area"       : 0,
         "health"     : 18,
         "damage"     : 10,
@@ -153,8 +209,8 @@ let MonsterList: [String:[String:Any]] = [
         "gold"       : 100,
         "experience" : 100
     ],
-    "Greater Snail" : [
-        "name"       : "Greater Snail",
+    "Snail Dragon" : [
+        "name"       : "Snail Dragon",
         "area"       : 0,
         "health"     : 20,
         "damage"     : 10,
