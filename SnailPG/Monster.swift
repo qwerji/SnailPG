@@ -66,7 +66,10 @@ class Monster {
         } else {
             blockedDmg = 0
         }
-        hero.health -= (computedDamage - blockedDmg)
+        
+        if computedDamage - blockedDmg > 0 {
+            hero.health -= (computedDamage - blockedDmg)
+        }
         
         return (log, result)
     }
