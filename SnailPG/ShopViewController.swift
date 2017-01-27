@@ -101,6 +101,29 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         let item = shopInventory[indexPath.row]
         let itemPrice = item["price"] as! Int
         if Int((loggedInHero?.gold)!) >= itemPrice {
+            
+            var potentialAchievement: String?
+            
+            switch item["type"] as! String {
+            case "Weapon":
+                potentialAchievement = "First Weapon"
+                break
+            case "Armor":
+                potentialAchievement = "First Armor"
+                break
+            case "Potion":
+                potentialAchievement = "First Potion"
+                break
+            default: break
+            }
+            
+            if let ach = potentialAchievement {
+                let heroDidNotAlreadyHaveAchievement = loggedInHero?.achieve(ach)
+                if heroDidNotAlreadyHaveAchievement! {
+                    achieve(ach)
+                }
+            }
+            
             loggedInHero?.gold -= itemPrice
             loggedInHero?.addToBackpack(item["name"] as! String)
             purchasedItemLabel.text = "Purchased \((item["name"])!)"
@@ -119,6 +142,14 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         heroGoldLabel.text = "\((loggedInHero?.name!)!)'s Gold: \((loggedInHero?.gold)!)"
         ad.saveContext()
+    }
+    
+    func achieve(_ key: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let modal = storyboard.instantiateViewController(withIdentifier: "achievement") as! AchievementModalViewController
+        let chieve = Achievements[key]
+        modal.configureModal(name: chieve?["name"] as! String, description: chieve?["description"] as! String, icon: chieve?["icon"] as! UIImage)
+        self.present(modal, animated: true, completion: nil)
     }
     
     func modalTimerEnd() {

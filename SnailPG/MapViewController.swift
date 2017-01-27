@@ -30,9 +30,8 @@ class MapViewController: UIViewController {
         goblinOutpost.setTitle("🔒 Level Required: 10", for: UIControlState.normal)
         
         let level = Int((loggedInHero?.level)!)
-        
-        if level >= 5 {
-            hauntedForest.setTitle("Haunted Forest", for: UIControlState.normal)
+        if level >= 2 {
+            snailMeadow.setTitle("🔒 Newbs Only", for:UIControlState.normal)
         }
         if level >= 10 {
             goblinOutpost.setTitle("Goblin Outpost", for: UIControlState.normal)
@@ -52,7 +51,7 @@ class MapViewController: UIViewController {
                 // Level too high
             }
         } else if sender.tag == 1 {
-            if level < 15  && level >= 5 {
+            if level < 10  && level >= 2 {
                 loggedInHero?.area = Int64(sender.tag)
             } else {
                 // Level not high enough

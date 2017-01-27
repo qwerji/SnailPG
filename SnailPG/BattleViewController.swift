@@ -23,6 +23,7 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var monsterHealthLabel: UILabel!
     @IBOutlet weak var runButton: UIButton!
     @IBOutlet weak var backToMainButton: UIButton!
+    @IBOutlet weak var battleAgainButton: UIButton!
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var attackButton: UIButton!
     @IBOutlet weak var heroHealthSlider: HealthBar!
@@ -73,10 +74,12 @@ class BattleViewController: UIViewController {
         if (loggedInHero?.health)! <= 0 {
             ad.saveContext()
             
+            //Button visibility
             runButton.isHidden = true
             attackButton.isHidden = true
             backToMainButton.isHidden = true
             restartButton.isHidden = false
+            battleAgainButton.isHidden = true
             
             battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) was defeated.", color: "Defeat", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
             
@@ -109,6 +112,7 @@ class BattleViewController: UIViewController {
             
             runButton.isHidden = true
             attackButton.isHidden = true
+            battleAgainButton.isHidden = false
             backToMainButton.isHidden = false
             restartButton.isHidden = true
             
@@ -132,6 +136,37 @@ class BattleViewController: UIViewController {
             
             battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) gained \((target?.experience)!) experience!", color: "Experience", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
             
+            var potentialAchievement: String?
+            
+            switch Int((loggedInHero?.victories)!) {
+            case 1:
+                potentialAchievement = "Won A Battle"
+                break
+            case 50:
+                potentialAchievement = "50 Enemies"
+                break
+            case 100:
+                potentialAchievement = "100 Enemies"
+                break
+            case 200:
+                potentialAchievement = "200 Enemies"
+                break
+            case 500:
+                potentialAchievement = "500 Enemies"
+                break
+            case 1000:
+                potentialAchievement = "1000 Enemies"
+                break
+            default: break
+            }
+            
+            if let ach = potentialAchievement {
+                let heroDidNotAlreadyHaveAchievement = loggedInHero?.achieve(ach)
+                if heroDidNotAlreadyHaveAchievement! {
+                    achieve(ach)
+                }
+            }
+            
             return true
         }
         return false
@@ -144,9 +179,18 @@ class BattleViewController: UIViewController {
     }
     
     @IBAction func won(_ sender: UIButton) {
+        
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
         }
+    }
+    
+    func achieve(_ key: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let modal = storyboard.instantiateViewController(withIdentifier: "achievement") as! AchievementModalViewController
+        let chieve = Achievements[key]
+        modal.configureModal(name: chieve?["name"] as! String, description: chieve?["description"] as! String, icon: chieve?["icon"] as! UIImage)
+        self.present(modal, animated: true, completion: nil)
     }
     
     @IBAction func runButtonPressed(_ sender: UIButton) {
@@ -169,6 +213,14 @@ class BattleViewController: UIViewController {
             controller.loggedInHero = self.loggedInHero
         }
     }
+    @IBAction func battleAgainButtonPressed(_ sender: Any) {
+        attackButton.isHidden = false
+        backToMainButton.isHidden = true
+        restartButton.isHidden = true
+        battleAgainButton.isHidden = true
+        getMonster()
+        update()
+    }
     
     func update(){
         heroHealthLabel.text = String(describing: (loggedInHero?.health)!)
@@ -180,6 +232,9 @@ class BattleViewController: UIViewController {
         heroManaSlider.value = Float((loggedInHero?.mana)!)
         monsterHealthSlider.maximumValue = Float((monsterMaxHealth!))
         monsterHealthSlider.value = Float((target?.health)!)
+        
+
+
         
         battleLogTable.reloadData()
         
@@ -196,14 +251,18 @@ class BattleViewController: UIViewController {
     func getMonster() {
         
         let area = AreaDataForIndex[Int((loggedInHero?.area)!)]
-        
-        let areaMonsters = area?["monsters"] as! Array<Any>
-        
+        let monsterPoolPick = Int(arc4random_uniform(100)) + 1
+        var areaMonsters = [String]()
+        if monsterPoolPick <= 5 {
+            areaMonsters = area?["elites"] as! [String]
+        } else {
+            areaMonsters = area?["monsters"] as! [String]
+        }
         let randomMonsterIdx = Int(arc4random_uniform(UInt32(areaMonsters.count)))
         
-//        let randomMonster = areaMonsters[randomMonsterIdx]
+        let randomMonster = areaMonsters[randomMonsterIdx]
         
-        let monsterChoice = MonsterList["Goblin Pleb"]!
+        let monsterChoice = MonsterList[randomMonster]!
         
         monsterMaxHealth = monsterChoice["health"] as! Int?
         
@@ -231,6 +290,7 @@ class BattleViewController: UIViewController {
         attackButton.isHidden = false
         backToMainButton.isHidden = true
         restartButton.isHidden = true
+        battleAgainButton.isHidden = true
         getMonster()
         update()
 

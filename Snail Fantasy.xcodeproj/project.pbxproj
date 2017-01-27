@@ -32,6 +32,7 @@
 		A18CEB461E3968EE000FA989 /* AreaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CEB451E3968EE000FA989 /* AreaData.swift */; };
 		A18CEB481E3970B7000FA989 /* HeroInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CEB471E3970B7000FA989 /* HeroInit.swift */; };
 		A18CEB4A1E397A5A000FA989 /* RandomNameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CEB491E397A5A000FA989 /* RandomNameGenerator.swift */; };
+		A18CEB4C1E39B45F000FA989 /* AchievementModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CEB4B1E39B45F000FA989 /* AchievementModalViewController.swift */; };
 		A1AB90B51E285AFA00CF4750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */; };
 		A1AB90BA1E285AFA00CF4750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90B81E285AFA00CF4750 /* Main.storyboard */; };
 		A1AB90BD1E285AFA00CF4750 /* SnailPG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90BB1E285AFA00CF4750 /* SnailPG.xcdatamodeld */; };
@@ -40,6 +41,7 @@
 		A1AB90D01E28662500CF4750 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90CF1E28662500CF4750 /* MainViewController.swift */; };
 		A1AB90D21E287A4200CF4750 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB90D11E287A4200CF4750 /* BattleViewController.swift */; };
 		A1B0AE6C1E37FC1600F837A4 /* BattleLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B0AE6B1E37FC1600F837A4 /* BattleLogCell.swift */; };
+		A1C868B91E3A4EA700F78CA3 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C868B81E3A4EA700F78CA3 /* Achievements.swift */; };
 		A1E14BC11E2EFA7F005133E3 /* HeroMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */; };
 		A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1E14BC41E2F1440005133E3 /* finalf.ttf */; };
 		A1FA96051E2D453000EA3870 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FA96041E2D453000EA3870 /* ShopViewController.swift */; };
@@ -70,6 +72,7 @@
 		A18CEB451E3968EE000FA989 /* AreaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaData.swift; sourceTree = "<group>"; };
 		A18CEB471E3970B7000FA989 /* HeroInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroInit.swift; sourceTree = "<group>"; };
 		A18CEB491E397A5A000FA989 /* RandomNameGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomNameGenerator.swift; sourceTree = "<group>"; };
+		A18CEB4B1E39B45F000FA989 /* AchievementModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementModalViewController.swift; sourceTree = "<group>"; };
 		A1AB90B11E285AFA00CF4750 /* Snail Fantasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snail Fantasy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB90B41E285AFA00CF4750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1AB90B91E285AFA00CF4750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		A1AB90CF1E28662500CF4750 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A1AB90D11E287A4200CF4750 /* BattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 		A1B0AE6B1E37FC1600F837A4 /* BattleLogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BattleLogCell.swift; path = SnailPG/BattleLogCell.swift; sourceTree = "<group>"; };
+		A1C868B81E3A4EA700F78CA3 /* Achievements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
 		A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroMethods.swift; path = ../HeroMethods.swift; sourceTree = "<group>"; };
 		A1E14BC41E2F1440005133E3 /* finalf.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = finalf.ttf; sourceTree = "<group>"; };
 		A1FA96041E2D453000EA3870 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
@@ -139,9 +143,19 @@
 				A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */,
 				3F566FAE1E393B9E00811DA7 /* heroAbilities.swift */,
 				A18CEB471E3970B7000FA989 /* HeroInit.swift */,
+				A1C868B81E3A4EA700F78CA3 /* Achievements.swift */,
 				A18CEB491E397A5A000FA989 /* RandomNameGenerator.swift */,
 			);
 			name = GameAssets;
+			sourceTree = "<group>";
+		};
+		A18CEB4D1E39B468000FA989 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				A18CEB4B1E39B45F000FA989 /* AchievementModalViewController.swift */,
+			);
+			name = Modals;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A1AB90A81E285AFA00CF4750 = {
@@ -163,6 +177,7 @@
 		A1AB90B31E285AFA00CF4750 /* SnailPG */ = {
 			isa = PBXGroup;
 			children = (
+				A18CEB4D1E39B468000FA989 /* Modals */,
 				A175AC8A1E32E975008E8971 /* Cells */,
 				A1769C9B1E31699A00B8FC3D /* GameAssets */,
 				102DD5AC1E343EF600274F72 /* Views */,
@@ -212,7 +227,7 @@
 				TargetAttributes = {
 					A1AB90B01E285AFA00CF4750 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = ULXF9V6CXW;
+						DevelopmentTeam = SW67XSUQ7J;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -277,12 +292,14 @@
 				A18CEB481E3970B7000FA989 /* HeroInit.swift in Sources */,
 				A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */,
 				A175AC891E32E96E008E8971 /* armorCell.swift in Sources */,
+				A1C868B91E3A4EA700F78CA3 /* Achievements.swift in Sources */,
 				A184867B1E31A36B00661783 /* BackpackViewController.swift in Sources */,
 				A1AB90B51E285AFA00CF4750 /* AppDelegate.swift in Sources */,
 				3F566FAF1E393B9E00811DA7 /* heroAbilities.swift in Sources */,
 				A1AB90D01E28662500CF4750 /* MainViewController.swift in Sources */,
 				A1AB90D21E287A4200CF4750 /* BattleViewController.swift in Sources */,
 				A18CEB461E3968EE000FA989 /* AreaData.swift in Sources */,
+				A18CEB4C1E39B45F000FA989 /* AchievementModalViewController.swift in Sources */,
 				102DD5AB1E343EDE00274F72 /* TitleViewController.swift in Sources */,
 				102DD5A91E34153E00274F72 /* MapViewController.swift in Sources */,
 				A10EA19F1E365EB0005F9459 /* graveyardCell.swift in Sources */,
@@ -408,7 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ULXF9V6CXW;
+				DEVELOPMENT_TEAM = SW67XSUQ7J;
 				INFOPLIST_FILE = SnailPG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = qwerji.SnailPG;
@@ -421,7 +438,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ULXF9V6CXW;
+				DEVELOPMENT_TEAM = SW67XSUQ7J;
 				INFOPLIST_FILE = SnailPG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = qwerji.SnailPG;
