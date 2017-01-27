@@ -12,29 +12,23 @@ let AreaDataForIndex: [Int:[String:Any]] = [
     0 : [
         "name"     : "Snail Meadow",
         "monsters" : [
-            "Goblin Pleb",
-            "Basic Snail",
-            "Prancing Pony",
-            "Slimer",
-            "Greater Snail",
-            "Snail Junkie"
+            "Overgrown Centipede",
+            "Angry Squirrel",
+            "Evil Dandelion",
+            "Zoop Zoop"
+        ],
+        "elites": [
+            "King Zooper"
         ],
         "shop": [
             "name"  : "Ye Olde Snail General Store",
             "items" : [
-                "Copper Sword",
-                "Health Potion",
+                "Old Spellbook",
+                "Dirty Robes",
                 "Escape Potion",
-                "Hammer of Nailing",
-                "Great Sword",
-                "Tomahawk",
-                "Shin Guards",
-                "Leather Cap",
-                "Robes of Wonder",
-                "Leather Armor",
-                "Wool Cap",
-                "Steel Helm",
-                "Magus Robes"
+                "Health Potion",
+                "Snail Knife",
+                "Tomahawk"
                 
             ]
         ]
@@ -42,16 +36,26 @@ let AreaDataForIndex: [Int:[String:Any]] = [
     1 : [
         "name"     : "Haunted Forest",
         "monsters" : [
-            "Mecha Snail",
-            "Snail Dragon",
-            "Land Shark",
-            "Greater Snail",
-            "Lava Lord"
+            "Farm Snail",
+            "Basic Snail",
+            "Prancing Pony",
+            "Slimer"
+        ],
+        "elites": [
+            "Greater Snail"
         ],
         "shop": [
             "name"  : "Evil Emporium",
             "items" : [
-                "Escape Potion"
+                "Escape Potion",
+                "Great Sword",
+                "Plate Armor",
+                "Health Potion",
+                "Magus Robes",
+                "Magus Staff",
+                "Tomahawk"
+                
+                
             ]
         ]
     ],
@@ -65,10 +69,16 @@ let AreaDataForIndex: [Int:[String:Any]] = [
             "Rat Monkey",
             "Goblin Elite"
         ],
+        "elites": [
+            "Greater Snail"
+        ],
         "shop": [
             "name"  : "Goblin Trading Post",
             "items" : [
-                "Mace"
+                "Mace",
+                "Health Potion",
+                "Revive Potion",
+                "Crossbow"
             ]
         ]
     ]

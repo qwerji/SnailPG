@@ -331,10 +331,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="slL-sf-6n3">
-                                <rect key="frame" x="24" y="373" width="272" height="143"/>
+                                <rect key="frame" x="24" y="301" width="272" height="215"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQA-IN-JHT">
-                                        <rect key="frame" x="0.0" y="0.0" width="272" height="29"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="47"/>
                                         <fontDescription key="fontDescription" name="Fipps-Regular" family="Fipps" pointSize="14"/>
                                         <state key="normal" title="New">
                                             <color key="titleColor" red="0.33541578054428101" green="0.192909836769104" blue="0.38467466831207275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -344,7 +344,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvO-V0-YfX">
-                                        <rect key="frame" x="0.0" y="38" width="272" height="29"/>
+                                        <rect key="frame" x="0.0" y="56" width="272" height="47"/>
                                         <fontDescription key="fontDescription" name="Fipps-Regular" family="Fipps" pointSize="14"/>
                                         <state key="normal" title="Continue">
                                             <color key="titleColor" red="0.33541578049999998" green="0.19290983680000001" blue="0.38467466830000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -354,7 +354,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAy-lA-1tI">
-                                        <rect key="frame" x="0.0" y="76" width="272" height="29"/>
+                                        <rect key="frame" x="0.0" y="112" width="272" height="47"/>
                                         <fontDescription key="fontDescription" name="Fipps-Regular" family="Fipps" pointSize="14"/>
                                         <state key="normal" title="Graveyard">
                                             <color key="titleColor" red="0.33541578054428101" green="0.192909836769104" blue="0.38467466831207275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -364,7 +364,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nM1-pL-W1q">
-                                        <rect key="frame" x="0.0" y="114" width="272" height="29"/>
+                                        <rect key="frame" x="0.0" y="168" width="272" height="47"/>
                                         <fontDescription key="fontDescription" name="Fipps-Regular" family="Fipps" pointSize="14"/>
                                         <state key="normal" title="Settings">
                                             <color key="titleColor" red="0.33541578054428101" green="0.192909836769104" blue="0.38467466831207275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1811,13 +1811,13 @@
                                 </constraints>
                             </stackView>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="X03-m0-vH4" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
-                                <rect key="frame" x="14" y="351" width="300" height="31"/>
+                                <rect key="frame" x="14" y="352" width="300" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="So 'n So's Health:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="m0e-aK-HCK">
-                                <rect key="frame" x="16" y="351" width="128" height="110"/>
+                                <rect key="frame" x="16" y="293" width="128" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -1844,7 +1844,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monster Health:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="VPQ-m7-pE4">
-                                <rect key="frame" x="16" y="56" width="103.5" height="37"/>
+                                <rect key="frame" x="16" y="50" width="103.5" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="ema-fm-0xD"/>
                                 </constraints>
@@ -1853,19 +1853,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="3y9-Do-7x4">
-                                <rect key="frame" x="113" y="56" width="50" height="37"/>
+                                <rect key="frame" x="113" y="50" width="50" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="GMw-yv-3CE" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
-                                <rect key="frame" x="14" y="86" width="292" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="GMw-yv-3CE" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
+                                <rect key="frame" x="14" y="78" width="292" height="31"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </slider>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="20" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aZj-Zh-mA8">
-                                <rect key="frame" x="0.0" y="124" width="320" height="226"/>
+                                <rect key="frame" x="0.0" y="112" width="320" height="226"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1923,32 +1923,44 @@
                                 </prototypes>
                             </tableView>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="hkM-Bu-ukc" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
-                                <rect key="frame" x="14" y="420" width="300" height="31"/>
+                                <rect key="frame" x="14" y="378" width="300" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mana:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcb-EU-cDr">
-                                <rect key="frame" x="175" y="396" width="47" height="21"/>
+                                <rect key="frame" x="175" y="338" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbo-IP-ZiE">
-                                <rect key="frame" x="230" y="396" width="74" height="21"/>
+                                <rect key="frame" x="230" y="338" width="74" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="hOy-CC-aHB">
-                                <rect key="frame" x="16" y="351" width="147" height="110"/>
+                                <rect key="frame" x="103" y="323" width="60" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD1-OE-uR0">
+                                <rect key="frame" x="0.0" y="416" width="320" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="Battle Again">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="battleAgainButtonPressed:" destination="yKh-kP-0oH" eventType="touchUpInside" id="MbX-YO-IZ6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1962,13 +1974,14 @@
                             <constraint firstItem="Bi3-GH-pda" firstAttribute="leading" secondItem="VPQ-m7-pE4" secondAttribute="trailing" constant="6" id="Pz1-r0-Rwn"/>
                             <constraint firstItem="8XT-9R-qKS" firstAttribute="top" secondItem="YFi-fh-y5L" secondAttribute="bottom" id="QeP-ok-fSb"/>
                             <constraint firstItem="GMw-yv-3CE" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leadingMargin" id="q19-Rh-UQ9"/>
-                            <constraint firstItem="VPQ-m7-pE4" firstAttribute="top" secondItem="DqC-L9-kqG" secondAttribute="bottom" constant="36" id="svl-uY-l9k"/>
+                            <constraint firstItem="VPQ-m7-pE4" firstAttribute="top" secondItem="DqC-L9-kqG" secondAttribute="bottom" constant="30" id="svl-uY-l9k"/>
                             <constraint firstItem="YFi-fh-y5L" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leading" id="xrr-4K-cRn"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="attackButton" destination="biK-XD-LcS" id="b6g-19-KOe"/>
                         <outlet property="backToMainButton" destination="Pp6-N1-S5L" id="K1u-p0-LAh"/>
+                        <outlet property="battleAgainButton" destination="dD1-OE-uR0" id="Oiq-Dr-PTf"/>
                         <outlet property="battleLogTable" destination="aZj-Zh-mA8" id="7OK-OY-oLH"/>
                         <outlet property="heroHealthLabel" destination="hOy-CC-aHB" id="xfz-Fa-v6s"/>
                         <outlet property="heroHealthSlider" destination="X03-m0-vH4" id="NRB-s7-fXy"/>

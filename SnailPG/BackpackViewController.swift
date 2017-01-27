@@ -64,6 +64,10 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
         if itemName == "Escape Potion" {
             return
         }
+        if itemName == "Health Potion" && loggedInHero?.health == loggedInHero?.maxHealth {
+            return
+        }
+        
         
         let item = ItemList[itemName]
         loggedInHero?.removeFromBackpack(at: indexPath.row)
@@ -91,10 +95,10 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
             if item?["name"] as! String == "Health Potion" {
                 let maxHealth = Int((loggedInHero?.maxHealth)!)
                 let curHealth = Int((loggedInHero?.health)!)
-                if curHealth + 10 > maxHealth {
+                if curHealth + 20 > maxHealth {
                     loggedInHero?.health = Int64(maxHealth)
                 } else {
-                    loggedInHero?.health += 10
+                    loggedInHero?.health += 20
                 }
             }
             break
