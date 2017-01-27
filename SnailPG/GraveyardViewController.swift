@@ -9,13 +9,16 @@
 import UIKit
 import CoreData
 
-class GraveyardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GraveyardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
+    @IBOutlet weak var graveyardSearchBar: UISearchBar!
     @IBOutlet weak var graveyardTable: UITableView!
-
+    
     var graveyard: [Hero] = []
+    var refinedGraveyard: [Hero] = []
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "graveyardDetailSegue", sender: graveyard[indexPath.row])
+        performSegue(withIdentifier: "graveyardDetailSegue", sender: refinedGraveyard[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -27,9 +30,23 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
         return false
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            refinedGraveyard = graveyard
+            graveyardTable.reloadData()
+        } else {
+            refineSearch(with: searchText)
+        }
+    }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.showsCancelButton = true
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let cell = graveyardTable.cellForRow(at: indexPath) as! graveyardCell
-        let hero = graveyard[indexPath.row]
+        let hero = refinedGraveyard[indexPath.row]
         let revive = UITableViewRowAction(style: .destructive, title: "Revive Hero") { (action, indexPath) in
             hero.health = hero.maxHealth / 10
             hero.removeFromBackpack(at: cell.potionIndex!)
@@ -45,7 +62,7 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "graveyardCell", for: indexPath) as! graveyardCell
-        cell.configureCell(for: graveyard[indexPath.row])
+        cell.configureCell(for: refinedGraveyard[indexPath.row])
         return cell
     }
     
@@ -54,7 +71,7 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return graveyard.count
+        return refinedGraveyard.count
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,10 +87,26 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
         do {
             let results = try context.fetch(heroRequest)
             graveyard = results as! [Hero]
+            refinedGraveyard = results as! [Hero]
         } catch {
             print("\(error)")
         }
         graveyardTable.reloadData()
+    }
+    
+    func refineSearch(with terms: String) {
+        refinedGraveyard = []
+        for hero in graveyard {
+            if (hero.name?.lowercased().contains(terms.lowercased()))! {
+                refinedGraveyard.append(hero)
+            }
+        }
+        graveyardTable.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
     }
     
     override func viewDidLoad() {
@@ -81,7 +114,10 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
         
         graveyardTable.delegate = self
         graveyardTable.dataSource = self
-
+        graveyardSearchBar.delegate = self
+        
+        graveyardSearchBar.showsCancelButton = false
+        
         update()
     }
     

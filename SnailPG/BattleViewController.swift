@@ -204,7 +204,7 @@ class BattleViewController: UIViewController {
         
         ad.saveContext()
         
-        performSegue(withIdentifier: "unwindToMain", sender: nil)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

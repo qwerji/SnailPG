@@ -20,7 +20,7 @@ class GraveyardDetailViewController: UIViewController {
     @IBOutlet weak var intelligenceLabel: UILabel!
     @IBOutlet weak var dexterityLabel: UILabel!
     @IBOutlet weak var defenseLabel: UILabel!
-
+    
     var hero: Hero!
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
