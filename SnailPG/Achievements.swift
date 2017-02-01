@@ -64,52 +64,54 @@ let Achievements: [String:[String:Any]] = [
         "name" : "Rekt",
         "description" : "Dealt 1000 damage in one strike!",
         "icon" : #imageLiteral(resourceName: "warrior")
-    ],
-    
+    ]
+]
+
+let GlobalAchievements: [String:[String:Any]] = [
     // Names Series
-//    "Algore Rhythms" : [
-//        "name" : "Algore Rhythms",
-//        "description" : "Ray...",
-//        "icon" : #imageLiteral(resourceName: "nameGenerator")
-//    ],
-//    "Phil Buckets" : [
-//        "name" : "Phil Buckets",
-//        "description" : "A great basketball player.",
-//        "icon" : #imageLiteral(resourceName: "nameGenerator")
-//    ],
-//    "Jill People" : [
-//        "name" : "Jill People",
-//        "description" : "What a gal.",
-//        "icon" : #imageLiteral(resourceName: "nameGenerator")
-//    ],
-//    "Beanbag Ben" : [
-//        "name" : "Beanbag Ben",
-//        "description" : "Damn it, Andy.",
-//        "icon" : #imageLiteral(resourceName: "nameGenerator")
-//    ],
-//    "Pem Pem" : [
-//        "name" : "Pem Pem",
-//        "description" : "Don't forget your pem pems.",
-//        "icon" : #imageLiteral(resourceName: "nameGenerator")
-//    ],
-//    "Andy McArver" : [
-//        "name" : "Andy McArver",
-//        "description" : "Oh shit is the mic on?",
-//        "icon" : #imageLiteral(resourceName: "nameGenerator")
-//    ],
-//    "Michael Choi" : [
-//        "name" : "Michael Choi",
-//        "description" : "ChoiGod12",
-//        "icon" : #imageLiteral(resourceName: "nameGenerator")
-//    ],
-//    "Tryit Bryit" : [
-//        "name" : "Tryit Bryit",
-//        "description" : "There he goes...",
-//        "icon" : #imageLiteral(resourceName: "nameGenerator")
-//    ],
-//    "Plebby the Pleb" : [
-//        "name" : "Plebby the Pleb",
-//        "description" : "Plebians.",
-//        "icon" : #imageLiteral(resourceName: "nameGenerator")
-//    ]
+    "Algore Rhythms" : [
+        "name" : "Algore Rhythms",
+        "description" : "Ray...",
+        "icon" : #imageLiteral(resourceName: "nameGenerator")
+    ],
+    "Phil Buckets" : [
+        "name" : "Phil Buckets",
+        "description" : "A great basketball player.",
+        "icon" : #imageLiteral(resourceName: "nameGenerator")
+    ],
+    "Jill People" : [
+        "name" : "Jill People",
+        "description" : "What a gal.",
+        "icon" : #imageLiteral(resourceName: "nameGenerator")
+    ],
+    "Beanbag Ben" : [
+        "name" : "Beanbag Ben",
+        "description" : "Damn it, Andy.",
+        "icon" : #imageLiteral(resourceName: "nameGenerator")
+    ],
+    "Pem Pem" : [
+        "name" : "Pem Pem",
+        "description" : "Don't forget your pem pems.",
+        "icon" : #imageLiteral(resourceName: "nameGenerator")
+    ],
+    "Andy McArver" : [
+        "name" : "Andy McArver",
+        "description" : "Oh shit is the mic on?",
+        "icon" : #imageLiteral(resourceName: "nameGenerator")
+    ],
+    "Michael Choi" : [
+        "name" : "Michael Choi",
+        "description" : "ChoiGod12",
+        "icon" : #imageLiteral(resourceName: "nameGenerator")
+    ],
+    "Tryit Bryit" : [
+        "name" : "Tryit Bryit",
+        "description" : "There he goes...",
+        "icon" : #imageLiteral(resourceName: "nameGenerator")
+    ],
+    "Plebby the Pleb" : [
+        "name" : "Plebby the Pleb",
+        "description" : "Plebians.",
+        "icon" : #imageLiteral(resourceName: "nameGenerator")
+    ]
 ]

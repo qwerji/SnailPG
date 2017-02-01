@@ -20,6 +20,7 @@
 		10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90C31E285AFA00CF4750 /* Info.plist */; };
 		10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */; };
 		3F566FAF1E393B9E00811DA7 /* heroAbilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F566FAE1E393B9E00811DA7 /* heroAbilities.swift */; };
+		A10BA8BF1E423742007E3532 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A10BA8BE1E423742007E3532 /* GoogleService-Info.plist */; };
 		A10EA19F1E365EB0005F9459 /* graveyardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EA19E1E365EB0005F9459 /* graveyardCell.swift */; };
 		A10EA1A11E366B41005F9459 /* continueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EA1A01E366B41005F9459 /* continueCell.swift */; };
 		A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC841E32E95D008E8971 /* weaponCell.swift */; };
@@ -45,6 +46,7 @@
 		A1E14BC11E2EFA7F005133E3 /* HeroMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */; };
 		A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1E14BC41E2F1440005133E3 /* finalf.ttf */; };
 		A1FA96051E2D453000EA3870 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FA96041E2D453000EA3870 /* ShopViewController.swift */; };
+		CEB305850600F46D474A4A45 /* Pods_Snail_Fantasy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546A2CDF43266E29F8A1BB19 /* Pods_Snail_Fantasy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,9 @@
 		105204241E37B48A00E78F5F /* Merchant Copy Doublesize.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merchant Copy Doublesize.ttf"; sourceTree = "<group>"; };
 		10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		3F566FAE1E393B9E00811DA7 /* heroAbilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = heroAbilities.swift; sourceTree = "<group>"; };
+		546A2CDF43266E29F8A1BB19 /* Pods_Snail_Fantasy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snail_Fantasy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5506D2E8829748E952ADAD94 /* Pods-Snail Fantasy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snail Fantasy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Snail Fantasy/Pods-Snail Fantasy.debug.xcconfig"; sourceTree = "<group>"; };
+		A10BA8BE1E423742007E3532 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A10EA19E1E365EB0005F9459 /* graveyardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = graveyardCell.swift; path = SnailPG/graveyardCell.swift; sourceTree = "<group>"; };
 		A10EA1A01E366B41005F9459 /* continueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = continueCell.swift; sourceTree = "<group>"; };
 		A175AC841E32E95D008E8971 /* weaponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weaponCell.swift; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 		A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroMethods.swift; path = ../HeroMethods.swift; sourceTree = "<group>"; };
 		A1E14BC41E2F1440005133E3 /* finalf.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = finalf.ttf; sourceTree = "<group>"; };
 		A1FA96041E2D453000EA3870 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		BC89B38CF6DF699C70F024F6 /* Pods-Snail Fantasy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snail Fantasy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Snail Fantasy/Pods-Snail Fantasy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB305850600F46D474A4A45 /* Pods_Snail_Fantasy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +123,23 @@
 				1052041E1E36CF4B00E78F5F /* CreateHeroViewController.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		5E4748E97CFC47C32AB33249 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5506D2E8829748E952ADAD94 /* Pods-Snail Fantasy.debug.xcconfig */,
+				BC89B38CF6DF699C70F024F6 /* Pods-Snail Fantasy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		919448BC48D8884733A8F1DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				546A2CDF43266E29F8A1BB19 /* Pods_Snail_Fantasy.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A175AC8A1E32E975008E8971 /* Cells */ = {
@@ -163,6 +187,8 @@
 			children = (
 				A1AB90B31E285AFA00CF4750 /* SnailPG */,
 				A1AB90B21E285AFA00CF4750 /* Products */,
+				5E4748E97CFC47C32AB33249 /* Pods */,
+				919448BC48D8884733A8F1DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,6 +217,7 @@
 				A1AB90C01E285AFA00CF4750 /* LaunchScreen.storyboard */,
 				A1AB90C31E285AFA00CF4750 /* Info.plist */,
 				A1AB90BB1E285AFA00CF4750 /* SnailPG.xcdatamodeld */,
+				A10BA8BE1E423742007E3532 /* GoogleService-Info.plist */,
 			);
 			path = SnailPG;
 			sourceTree = "<group>";
@@ -202,9 +229,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1AB90C61E285AFA00CF4750 /* Build configuration list for PBXNativeTarget "Snail Fantasy" */;
 			buildPhases = (
+				C7C1AABE42FE406453004B80 /* [CP] Check Pods Manifest.lock */,
 				A1AB90AD1E285AFA00CF4750 /* Sources */,
 				A1AB90AE1E285AFA00CF4750 /* Frameworks */,
 				A1AB90AF1E285AFA00CF4750 /* Resources */,
+				FF2CDB8EC7D68FA37BCCE70D /* [CP] Embed Pods Frameworks */,
+				8969DE0EA10180310CB52CBF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,6 +287,7 @@
 			files = (
 				A1AB90C21E285AFA00CF4750 /* LaunchScreen.storyboard in Resources */,
 				A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */,
+				A10BA8BF1E423742007E3532 /* GoogleService-Info.plist in Resources */,
 				10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */,
 				105204251E37B48A00E78F5F /* Merchant Copy Doublesize.ttf in Resources */,
 				102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */,
@@ -267,6 +298,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8969DE0EA10180310CB52CBF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Snail Fantasy/Pods-Snail Fantasy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7C1AABE42FE406453004B80 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FF2CDB8EC7D68FA37BCCE70D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Snail Fantasy/Pods-Snail Fantasy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A1AB90AD1E285AFA00CF4750 /* Sources */ = {
@@ -423,6 +502,7 @@
 		};
 		A1AB90C71E285AFA00CF4750 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5506D2E8829748E952ADAD94 /* Pods-Snail Fantasy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SW67XSUQ7J;
@@ -436,6 +516,7 @@
 		};
 		A1AB90C81E285AFA00CF4750 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC89B38CF6DF699C70F024F6 /* Pods-Snail Fantasy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SW67XSUQ7J;
