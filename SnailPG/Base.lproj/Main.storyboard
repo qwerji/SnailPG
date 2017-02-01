@@ -1749,7 +1749,7 @@
                                 </constraints>
                             </stackView>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="X03-m0-vH4" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
-                                <rect key="frame" x="14" y="352" width="300" height="31"/>
+                                <rect key="frame" x="14" y="349" width="300" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1861,7 +1861,7 @@
                                 </prototypes>
                             </tableView>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="hkM-Bu-ukc" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
-                                <rect key="frame" x="14" y="378" width="300" height="31"/>
+                                <rect key="frame" x="14" y="365" width="300" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1887,9 +1887,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD1-OE-uR0">
-                                <rect key="frame" x="0.0" y="416" width="320" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD1-OE-uR0">
+                                <rect key="frame" x="0.0" y="392" width="320" height="61"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Battle Again">
@@ -1903,10 +1902,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GMw-yv-3CE" firstAttribute="top" secondItem="Bi3-GH-pda" secondAttribute="bottom" constant="21" id="2EW-Cp-dOi"/>
+                            <constraint firstAttribute="trailing" secondItem="dD1-OE-uR0" secondAttribute="trailing" id="3Vl-E6-0lM"/>
                             <constraint firstItem="Zqz-Oe-UMG" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leadingMargin" id="4hh-gp-FYr"/>
                             <constraint firstItem="Bi3-GH-pda" firstAttribute="top" secondItem="DqC-L9-kqG" secondAttribute="bottom" id="7lw-VY-gtZ"/>
                             <constraint firstItem="VPQ-m7-pE4" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leadingMargin" id="98w-Hk-TeG"/>
+                            <constraint firstItem="YFi-fh-y5L" firstAttribute="top" secondItem="dD1-OE-uR0" secondAttribute="bottom" constant="5" id="9jk-pj-G5l"/>
                             <constraint firstItem="GMw-yv-3CE" firstAttribute="trailing" secondItem="Rnf-CL-WKx" secondAttribute="trailingMargin" id="BkC-cR-O8A"/>
+                            <constraint firstItem="dD1-OE-uR0" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leading" id="FfY-pH-MiS"/>
                             <constraint firstAttribute="trailing" secondItem="YFi-fh-y5L" secondAttribute="trailing" id="G1S-eq-Q79"/>
                             <constraint firstItem="Zqz-Oe-UMG" firstAttribute="top" secondItem="DqC-L9-kqG" secondAttribute="bottom" id="Khb-Rz-HX2"/>
                             <constraint firstItem="Bi3-GH-pda" firstAttribute="leading" secondItem="VPQ-m7-pE4" secondAttribute="trailing" constant="6" id="Pz1-r0-Rwn"/>
@@ -2112,8 +2114,8 @@
         <image name="warrior" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f1C-43-Y4J"/>
-        <segue reference="t51-69-o9V"/>
+        <segue reference="bhr-tG-y32"/>
         <segue reference="UIU-Qo-Vhc"/>
+        <segue reference="t51-69-o9V"/>
     </inferredMetricsTieBreakers>
 </document>
