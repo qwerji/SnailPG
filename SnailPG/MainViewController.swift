@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITabBarDelegate {
     @IBOutlet weak var heroNameLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var goldLabel: UILabel!
@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var manaSlider: UISlider!
     @IBOutlet weak var victoryLabel: UILabel!
+    @IBOutlet weak var mainTabBar: UITabBar!
     
     var loggedInHero: Hero?
     
@@ -45,10 +46,45 @@ class MainViewController: UIViewController {
         self.performSegue(withIdentifier: "mainToShopSegue", sender: nil)
     }
     // To Backpack
-    @IBAction func backpackButtonPressed(_ sender: UIButton) {
+    @IBAction func backpackButtonPressed(_ sender: UITabBarItem) {
         self.performSegue(withIdentifier: "backpack", sender: nil)
     }
     //To Map
+    @IBOutlet weak var mapButtonPressed: UITabBarItem!
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        switch item.tag {
+        case 0:
+            self.performSegue(withIdentifier: "mapSegue", sender: nil)
+            break
+        case 1:
+            self.performSegue(withIdentifier: "battleSegue", sender: nil)
+            break
+        case 2:
+            self.performSegue(withIdentifier: "mainToShopSegue", sender: nil)
+            break
+        case 3:
+            self.performSegue(withIdentifier: "backpack", sender: nil)
+            break
+        case 4:
+            self.performSegue(withIdentifier: "mainToStatsSegue", sender: nil)
+            break
+        case 5:
+            ad.saveContext()
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            }
+            break
+        case 6:
+            ad.saveContext()
+            if let navController = self.navigationController {
+                navController.popToRootViewController(animated: true)
+            }
+            break
+        default: break
+            
+        }
+        
+    }
     @IBAction func mapButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "mapSegue", sender: nil)
     }
@@ -88,6 +124,10 @@ class MainViewController: UIViewController {
             break
         }
         
+    }
+    
+    override func viewDidLoad() {
+        mainTabBar.delegate = self
     }
     
     func update() {

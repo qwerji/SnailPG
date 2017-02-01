@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Chj-aj-ELX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Chj-aj-ELX">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1353,54 +1353,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsF-74-dDB">
-                                <rect key="frame" x="16" y="410" width="111" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.2300107093" blue="0.24935875190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="MerchantCopyDoublesize" family="Merchant Copy Doublesize" pointSize="14"/>
-                                <state key="normal" title="To Battle!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toBattleButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="GjJ-gF-nrL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CU4-SU-t2D">
-                                <rect key="frame" x="193" y="483" width="111" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="MerchantCopyDoublesize" family="Merchant Copy Doublesize" pointSize="17"/>
-                                <state key="normal" title="Exit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="exitButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="upy-wB-C5O"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJ1-CP-53o">
-                                <rect key="frame" x="193" y="337" width="111" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.46727055311203003" green="0.76425302028656006" blue="0.26648974418640137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="MerchantCopyDoublesize" family="Merchant Copy Doublesize" pointSize="17"/>
-                                <state key="normal" title="To Shop">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toShopButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="hVi-oj-XBZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Q1-Bk-XYW">
-                                <rect key="frame" x="193" y="410" width="111" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="MerchantCopyDoublesize" family="Merchant Copy Doublesize" pointSize="17"/>
-                                <state key="normal" title="Backpack">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backpackButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="Fbh-sS-aHo"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="0rx-Ht-n4g">
                                 <rect key="frame" x="16" y="20" width="183" height="34"/>
                                 <constraints>
@@ -1472,18 +1424,6 @@
                                 <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXG-UN-MSf">
-                                <rect key="frame" x="16" y="337" width="111" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="MerchantCopyDoublesize" family="Merchant Copy Doublesize" pointSize="17"/>
-                                <state key="normal" title="Map">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="mapButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="Rfe-QW-XcT"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwP-ge-XYg">
                                 <rect key="frame" x="23" y="268" width="186" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1498,30 +1438,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gC3-Uu-Eaa">
-                                <rect key="frame" x="16" y="483" width="111" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="MerchantCopyDoublesize" family="Merchant Copy Doublesize" pointSize="15"/>
-                                <state key="normal" title="Change Hero">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeHeroButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="4YM-Ew-WQc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcv-ug-9C0">
-                                <rect key="frame" x="193" y="264" width="111" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="MerchantCopyDoublesize" family="Merchant Copy Doublesize" pointSize="17"/>
-                                <state key="normal" title="Stats">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="toStatsButtonPressed:" destination="BIC-vP-ecI" eventType="touchUpInside" id="xgh-fS-vBm"/>
-                                </connections>
-                            </button>
                             <slider opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="biE-cV-zvp" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
                                 <rect key="frame" x="14" y="153" width="292" height="31"/>
                                 <color key="tintColor" red="0.1450980392" green="0.63996940560000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1541,6 +1457,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iCY-M8-5yF">
+                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="map" image="map" selectedImage="map" id="pAb-57-VRU"/>
+                                    <tabBarItem tag="1" title="Battle" image="sword-clash (1)" selectedImage="sword-clash (1)" id="suA-PP-xKL"/>
+                                    <tabBarItem tag="2" title="Shop" image="shop (1)" selectedImage="shop (1)" id="gTB-wA-6UO"/>
+                                    <tabBarItem tag="3" title="Backpack" image="backpack" selectedImage="backpack" id="8k7-CX-rhF"/>
+                                    <tabBarItem tag="4" title="Level Up" image="beams-aura" selectedImage="beams-aura" id="d4b-0I-H7X"/>
+                                    <tabBarItem tag="5" title="Change Hero" image="body-swapping" selectedImage="body-swapping" id="Rsb-Nu-kuS"/>
+                                    <tabBarItem tag="6" title="Exit" image="exit-door" selectedImage="exit-door" id="pBN-K4-cFf"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1570,7 +1500,9 @@
                         <outlet property="heroNameLabel" destination="0rx-Ht-n4g" id="iuq-cy-Pb2"/>
                         <outlet property="levelLabel" destination="Sg7-oK-2HR" id="L4c-s6-iss"/>
                         <outlet property="locationLabel" destination="IwP-ge-XYg" id="mzR-VU-n2p"/>
+                        <outlet property="mainTabBar" destination="iCY-M8-5yF" id="bae-ES-RoZ"/>
                         <outlet property="manaSlider" destination="biE-cV-zvp" id="DzE-OG-8gY"/>
+                        <outlet property="mapButtonPressed" destination="pAb-57-VRU" id="btb-bO-ME3"/>
                         <outlet property="victoryLabel" destination="6yh-Lp-4ss" id="pbY-32-Tlo"/>
                         <segue destination="yKh-kP-0oH" kind="show" identifier="battleSegue" animates="NO" id="yQE-KJ-B4R"/>
                         <segue destination="FuI-Xf-Kte" kind="show" identifier="mainToShopSegue" id="BxR-Db-WJe"/>
@@ -1817,7 +1749,7 @@
                                 </constraints>
                             </stackView>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="X03-m0-vH4" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
-                                <rect key="frame" x="14" y="352" width="300" height="31"/>
+                                <rect key="frame" x="14" y="349" width="300" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1929,7 +1861,7 @@
                                 </prototypes>
                             </tableView>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="hkM-Bu-ukc" customClass="HealthBar" customModule="Snail_Fantasy" customModuleProvider="target">
-                                <rect key="frame" x="14" y="378" width="300" height="31"/>
+                                <rect key="frame" x="14" y="365" width="300" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1955,9 +1887,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD1-OE-uR0">
-                                <rect key="frame" x="0.0" y="416" width="320" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD1-OE-uR0">
+                                <rect key="frame" x="0.0" y="392" width="320" height="61"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Battle Again">
@@ -1971,10 +1902,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GMw-yv-3CE" firstAttribute="top" secondItem="Bi3-GH-pda" secondAttribute="bottom" constant="21" id="2EW-Cp-dOi"/>
+                            <constraint firstAttribute="trailing" secondItem="dD1-OE-uR0" secondAttribute="trailing" id="3Vl-E6-0lM"/>
                             <constraint firstItem="Zqz-Oe-UMG" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leadingMargin" id="4hh-gp-FYr"/>
                             <constraint firstItem="Bi3-GH-pda" firstAttribute="top" secondItem="DqC-L9-kqG" secondAttribute="bottom" id="7lw-VY-gtZ"/>
                             <constraint firstItem="VPQ-m7-pE4" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leadingMargin" id="98w-Hk-TeG"/>
+                            <constraint firstItem="YFi-fh-y5L" firstAttribute="top" secondItem="dD1-OE-uR0" secondAttribute="bottom" constant="5" id="9jk-pj-G5l"/>
                             <constraint firstItem="GMw-yv-3CE" firstAttribute="trailing" secondItem="Rnf-CL-WKx" secondAttribute="trailingMargin" id="BkC-cR-O8A"/>
+                            <constraint firstItem="dD1-OE-uR0" firstAttribute="leading" secondItem="Rnf-CL-WKx" secondAttribute="leading" id="FfY-pH-MiS"/>
                             <constraint firstAttribute="trailing" secondItem="YFi-fh-y5L" secondAttribute="trailing" id="G1S-eq-Q79"/>
                             <constraint firstItem="Zqz-Oe-UMG" firstAttribute="top" secondItem="DqC-L9-kqG" secondAttribute="bottom" id="Khb-Rz-HX2"/>
                             <constraint firstItem="Bi3-GH-pda" firstAttribute="leading" secondItem="VPQ-m7-pE4" secondAttribute="trailing" constant="6" id="Pz1-r0-Rwn"/>
@@ -2166,15 +2100,22 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backpack" width="32" height="32"/>
+        <image name="beams-aura" width="32" height="32"/>
+        <image name="body-swapping" width="32" height="32"/>
+        <image name="exit-door" width="32" height="32"/>
         <image name="mage" width="512" height="512"/>
+        <image name="map" width="32" height="32"/>
         <image name="nameGenerator" width="512" height="512"/>
+        <image name="shop (1)" width="32" height="32"/>
         <image name="snailhero2" width="256" height="256"/>
+        <image name="sword-clash (1)" width="32" height="32"/>
         <image name="thief" width="512" height="512"/>
         <image name="warrior" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f1C-43-Y4J"/>
-        <segue reference="t51-69-o9V"/>
+        <segue reference="bhr-tG-y32"/>
         <segue reference="UIU-Qo-Vhc"/>
+        <segue reference="t51-69-o9V"/>
     </inferredMetricsTieBreakers>
 </document>
