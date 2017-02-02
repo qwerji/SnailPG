@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		102DD5A71E33274D00274F72 /* HealthBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5A61E33274D00274F72 /* HealthBar.swift */; };
 		102DD5A91E34153E00274F72 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5A81E34153E00274F72 /* MapViewController.swift */; };
-		102DD5AB1E343EDE00274F72 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5AA1E343EDE00274F72 /* TitleViewController.swift */; };
 		102DD5AE1E343F3C00274F72 /* GraveyardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */; };
 		102DD5B01E3455D600274F72 /* displayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102DD5AF1E3455D600274F72 /* displayCell.swift */; };
 		102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 102DD5B31E35C0FA00274F72 /* Assets.xcassets */; };
@@ -25,6 +24,7 @@
 		A10EA19F1E365EB0005F9459 /* graveyardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EA19E1E365EB0005F9459 /* graveyardCell.swift */; };
 		A10EA1A11E366B41005F9459 /* continueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EA1A01E366B41005F9459 /* continueCell.swift */; };
 		A12D9EFD1E42B7BC005E553A /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12D9EFC1E42B7BC005E553A /* LeaderboardViewController.swift */; };
+		A160ACDB1E4398E00050B1B1 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160ACDA1E4398E00050B1B1 /* TitleViewController.swift */; };
 		A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC841E32E95D008E8971 /* weaponCell.swift */; };
 		A175AC871E32E967008E8971 /* potionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC861E32E967008E8971 /* potionCell.swift */; };
 		A175AC891E32E96E008E8971 /* armorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC881E32E96E008E8971 /* armorCell.swift */; };
@@ -54,7 +54,6 @@
 /* Begin PBXFileReference section */
 		102DD5A61E33274D00274F72 /* HealthBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthBar.swift; sourceTree = "<group>"; };
 		102DD5A81E34153E00274F72 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		102DD5AA1E343EDE00274F72 /* TitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraveyardViewController.swift; sourceTree = "<group>"; };
 		102DD5AF1E3455D600274F72 /* displayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = displayCell.swift; sourceTree = "<group>"; };
 		102DD5B31E35C0FA00274F72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		A10EA19E1E365EB0005F9459 /* graveyardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = graveyardCell.swift; path = SnailPG/graveyardCell.swift; sourceTree = "<group>"; };
 		A10EA1A01E366B41005F9459 /* continueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = continueCell.swift; sourceTree = "<group>"; };
 		A12D9EFC1E42B7BC005E553A /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		A160ACDA1E4398E00050B1B1 /* TitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		A175AC841E32E95D008E8971 /* weaponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weaponCell.swift; sourceTree = "<group>"; };
 		A175AC861E32E967008E8971 /* potionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = potionCell.swift; sourceTree = "<group>"; };
 		A175AC881E32E96E008E8971 /* armorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = armorCell.swift; sourceTree = "<group>"; };
@@ -114,9 +114,9 @@
 		102DD5AC1E343EF600274F72 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A160ACDA1E4398E00050B1B1 /* TitleViewController.swift */,
 				A12D9EFC1E42B7BC005E553A /* LeaderboardViewController.swift */,
 				A10BA8C01E42931D007E3532 /* LogInViewController.swift */,
-				102DD5AA1E343EDE00274F72 /* TitleViewController.swift */,
 				A18CEB431E392BD2000FA989 /* GraveyardDetailViewController.swift */,
 				102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */,
 				A1FA96041E2D453000EA3870 /* ShopViewController.swift */,
@@ -379,6 +379,7 @@
 				A10BA8C11E42931D007E3532 /* LogInViewController.swift in Sources */,
 				A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */,
 				A175AC891E32E96E008E8971 /* armorCell.swift in Sources */,
+				A160ACDB1E4398E00050B1B1 /* TitleViewController.swift in Sources */,
 				A1C868B91E3A4EA700F78CA3 /* Achievements.swift in Sources */,
 				A184867B1E31A36B00661783 /* BackpackViewController.swift in Sources */,
 				A1AB90B51E285AFA00CF4750 /* AppDelegate.swift in Sources */,
@@ -387,7 +388,6 @@
 				A1AB90D21E287A4200CF4750 /* BattleViewController.swift in Sources */,
 				A18CEB461E3968EE000FA989 /* AreaData.swift in Sources */,
 				A18CEB4C1E39B45F000FA989 /* AchievementModalViewController.swift in Sources */,
-				102DD5AB1E343EDE00274F72 /* TitleViewController.swift in Sources */,
 				102DD5A91E34153E00274F72 /* MapViewController.swift in Sources */,
 				A10EA19F1E365EB0005F9459 /* graveyardCell.swift in Sources */,
 			);
