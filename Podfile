@@ -8,4 +8,5 @@ target 'Snail Fantasy' do
   # Pods for Snail Fantasy
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 end

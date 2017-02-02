@@ -21,8 +21,10 @@
 		10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */; };
 		3F566FAF1E393B9E00811DA7 /* heroAbilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F566FAE1E393B9E00811DA7 /* heroAbilities.swift */; };
 		A10BA8BF1E423742007E3532 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A10BA8BE1E423742007E3532 /* GoogleService-Info.plist */; };
+		A10BA8C11E42931D007E3532 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10BA8C01E42931D007E3532 /* LogInViewController.swift */; };
 		A10EA19F1E365EB0005F9459 /* graveyardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EA19E1E365EB0005F9459 /* graveyardCell.swift */; };
 		A10EA1A11E366B41005F9459 /* continueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EA1A01E366B41005F9459 /* continueCell.swift */; };
+		A12D9EFD1E42B7BC005E553A /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12D9EFC1E42B7BC005E553A /* LeaderboardViewController.swift */; };
 		A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC841E32E95D008E8971 /* weaponCell.swift */; };
 		A175AC871E32E967008E8971 /* potionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC861E32E967008E8971 /* potionCell.swift */; };
 		A175AC891E32E96E008E8971 /* armorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175AC881E32E96E008E8971 /* armorCell.swift */; };
@@ -65,8 +67,10 @@
 		546A2CDF43266E29F8A1BB19 /* Pods_Snail_Fantasy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snail_Fantasy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5506D2E8829748E952ADAD94 /* Pods-Snail Fantasy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snail Fantasy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Snail Fantasy/Pods-Snail Fantasy.debug.xcconfig"; sourceTree = "<group>"; };
 		A10BA8BE1E423742007E3532 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A10BA8C01E42931D007E3532 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A10EA19E1E365EB0005F9459 /* graveyardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = graveyardCell.swift; path = SnailPG/graveyardCell.swift; sourceTree = "<group>"; };
 		A10EA1A01E366B41005F9459 /* continueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = continueCell.swift; sourceTree = "<group>"; };
+		A12D9EFC1E42B7BC005E553A /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		A175AC841E32E95D008E8971 /* weaponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weaponCell.swift; sourceTree = "<group>"; };
 		A175AC861E32E967008E8971 /* potionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = potionCell.swift; sourceTree = "<group>"; };
 		A175AC881E32E96E008E8971 /* armorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = armorCell.swift; sourceTree = "<group>"; };
@@ -110,8 +114,10 @@
 		102DD5AC1E343EF600274F72 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A18CEB431E392BD2000FA989 /* GraveyardDetailViewController.swift */,
+				A12D9EFC1E42B7BC005E553A /* LeaderboardViewController.swift */,
+				A10BA8C01E42931D007E3532 /* LogInViewController.swift */,
 				102DD5AA1E343EDE00274F72 /* TitleViewController.swift */,
+				A18CEB431E392BD2000FA989 /* GraveyardDetailViewController.swift */,
 				102DD5AD1E343F3C00274F72 /* GraveyardViewController.swift */,
 				A1FA96041E2D453000EA3870 /* ShopViewController.swift */,
 				105204201E36DD6500E78F5F /* StatViewController.swift */,
@@ -366,9 +372,11 @@
 				A1E14BC11E2EFA7F005133E3 /* HeroMethods.swift in Sources */,
 				A1AB90CE1E2860C000CF4750 /* HeroSelectViewController.swift in Sources */,
 				A1FA96051E2D453000EA3870 /* ShopViewController.swift in Sources */,
+				A12D9EFD1E42B7BC005E553A /* LeaderboardViewController.swift in Sources */,
 				1052041F1E36CF4B00E78F5F /* CreateHeroViewController.swift in Sources */,
 				A10EA1A11E366B41005F9459 /* continueCell.swift in Sources */,
 				A18CEB481E3970B7000FA989 /* HeroInit.swift in Sources */,
+				A10BA8C11E42931D007E3532 /* LogInViewController.swift in Sources */,
 				A175AC851E32E95D008E8971 /* weaponCell.swift in Sources */,
 				A175AC891E32E96E008E8971 /* armorCell.swift in Sources */,
 				A1C868B91E3A4EA700F78CA3 /* Achievements.swift in Sources */,

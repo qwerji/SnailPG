@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class TitleViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var logInAndLeaderboardButton: UIButton!
+    
+    @IBAction func logInAndLeaderboardButtonPressed(_ sender: UIButton) {
+        if FIRAuth.auth()?.currentUser != nil {
+            performSegue(withIdentifier: "leaderboardSegue", sender: nil)
+        } else {
+            performSegue(withIdentifier: "logInSegue", sender: nil)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if FIRAuth.auth()?.currentUser != nil {
+            logInAndLeaderboardButton.setTitle("Leaderboard", for: UIControlState.normal)
+        } else {
+            logInAndLeaderboardButton.setTitle("Log In / Register", for: UIControlState.normal)
+        }
     }
     
     @IBAction func graveyardButtonPressed(_ sender: UIButton) {
@@ -23,5 +37,4 @@ class TitleViewController: UIViewController {
         //settingsSegue
     }
     
-
 }
