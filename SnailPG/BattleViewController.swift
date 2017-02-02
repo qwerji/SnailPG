@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FirebaseAuth
 
 class BattleViewController: UIViewController {
     
@@ -167,6 +169,22 @@ class BattleViewController: UIViewController {
                 }
             }
             
+            // Increment Firebase total victories
+            if let user = FIRAuth.auth()?.currentUser {
+                print("dandelions")
+                ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    // Get user value
+                    if let currentTotalVictories = (snapshot.value as? NSDictionary)?["totalVictories"] as? Int {
+                        
+                        ref.child("users/\(user.uid)/totalVictories").setValue(currentTotalVictories + 1)
+                        
+                    }
+                    
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
+            }
+            
             return true
         }
         return false
@@ -179,7 +197,6 @@ class BattleViewController: UIViewController {
     }
     
     @IBAction func won(_ sender: UIButton) {
-        
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
         }
