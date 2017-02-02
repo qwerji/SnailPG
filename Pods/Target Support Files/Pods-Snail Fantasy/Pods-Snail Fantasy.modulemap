@@ -1,0 +1,6 @@
+framework module Pods_Snail_Fantasy {
+  umbrella header "Pods-Snail Fantasy-umbrella.h"
+
+  export *
+  module * { export * }
+}
