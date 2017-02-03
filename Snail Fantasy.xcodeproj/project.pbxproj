@@ -18,6 +18,7 @@
 		105204251E37B48A00E78F5F /* Merchant Copy Doublesize.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 105204241E37B48A00E78F5F /* Merchant Copy Doublesize.ttf */; };
 		10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1AB90C31E285AFA00CF4750 /* Info.plist */; };
 		10A7A2531E35C9F70064EAC1 /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */; };
+		10ABC9841E451D0B004ABD63 /* battlewindow.png in Resources */ = {isa = PBXBuildFile; fileRef = 10ABC9831E451D0B004ABD63 /* battlewindow.png */; };
 		3F566FAF1E393B9E00811DA7 /* heroAbilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F566FAE1E393B9E00811DA7 /* heroAbilities.swift */; };
 		A10BA8BF1E423742007E3532 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A10BA8BE1E423742007E3532 /* GoogleService-Info.plist */; };
 		A10BA8C11E42931D007E3532 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10BA8C01E42931D007E3532 /* LogInViewController.swift */; };
@@ -62,6 +63,7 @@
 		105204221E37AFA100E78F5F /* Merchant Copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merchant Copy.ttf"; sourceTree = "<group>"; };
 		105204241E37B48A00E78F5F /* Merchant Copy Doublesize.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merchant Copy Doublesize.ttf"; sourceTree = "<group>"; };
 		10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
+		10ABC9831E451D0B004ABD63 /* battlewindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battlewindow.png; sourceTree = "<group>"; };
 		3F566FAE1E393B9E00811DA7 /* heroAbilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = heroAbilities.swift; sourceTree = "<group>"; };
 		546A2CDF43266E29F8A1BB19 /* Pods_Snail_Fantasy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snail_Fantasy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5506D2E8829748E952ADAD94 /* Pods-Snail Fantasy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snail Fantasy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Snail Fantasy/Pods-Snail Fantasy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				105204241E37B48A00E78F5F /* Merchant Copy Doublesize.ttf */,
 				A1E14BC41E2F1440005133E3 /* finalf.ttf */,
 				105204221E37AFA100E78F5F /* Merchant Copy.ttf */,
+				10ABC9831E451D0B004ABD63 /* battlewindow.png */,
 				10A7A2521E35C9F70064EAC1 /* Fipps-Regular.otf */,
 				A1AB90C01E285AFA00CF4750 /* LaunchScreen.storyboard */,
 				A1AB90C31E285AFA00CF4750 /* Info.plist */,
@@ -294,6 +297,7 @@
 				A1AB90C21E285AFA00CF4750 /* LaunchScreen.storyboard in Resources */,
 				A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */,
 				A10BA8BF1E423742007E3532 /* GoogleService-Info.plist in Resources */,
+				10ABC9841E451D0B004ABD63 /* battlewindow.png in Resources */,
 				10A7A2511E35C5C50064EAC1 /* Info.plist in Resources */,
 				105204251E37B48A00E78F5F /* Merchant Copy Doublesize.ttf in Resources */,
 				102DD5B41E35C0FA00274F72 /* Assets.xcassets in Resources */,
