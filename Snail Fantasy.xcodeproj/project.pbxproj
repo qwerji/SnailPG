@@ -47,6 +47,7 @@
 		A1C868B91E3A4EA700F78CA3 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C868B81E3A4EA700F78CA3 /* Achievements.swift */; };
 		A1E14BC11E2EFA7F005133E3 /* HeroMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */; };
 		A1E14BC51E2F1440005133E3 /* finalf.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1E14BC41E2F1440005133E3 /* finalf.ttf */; };
+		A1F0126D1E4508A90084FBEB /* AbilityModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F0126C1E4508A90084FBEB /* AbilityModalViewController.swift */; };
 		A1FA96051E2D453000EA3870 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FA96041E2D453000EA3870 /* ShopViewController.swift */; };
 		CEB305850600F46D474A4A45 /* Pods_Snail_Fantasy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546A2CDF43266E29F8A1BB19 /* Pods_Snail_Fantasy.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,7 @@
 		A1C868B81E3A4EA700F78CA3 /* Achievements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
 		A1E14BC01E2EFA7F005133E3 /* HeroMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroMethods.swift; path = ../HeroMethods.swift; sourceTree = "<group>"; };
 		A1E14BC41E2F1440005133E3 /* finalf.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = finalf.ttf; sourceTree = "<group>"; };
+		A1F0126C1E4508A90084FBEB /* AbilityModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbilityModalViewController.swift; sourceTree = "<group>"; };
 		A1FA96041E2D453000EA3870 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		BC89B38CF6DF699C70F024F6 /* Pods-Snail Fantasy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snail Fantasy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Snail Fantasy/Pods-Snail Fantasy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				A18CEB4B1E39B45F000FA989 /* AchievementModalViewController.swift */,
+				A1F0126C1E4508A90084FBEB /* AbilityModalViewController.swift */,
 			);
 			name = Modals;
 			path = ..;
@@ -359,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				105204211E36DD6500E78F5F /* StatViewController.swift in Sources */,
+				A1F0126D1E4508A90084FBEB /* AbilityModalViewController.swift in Sources */,
 				102DD5AE1E343F3C00274F72 /* GraveyardViewController.swift in Sources */,
 				102DD5B01E3455D600274F72 /* displayCell.swift in Sources */,
 				A175AC871E32E967008E8971 /* potionCell.swift in Sources */,

@@ -36,17 +36,17 @@ class BattleViewController: UIViewController {
     @IBAction func attackButtonPressed(_ sender: UIButton) {
         // Choose who attacks first
         
-        let total = Int((loggedInHero?.dexterity)!) + (target?.speed)!
+        let response = getTurnOrder()
         
-        let heroRange = round((Double((loggedInHero?.dexterity)!) / Double(total)) * 100.0)
+        let random = response.0
         
-        let random = Int(arc4random_uniform(UInt32(100))) + 1
+        let heroRange = response.1
         
         if random < Int(heroRange) {
             
             let monsterDead = heroAttacks()
             
-            if monsterDead == false {
+            if !monsterDead {
                 let _ = monsterAttacks()
             }
             
@@ -54,7 +54,7 @@ class BattleViewController: UIViewController {
             
             let heroDead = monsterAttacks()
             
-            if heroDead == false {
+            if !heroDead {
                 let _ = heroAttacks()
             }
             
@@ -62,6 +62,16 @@ class BattleViewController: UIViewController {
         
         update()
         
+    }
+    
+    func getTurnOrder() -> (Int, Double) {
+        let total = Int((loggedInHero?.dexterity)!) + (target?.speed)!
+        
+        let heroRange = round((Double((loggedInHero?.dexterity)!) / Double(total)) * 100.0)
+        
+        let random = Int(arc4random_uniform(UInt32(100))) + 1
+        
+        return (random, heroRange)
     }
     
     func monsterAttacks() -> Bool {
@@ -72,7 +82,21 @@ class BattleViewController: UIViewController {
 
         battleLog.append(BattleCellConfig(text: text!, color: type!, image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
         
-        // Hero Health Check
+        return heroIsDead()
+    }
+    
+    func heroAttacks() -> Bool {
+
+        let response = (loggedInHero?.attack(target!))!
+        let text = response.0
+        let type = response.1
+        
+        battleLog.append(BattleCellConfig(text: text, color: type, image1: loggedInHero?.icon as! UIImage, image2: #imageLiteral(resourceName: "snailhero2")))
+        
+        return monsterIsDead()
+    }
+    
+    func heroIsDead() -> Bool {
         if (loggedInHero?.health)! <= 0 {
             ad.saveContext()
             
@@ -100,14 +124,7 @@ class BattleViewController: UIViewController {
         return false
     }
     
-    func heroAttacks() -> Bool {
-
-        let response = (loggedInHero?.attack(target!))!
-        let text = response.0
-        let type = response.1
-        
-        battleLog.append(BattleCellConfig(text: text, color: type, image1: loggedInHero?.icon as! UIImage, image2: #imageLiteral(resourceName: "snailhero2")))
-        
+    func monsterIsDead() -> Bool {
         // Monster Health Check
         if (target?.health)! <= 0 {
             ad.saveContext()
@@ -124,14 +141,14 @@ class BattleViewController: UIViewController {
                 loggedInHero?.gold += goldDrop
                 
                 battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) got \(goldDrop) gold!", color: "Gold", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
-
+                
             }
             if let itemDrop = target?.drop {
                 let bp = loggedInHero?.backpack as! NSMutableArray
                 bp.add(itemDrop)
                 
                 battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) picked up \(itemDrop)!", color: "Item", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
-
+                
             }
             // gain EXP when monster is slain
             loggedInHero?.gainsExp(amount: (target?.experience)!)
@@ -188,6 +205,44 @@ class BattleViewController: UIViewController {
             return true
         }
         return false
+    }
+    
+    func use(ability: String) {
+        
+        let response = getTurnOrder()
+        
+        let random = response.0
+        
+        let heroRange = response.1
+        
+        if random < Int(heroRange) {
+            
+            let monsterDead = performAbility(ability: ability)
+            if monsterDead == false {
+                let _ = monsterAttacks()
+            }
+            
+        } else {
+            
+            let heroDead = monsterAttacks()
+            
+            if heroDead == false {
+                let _ = performAbility(ability: ability)
+            }
+            
+        }
+        
+        update()
+    }
+    
+    func performAbility(ability: String) {
+        let response = loggedInHero.use(ability: ability, target: target!)
+        let text = response.0
+        let type = response.1
+        
+        battleLog.append(BattleCellConfig(text: text, color: type, image1: loggedInHero.icon as! UIImage, image2: #imageLiteral(resourceName: "snailhero2")))
+        
+        return monsterIsDead()
     }
     
     @IBAction func died(_ sender: UIButton) {
