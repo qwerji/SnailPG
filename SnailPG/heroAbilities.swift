@@ -9,7 +9,21 @@
 import UIKit
 
 extension Hero {
-    
+    func use(ability: String){
+        switch ability {
+        //warrior
+        case 0:
+            <#code#>
+        //mage
+        case 1:
+            
+        //thief
+        case 2:
+            
+        default:
+            break
+        }
+    }
     //warrior abilites
     func battleRage(_ target: Hero){
         
