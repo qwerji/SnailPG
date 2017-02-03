@@ -9,25 +9,34 @@
 import UIKit
 
 extension Hero {
-    func use(ability: String){
+    func use(ability: String, target: Monster) -> (String, String){
         switch ability {
-        //warrior
-        case 0:
-            <#code#>
-        //mage
-        case 1:
-            
-        //thief
-        case 2:
-            
+        case "Shield Bash":
+            return self.shieldBash(target)
+            break
+        case "Desperate Strike":
+            return self.desperateStrike(target)
+            break
+        case "Magic Missile":
+            return self.magicMissile(target)
+            break
+        case "Cure":
+            return self.cure()
+            break
+        case "Leech":
+            return self.leech(target)
+            break
+        case "Mana Shield":
+            return self.manaShield(target)
+            break
+        case "Back Stab":
+            return self.backStab(target)
+            break
         default:
             break
         }
     }
     //warrior abilites
-    func battleRage(_ target: Hero){
-        
-    }
     func shieldBash(_ target: Monster) -> (String, String){
         let spell = "Shield Bash"
         let shieldDamage = self.defense
@@ -62,10 +71,10 @@ extension Hero {
         let log = "\(self.name) casts \(spell) and did \(computedDamage) damage to \(target.name)!"
         return (log, result)
     }
-    func cure(_ target: Hero) -> (String, String){
+    func cure() -> (String, String){
         let spell = "Cure"
         let healedDamage = Int(arc4random_uniform(UInt32(Int(self.intelligence/2)))) + 1
-        target.health += healedDamage
+        self.health += healedDamage
         self.mana -= 30
         let result = "Spell Cast"
         let log = "\(self.name) casts \(spell) and healed \(healedDamage) damage!"
