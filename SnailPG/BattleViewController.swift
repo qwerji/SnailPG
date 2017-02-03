@@ -18,6 +18,7 @@ class BattleViewController: UIViewController {
     var monsterMaxHealth: Int?
     var battleLog = [BattleCellConfig]()
     
+    
     @IBOutlet weak var abilityButton: UIButton!
     @IBOutlet weak var itemButton: UIButton!
     @IBOutlet weak var battleLogTable: UITableView!
@@ -326,12 +327,12 @@ class BattleViewController: UIViewController {
         if battleLog.count > 0 {
             scrollToLastRow()
         }
-        
-        if (loggedInHero?.mana)! < 30 {
-            abilityButton.isHidden = true
-        } else {
-            abilityButton.isHidden = false
-        }
+//        
+//        if (loggedInHero?.mana)! < 30 {
+//            abilityButton.isHidden = true
+//        } else {
+//            abilityButton.isHidden = false
+//        }
     }
     
     func scrollToLastRow() {
