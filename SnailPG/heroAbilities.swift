@@ -34,7 +34,7 @@ extension Hero {
         let spell = "Shield Bash"
         let shieldDamage = self.defense
         target.health -= Int(shieldDamage)
-        self.mana -= 30
+        self.mana -= 10
         let result = "Spell Cast"
         let log = "\(self.name!) casts \(spell) and did \(shieldDamage) damage to \(target.name)!"
         return (log, result)
@@ -50,7 +50,7 @@ extension Hero {
             computedDamage = 0
         }
         target.health -= computedDamage
-        self.mana -= 30
+        self.mana -= 10
         let result = "Spell Cast"
         let log = "\(self.name!) casts \(spell) and did \(computedDamage) damage to \(target.name)!"
         return (log, result)
@@ -60,7 +60,7 @@ extension Hero {
         let spell = "Magic Missile"
         let computedDamage = Int(arc4random_uniform(UInt32(Int(self.intelligence/2)))) + 1
         target.health -= computedDamage
-        self.mana -= 30
+        self.mana -= 10
         let result = "Spell Cast"
         let log = "\(self.name!) casts \(spell) and did \(computedDamage) damage to \(target.name)!"
         return (log, result)
@@ -73,7 +73,7 @@ extension Hero {
         }else{
             self.health += healedDamage
         }
-        self.mana -= 30
+        self.mana -= 10
         let result = "Spell Cast"
         let log = "\(self.name!) casts \(spell) and healed \(healedDamage) damage!"
         return (log, result)
@@ -87,7 +87,7 @@ extension Hero {
         } else{
             self.health += leechedDamage
         }
-        self.mana -= 30
+        self.mana -= 10
         let result = "Spell Cast"
         let log = "\(self.name!) casts \(spell) and stole \(leechedDamage) health from \(target.name)!"
         return (log, result)
@@ -96,7 +96,7 @@ extension Hero {
         let spell = "Mana Shield"
         let blockedDamage = Int(arc4random_uniform(UInt32(Int(self.intelligence/2)))) + 1
         target.damage -= blockedDamage
-        self.mana -= 30
+        self.mana -= 10
         let result = "Spell Cast"
         let log = "\(self.name!) casts \(spell) and blocked \(blockedDamage) damage from \(target.name)!"
         return (log, result)
@@ -106,7 +106,7 @@ extension Hero {
         let spell = "Back Stab"
         let stabDamage = Int(self.dexterity * 2)
         target.damage -= stabDamage
-        self.mana -= 40
+        self.mana -= 10
         let result = "Spell Cast"
         let log = "\(self.name!) casts \(spell) and blocked \(stabDamage) damage from \(target.name)!"
         return (log, result)
@@ -117,40 +117,35 @@ let AbilityList : [String:[String:Any]] = [
     "Warrior": [
         "Shield Bash" : [
             "name" : "Shield Bash",
-            "cost" : 30,
+            "cost" : 10,
         ],
         "Desperate Strike" : [
             "name" : "Desperate Strike",
-            "cost" : 30,
+            "cost" : 10,
         ],
     ],
     "Mage": [
         "Magic Missile" : [
             "name" : "Magic Missile",
-            "cost" : 30,
+            "cost" : 10,
         ],
         "Cure" : [
             "name" : "Cure",
-            "cost" : 30,
+            "cost" : 10,
         ],
         "Leech" : [
             "name" : "Leech",
-            "cost" : 30,
+            "cost" : 10,
         ],
         "Mana Shield" : [
             "name" : "Mana Shield",
-            "cost" : 30,
+            "cost" : 10,
         ],
     ],
     "Thief": [
         "Back Stab" : [
             "name" : "Back Stab",
-            "cost" : 40,
+            "cost" : 10,
         ],
     ]
 ]
-
-
-
-
-

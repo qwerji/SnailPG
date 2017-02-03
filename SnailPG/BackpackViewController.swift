@@ -101,6 +101,15 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
                     loggedInHero?.health += 20
                 }
             }
+            if item?["name"] as! String == "Mana Potion" {
+                let maxMana = Int((loggedInHero?.maxMana)!)
+                let curMana = Int((loggedInHero?.mana)!)
+                if curMana + 20 > maxMana {
+                    loggedInHero?.mana = Int64(maxMana)
+                } else {
+                    loggedInHero?.mana += 20
+                }
+            }
             break
         case "Armor":
             if let armor = loggedInHero?.armor {
