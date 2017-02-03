@@ -42,13 +42,14 @@ extension Hero {
     func desperateStrike(_ target: Monster) -> (String, String){
         let spell = "Desperate Strike"
         var computedDamage = 0
-        let strikeChance = Int(arc4random_uniform(UInt32(10))) + 1
-        if strikeChance == (1-5){
+        let strikeChance = Int(arc4random_uniform(UInt32(2)))
+        if strikeChance == (1){
             computedDamage += Int(self.strength)
         }
         else{
             computedDamage = 0
         }
+        target.health -= computedDamage
         self.mana -= 30
         let result = "Spell Cast"
         let log = "\(self.name!) casts \(spell) and did \(computedDamage) damage to \(target.name)!"
@@ -67,7 +68,11 @@ extension Hero {
     func cure() -> (String, String){
         let spell = "Cure"
         let healedDamage = Int(arc4random_uniform(UInt32(Int(self.intelligence/2)))) + 1
-        self.health += healedDamage
+        if healedDamage + self.health > self.maxHealth{
+            self.health = self.maxHealth
+        }else{
+            self.health += healedDamage
+        }
         self.mana -= 30
         let result = "Spell Cast"
         let log = "\(self.name!) casts \(spell) and healed \(healedDamage) damage!"
@@ -77,7 +82,11 @@ extension Hero {
         let spell = "Leech"
         let leechedDamage = Int(arc4random_uniform(UInt32(Int(self.intelligence/4)))) + 1
         target.health -= leechedDamage
-        self.health += leechedDamage
+        if leechedDamage + self.health > self.maxHealth{
+            self.health = self.maxHealth
+        } else{
+            self.health += leechedDamage
+        }
         self.mana -= 30
         let result = "Spell Cast"
         let log = "\(self.name!) casts \(spell) and stole \(leechedDamage) health from \(target.name)!"
