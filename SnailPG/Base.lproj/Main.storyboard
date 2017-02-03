@@ -1643,7 +1643,7 @@
         <!--AbilityModalViewController-->
         <scene sceneID="suj-gN-Hmv">
             <objects>
-                <viewController title="AbilityModalViewController" modalPresentationStyle="overCurrentContext" id="hrm-dN-cLE" customClass="AbilityModalViewController" customModule="Snail_Fantasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="abilities" title="AbilityModalViewController" modalPresentationStyle="overCurrentContext" id="hrm-dN-cLE" customClass="AbilityModalViewController" customModule="Snail_Fantasy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gvf-DL-G4c"/>
                         <viewControllerLayoutGuide type="bottom" id="rv1-VS-swc"/>
@@ -1934,7 +1934,7 @@
                                     <color key="titleColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="attackButtonPressed:" destination="yKh-kP-0oH" eventType="touchUpInside" id="wAF-S0-230"/>
+                                    <action selector="abilityButtonPressed:" destination="yKh-kP-0oH" eventType="touchUpInside" id="eZd-ab-27i"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6b-YP-9Xf">
@@ -2012,6 +2012,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="abilityButton" destination="9nT-4u-6D7" id="Amx-uA-d97"/>
                         <outlet property="attackButton" destination="biK-XD-LcS" id="b6g-19-KOe"/>
                         <outlet property="backToMainButton" destination="Pp6-N1-S5L" id="K1u-p0-LAh"/>
                         <outlet property="battleAgainButton" destination="dD1-OE-uR0" id="Oiq-Dr-PTf"/>
@@ -2021,6 +2022,7 @@
                         <outlet property="heroManaLabel" destination="Rbo-IP-ZiE" id="tyU-Tg-qxr"/>
                         <outlet property="heroManaSlider" destination="hkM-Bu-ukc" id="PUQ-ZA-6Sa"/>
                         <outlet property="heroNameLabel" destination="m0e-aK-HCK" id="yUA-Hk-496"/>
+                        <outlet property="itemButton" destination="h6b-YP-9Xf" id="DZm-OI-N8T"/>
                         <outlet property="monsterHealthLabel" destination="3y9-Do-7x4" id="Ant-8h-qH2"/>
                         <outlet property="monsterHealthSlider" destination="GMw-yv-3CE" id="EZ2-jb-V82"/>
                         <outlet property="monsterNameLabel" destination="Bi3-GH-pda" id="bRE-fv-0sH"/>

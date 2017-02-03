@@ -13,27 +13,20 @@ extension Hero {
         switch ability {
         case "Shield Bash":
             return self.shieldBash(target)
-            break
         case "Desperate Strike":
             return self.desperateStrike(target)
-            break
         case "Magic Missile":
             return self.magicMissile(target)
-            break
         case "Cure":
             return self.cure()
-            break
         case "Leech":
             return self.leech(target)
-            break
         case "Mana Shield":
             return self.manaShield(target)
-            break
         case "Back Stab":
             return self.backStab(target)
-            break
         default:
-            break
+            return ("", "")
         }
     }
     //warrior abilites
@@ -43,7 +36,7 @@ extension Hero {
         target.health -= Int(shieldDamage)
         self.mana -= 30
         let result = "Spell Cast"
-        let log = "\(self.name) casts \(spell) and did \(shieldDamage) damage to \(target.name)!"
+        let log = "\(self.name!) casts \(spell) and did \(shieldDamage) damage to \(target.name)!"
         return (log, result)
     }
     func desperateStrike(_ target: Monster) -> (String, String){
@@ -58,7 +51,7 @@ extension Hero {
         }
         self.mana -= 30
         let result = "Spell Cast"
-        let log = "\(self.name) casts \(spell) and did \(computedDamage) damage to \(target.name)!"
+        let log = "\(self.name!) casts \(spell) and did \(computedDamage) damage to \(target.name)!"
         return (log, result)
     }
     //mage abilities
@@ -68,7 +61,7 @@ extension Hero {
         target.health -= computedDamage
         self.mana -= 30
         let result = "Spell Cast"
-        let log = "\(self.name) casts \(spell) and did \(computedDamage) damage to \(target.name)!"
+        let log = "\(self.name!) casts \(spell) and did \(computedDamage) damage to \(target.name)!"
         return (log, result)
     }
     func cure() -> (String, String){
@@ -77,7 +70,7 @@ extension Hero {
         self.health += healedDamage
         self.mana -= 30
         let result = "Spell Cast"
-        let log = "\(self.name) casts \(spell) and healed \(healedDamage) damage!"
+        let log = "\(self.name!) casts \(spell) and healed \(healedDamage) damage!"
         return (log, result)
     }
     func leech(_ target: Monster) -> (String, String){
@@ -87,7 +80,7 @@ extension Hero {
         self.health += leechedDamage
         self.mana -= 30
         let result = "Spell Cast"
-        let log = "\(self.name) casts \(spell) and stole \(leechedDamage) health from \(target.name)!"
+        let log = "\(self.name!) casts \(spell) and stole \(leechedDamage) health from \(target.name)!"
         return (log, result)
     }
     func manaShield(_ target: Monster) -> (String, String){
@@ -96,7 +89,7 @@ extension Hero {
         target.damage -= blockedDamage
         self.mana -= 30
         let result = "Spell Cast"
-        let log = "\(self.name) casts \(spell) and blocked \(blockedDamage) damage from \(target.name)!"
+        let log = "\(self.name!) casts \(spell) and blocked \(blockedDamage) damage from \(target.name)!"
         return (log, result)
     }
     //thief abilities
@@ -106,7 +99,7 @@ extension Hero {
         target.damage -= stabDamage
         self.mana -= 40
         let result = "Spell Cast"
-        let log = "\(self.name) casts \(spell) and blocked \(stabDamage) damage from \(target.name)!"
+        let log = "\(self.name!) casts \(spell) and blocked \(stabDamage) damage from \(target.name)!"
         return (log, result)
     }
 }

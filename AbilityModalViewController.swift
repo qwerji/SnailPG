@@ -13,20 +13,28 @@ class AbilityModalViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var abilityTableView: UITableView!
     var abilities = [String]()
     var job = ""
+    var delegate: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         abilityTableView.delegate = self
         abilityTableView.dataSource = self
-        abilityTableView.reloadData()
         // Do any additional setup after loading the view.
+    }
+    
+    func update() {
+        if job != "" {
+            for ability in AbilityList[job]! {
+                abilities.append(ability.key)
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let ability = AbilityList[job][abilities[indexPath.row]]
+        let ability = AbilityList[job]?[abilities[indexPath.row]] as! [String:Any]
         let cell = tableView.dequeueReusableCell(withIdentifier: "abilityCell", for: indexPath)
-        cell.textLabel?.text = "\(ability["name"])"
-        cell.detailTextLabel?.text = "\(ability["cost"])"
+        cell.textLabel?.text = "\(ability["name"] as! String)"
+        cell.detailTextLabel?.text = "Mana Cost: \(ability["cost"] as! Int)"
         return cell
     }
 
@@ -35,8 +43,7 @@ class AbilityModalViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let stack = self.navigationController?.viewControllers
-        if let battleVC = stack?[(stack?.count)! - 1] as? BattleViewController {
+        if let battleVC = delegate as? BattleViewController {
             battleVC.use(ability: abilities[indexPath.row])
         }
         dismiss(animated: true, completion: nil)
