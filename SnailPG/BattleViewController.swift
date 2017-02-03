@@ -306,7 +306,6 @@ class BattleViewController: UIViewController {
         restartButton.isHidden = true
         battleAgainButton.isHidden = true
         itemButton.isHidden = false
-        abilityButton.isHidden = false
         getMonster()
         update()
     }
@@ -326,6 +325,12 @@ class BattleViewController: UIViewController {
         
         if battleLog.count > 0 {
             scrollToLastRow()
+        }
+        
+        if (loggedInHero?.mana)! < 30 {
+            abilityButton.isHidden = true
+        } else {
+            abilityButton.isHidden = false
         }
     }
     
