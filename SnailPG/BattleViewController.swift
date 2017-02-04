@@ -18,7 +18,6 @@ class BattleViewController: UIViewController {
     var monsterMaxHealth: Int?
     var battleLog = [BattleCellConfig]()
     
-    
     @IBOutlet weak var abilityButton: UIButton!
     @IBOutlet weak var itemButton: UIButton!
     @IBOutlet weak var battleLogTable: UITableView!
@@ -36,6 +35,88 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var heroManaLabel: UILabel!
     @IBOutlet weak var heroManaSlider: HealthBar!
     
+    func attackAndItemButtonState() {
+        attackButton.isHidden = false
+        backToMainButton.isHidden = true
+        restartButton.isHidden = true
+        battleAgainButton.isHidden = true
+        itemButton.isHidden = false
+        abilityButton.isHidden = true
+    }
+    func attackAbilityAndItemButtonState() {
+        attackButton.isHidden = false
+        backToMainButton.isHidden = true
+        restartButton.isHidden = true
+        battleAgainButton.isHidden = true
+        itemButton.isHidden = false
+        abilityButton.isHidden = false
+    }
+    func attackAndAbilityButtonState() {
+        attackButton.isHidden = false
+        backToMainButton.isHidden = true
+        restartButton.isHidden = true
+        battleAgainButton.isHidden = true
+        itemButton.isHidden = true
+        abilityButton.isHidden = false
+    }
+    func attackButtonState() {
+        attackButton.isHidden = false
+        backToMainButton.isHidden = true
+        restartButton.isHidden = true
+        battleAgainButton.isHidden = true
+        itemButton.isHidden = true
+        abilityButton.isHidden = true
+    }
+    func winButtonState() {
+        attackButton.isHidden = true
+        backToMainButton.isHidden = false
+        restartButton.isHidden = true
+        battleAgainButton.isHidden = false
+        itemButton.isHidden = true
+        abilityButton.isHidden = true
+        runButton.isHidden = true
+    }
+    func deathButtonState() {
+        attackButton.isHidden = true
+        backToMainButton.isHidden = true
+        restartButton.isHidden = false
+        battleAgainButton.isHidden = true
+        itemButton.isHidden = true
+        abilityButton.isHidden = true
+        runButton.isHidden = true
+    }
+    
+    func updateButtonStates() {
+        runButton.isHidden = true
+        for item in loggedInHero?.backpack as! [String] {
+            if item == "Escape Potion" {
+                runButton.isHidden = false
+            }
+        }
+        if (loggedInHero?.health)! <= 0 {
+            deathButtonState()
+            return
+        }
+        if (target?.health)! <= 0 {
+            winButtonState()
+            return
+        }
+        if (loggedInHero?.mana)! > 0 {
+            if (loggedInHero?.backpack as! [String]).count > 0 {
+                attackAbilityAndItemButtonState()
+                return
+            }
+            attackAndAbilityButtonState()
+            return
+        } else {
+            if (loggedInHero?.backpack as! [String]).count <= 0 {
+                attackButtonState()
+                return
+            }
+            attackAndItemButtonState()
+        }
+    }
+    
     @IBAction func abilityButtonPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let modal = storyboard.instantiateViewController(withIdentifier: "abilities") as! AbilityModalViewController
@@ -47,92 +128,57 @@ class BattleViewController: UIViewController {
     
     @IBAction func attackButtonPressed(_ sender: UIButton) {
         // Choose who attacks first
-        
         let response = getTurnOrder()
-        
         let random = response.0
-        
         let heroRange = response.1
-        
         if random < Int(heroRange) {
-            
             let monsterDead = heroAttacks()
-            
             if !monsterDead {
                 let _ = monsterAttacks()
             }
-            
         } else {
-            
             let heroDead = monsterAttacks()
-            
             if !heroDead {
                 let _ = heroAttacks()
             }
-            
         }
-        
         update()
-        
     }
     
     func getTurnOrder() -> (Int, Double) {
         let total = Int((loggedInHero?.dexterity)!) + (target?.speed)!
-        
         let heroRange = round((Double((loggedInHero?.dexterity)!) / Double(total)) * 100.0)
-        
         let random = Int(arc4random_uniform(UInt32(100))) + 1
-        
         return (random, heroRange)
     }
     
     func monsterAttacks() -> Bool {
-        
         let response = target?.attack(loggedInHero!)
         let text = response?.0
         let type = response?.1
-
         battleLog.append(BattleCellConfig(text: text!, color: type!, image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
-        
         return heroIsDead()
     }
     
     func heroAttacks() -> Bool {
-
         let response = (loggedInHero?.attack(target!))!
         let text = response.0
         let type = response.1
-        
         battleLog.append(BattleCellConfig(text: text, color: type, image1: loggedInHero?.icon as! UIImage, image2: #imageLiteral(resourceName: "snailhero2")))
-        
         return monsterIsDead()
     }
     
     func heroIsDead() -> Bool {
         if (loggedInHero?.health)! <= 0 {
             ad.saveContext()
-            
-            //Button visibility
-            runButton.isHidden = true
-            attackButton.isHidden = true
-            backToMainButton.isHidden = true
-            restartButton.isHidden = false
-            battleAgainButton.isHidden = true
-            itemButton.isHidden = true
-            abilityButton.isHidden = true
-            
             battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) was defeated.", color: "Defeat", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
-            
             var cleanBackpack = [String]()
-            
             for item in loggedInHero?.backpack as! [String] {
                 if item == "Revive Potion" {
                     cleanBackpack.append(item)
                 }
             }
-            
             loggedInHero?.backpack = cleanBackpack as NSObject?
-            
             return true
         }
         return false
@@ -142,37 +188,20 @@ class BattleViewController: UIViewController {
         // Monster Health Check
         if (target?.health)! <= 0 {
             ad.saveContext()
-            
-            runButton.isHidden = true
-            attackButton.isHidden = true
-            battleAgainButton.isHidden = false
-            backToMainButton.isHidden = false
-            restartButton.isHidden = true
-            itemButton.isHidden = true
-            abilityButton.isHidden = true
-            
             battleLog.append(BattleCellConfig(text: "\((target?.name)!) was defeated.", color: "Victory", image1: loggedInHero?.icon as! UIImage, image2: #imageLiteral(resourceName: "snailhero2")))
-            
             if let goldDrop = target?.gold {
                 loggedInHero?.gold += goldDrop
-                
                 battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) got \(goldDrop) gold!", color: "Gold", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
-                
             }
             if let itemDrop = target?.drop {
                 let bp = loggedInHero?.backpack as! NSMutableArray
                 bp.add(itemDrop)
-                
                 battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) picked up \(itemDrop)!", color: "Item", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
-                
             }
             // gain EXP when monster is slain
             loggedInHero?.gainsExp(amount: (target?.experience)!)
-            
             battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) gained \((target?.experience)!) experience!", color: "Experience", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
-            
             var potentialAchievement: String?
-            
             switch Int((loggedInHero?.victories)!) {
             case 1:
                 potentialAchievement = "Won A Battle"
@@ -194,60 +223,43 @@ class BattleViewController: UIViewController {
                 break
             default: break
             }
-            
             if let ach = potentialAchievement {
                 let heroDidNotAlreadyHaveAchievement = loggedInHero?.achieve(ach)
                 if heroDidNotAlreadyHaveAchievement! {
                     achieve(ach)
                 }
             }
-            
             // Increment Firebase total victories
             if let user = FIRAuth.auth()?.currentUser {
-                print("dandelions")
                 ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                     // Get user value
                     if let currentTotalVictories = (snapshot.value as? NSDictionary)?["totalVictories"] as? Int {
-                        
                         ref.child("users/\(user.uid)/totalVictories").setValue(currentTotalVictories + 1)
-                        
                     }
-                    
                 }) { (error) in
                     print(error.localizedDescription)
                 }
             }
-            
             return true
         }
         return false
     }
     
     func use(ability: String) {
-        
         let response = getTurnOrder()
-        
         let random = response.0
-        
         let heroRange = response.1
-        
         if random < Int(heroRange) {
-            
             let monsterDead = performAbility(ability: ability)
             if monsterDead == false {
                 let _ = monsterAttacks()
             }
-            
         } else {
-            
             let heroDead = monsterAttacks()
-            
             if heroDead == false {
                 let _ = performAbility(ability: ability)
             }
-            
         }
-        
         update()
     }
     
@@ -255,9 +267,7 @@ class BattleViewController: UIViewController {
         let response = loggedInHero?.use(ability: ability, target: target!)
         let text = response?.0
         let type = response?.1
-        
         battleLog.append(BattleCellConfig(text: text!, color: type!, image1: loggedInHero?.icon as! UIImage, image2: #imageLiteral(resourceName: "snailhero2")))
-        
         return monsterIsDead()
     }
     
@@ -289,9 +299,7 @@ class BattleViewController: UIViewController {
                 break
             }
         }
-        
         ad.saveContext()
-        
         let _ = self.navigationController?.popViewController(animated: true)
     }
     
@@ -302,11 +310,6 @@ class BattleViewController: UIViewController {
         }
     }
     @IBAction func battleAgainButtonPressed(_ sender: Any) {
-        attackButton.isHidden = false
-        backToMainButton.isHidden = true
-        restartButton.isHidden = true
-        battleAgainButton.isHidden = true
-        itemButton.isHidden = false
         getMonster()
         update()
     }
@@ -321,18 +324,11 @@ class BattleViewController: UIViewController {
         heroManaSlider.value = Float((loggedInHero?.mana)!)
         monsterHealthSlider.maximumValue = Float((monsterMaxHealth!))
         monsterHealthSlider.value = Float((target?.health)!)
-
         battleLogTable.reloadData()
-        
         if battleLog.count > 0 {
             scrollToLastRow()
         }
-//        
-//        if (loggedInHero?.mana)! < 30 {
-//            abilityButton.isHidden = true
-//        } else {
-//            abilityButton.isHidden = false
-//        }
+        updateButtonStates()
     }
     
     func scrollToLastRow() {
@@ -351,15 +347,10 @@ class BattleViewController: UIViewController {
             areaMonsters = area?["monsters"] as! [String]
         }
         let randomMonsterIdx = Int(arc4random_uniform(UInt32(areaMonsters.count)))
-        
         let randomMonster = areaMonsters[randomMonsterIdx]
-        
         let monsterChoice = MonsterList[randomMonster]!
-        
         monsterMaxHealth = monsterChoice["health"] as! Int?
-        
         target = Monster(name: monsterChoice["name"] as! String, health: monsterChoice["health"] as! Int, gold: monsterChoice["gold"] as! Int, damage: monsterChoice["damage"] as! Int, experience: monsterChoice["experience"] as! Int, speed: monsterChoice["speed"] as! Int)
-
         // Set Monster stats labels
         monsterNameLabel.text = target?.name
     }
@@ -367,27 +358,10 @@ class BattleViewController: UIViewController {
     override func viewDidLoad() {
         battleLogTable.delegate = self
         battleLogTable.dataSource = self
-
         // Set Hero stats labels
         heroNameLabel.text = "\((loggedInHero?.name!)!)'s Health:"
-        
-        runButton.isHidden = true
-        
-        for item in loggedInHero?.backpack as! [String] {
-            if item == "Escape Potion" {
-                runButton.isHidden = false
-            }
-        }
-        
-        attackButton.isHidden = false
-        backToMainButton.isHidden = true
-        restartButton.isHidden = true
-        battleAgainButton.isHidden = true
-        itemButton.isHidden = false
-        abilityButton.isHidden = false
         getMonster()
         update()
-
     }
     
 }
