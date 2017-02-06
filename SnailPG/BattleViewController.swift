@@ -17,6 +17,7 @@ class BattleViewController: UIViewController {
     var loggedInHero: Hero?
     var monsterMaxHealth: Int?
     var battleLog = [BattleCellConfig]()
+    let monsterManager = MonsterManager.sharedInstance
     
     @IBOutlet weak var abilityButton: UIButton!
     @IBOutlet weak var itemButton: UIButton!
@@ -66,7 +67,7 @@ class BattleViewController: UIViewController {
             
             // Escape Potion Check
             runButton.isHidden = true
-            for item in loggedInHero?.backpack as! [String] {
+            for item in (loggedInHero?.backpackArray())! {
                 if item == "Escape Potion" {
                     runButton.isHidden = false
                 }
@@ -149,7 +150,7 @@ class BattleViewController: UIViewController {
             ad.saveContext()
             battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) was defeated.", color: "Defeat", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
             var cleanBackpack = [String]()
-            for item in loggedInHero?.backpack as! [String] {
+            for item in (loggedInHero?.backpackArray())! {
                 if item == "Revive Potion" {
                     cleanBackpack.append(item)
                 }
@@ -163,48 +164,24 @@ class BattleViewController: UIViewController {
     func monsterIsDead() -> Bool {
         // Monster Health Check
         if (target?.health)! <= 0 {
-            ad.saveContext()
+            
             battleLog.append(BattleCellConfig(text: "\((target?.name)!) was defeated.", color: "Victory", image1: loggedInHero?.icon as! UIImage, image2: #imageLiteral(resourceName: "snailhero2")))
             if let goldDrop = target?.gold {
                 loggedInHero?.gold += goldDrop
                 battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) got \(goldDrop) gold!", color: "Gold", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
             }
             if let itemDrop = target?.drop {
-                let bp = loggedInHero?.backpack as! NSMutableArray
-                bp.add(itemDrop)
+                loggedInHero?.addToBackpack(itemDrop)
                 battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) picked up \(itemDrop)!", color: "Item", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
             }
             // gain EXP when monster is slain
             loggedInHero?.gainsExp(amount: (target?.experience)!)
             battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) gained \((target?.experience)!) experience!", color: "Experience", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
-            var potentialAchievement: String?
-            switch Int((loggedInHero?.victories)!) {
-            case 1:
-                potentialAchievement = "Won A Battle"
-                break
-            case 50:
-                potentialAchievement = "50 Enemies"
-                break
-            case 100:
-                potentialAchievement = "100 Enemies"
-                break
-            case 200:
-                potentialAchievement = "200 Enemies"
-                break
-            case 500:
-                potentialAchievement = "500 Enemies"
-                break
-            case 1000:
-                potentialAchievement = "1000 Enemies"
-                break
-            default: break
+            
+            if let achievement = loggedInHero?.didReachVictoriesAchievement() {
+                achieve(achievement)
             }
-            if let ach = potentialAchievement {
-                let heroDidNotAlreadyHaveAchievement = loggedInHero?.achieve(ach)
-                if heroDidNotAlreadyHaveAchievement! {
-                    achieve(ach)
-                }
-            }
+            
             // Increment Firebase total victories
             if let user = FIRAuth.auth()?.currentUser {
                 ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -216,6 +193,7 @@ class BattleViewController: UIViewController {
                     print(error.localizedDescription)
                 }
             }
+            ad.saveContext()
             return true
         }
         return false
@@ -268,14 +246,9 @@ class BattleViewController: UIViewController {
     }
     
     @IBAction func runButtonPressed(_ sender: UIButton) {
-        let backpack = loggedInHero?.backpack as! [String]
-        for i in 0..<backpack.count {
-            if backpack[i] == "Escape Potion" {
-                loggedInHero?.removeFromBackpack(at: i)
-                ad.saveContext()
-                let _ = self.navigationController?.popViewController(animated: true)
-                break
-            }
+        if (loggedInHero?.canUseEscapePotion())! {
+            ad.saveContext()
+            let _ = self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -312,20 +285,9 @@ class BattleViewController: UIViewController {
     
     func getMonster() {
         
-        let area = AreaDataForIndex[Int((loggedInHero?.area)!)]
-        let monsterPoolPick = Int(arc4random_uniform(100)) + 1
-        var areaMonsters = [String]()
-        if monsterPoolPick <= 5 {
-            areaMonsters = area?["elites"] as! [String]
-        } else {
-            areaMonsters = area?["monsters"] as! [String]
-        }
-        let randomMonsterIdx = Int(arc4random_uniform(UInt32(areaMonsters.count)))
-        let randomMonster = areaMonsters[randomMonsterIdx]
-        let monsterChoice = MonsterList[randomMonster]!
-        monsterMaxHealth = monsterChoice["health"] as! Int?
-        target = Monster(name: monsterChoice["name"] as! String, health: monsterChoice["health"] as! Int, gold: monsterChoice["gold"] as! Int, damage: monsterChoice["damage"] as! Int, experience: monsterChoice["experience"] as! Int, speed: monsterChoice["speed"] as! Int)
+        target = monsterManager.getMonster(for: loggedInHero!)
         
+        monsterMaxHealth = target?.health
         monsterNameLabel.text = target?.name
         monsterHealthSlider.maximumValue = Float(monsterMaxHealth!)
     }

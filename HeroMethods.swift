@@ -10,6 +10,55 @@ import UIKit
 
 extension Hero {
     
+    func backpackArray() -> [String] {
+        return backpack as! [String]
+    }
+    
+    func canUseEscapePotion() -> Bool {
+        let bp = backpackArray()
+        for i in 0..<bp.count {
+            if bp[i] == "Escape Potion" {
+                removeFromBackpack(at: i)
+                return true
+            }
+        }
+        return false
+    }
+    
+    func didReachVictoriesAchievement() -> String? {
+        
+        var potentialAchievement: String?
+        switch victories {
+        case 1:
+            potentialAchievement = "Won A Battle"
+            break
+        case 50:
+            potentialAchievement = "50 Enemies"
+            break
+        case 100:
+            potentialAchievement = "100 Enemies"
+            break
+        case 200:
+            potentialAchievement = "200 Enemies"
+            break
+        case 500:
+            potentialAchievement = "500 Enemies"
+            break
+        case 1000:
+            potentialAchievement = "1000 Enemies"
+            break
+        default: break
+        }
+        if let ach = potentialAchievement {
+            let heroDidNotAlreadyHaveAchievement = achieve(ach)
+            if heroDidNotAlreadyHaveAchievement {
+                return ach
+            }
+        }
+        return nil
+        
+    }
+    
     func achieve(_ potentialAchievement: String) -> Bool {
         var achievements = self.achievements as! [String]
         for achievement in achievements {
@@ -28,13 +77,13 @@ extension Hero {
     
     //adds item to backpack
     func addToBackpack(_ item: String) {
-        var bp = self.backpack as! [String]
+        var bp = backpackArray()
         bp.append(item)
         self.backpack = bp as NSObject?
     }
     //removes item from backpack when it is being equipped
     func removeFromBackpack(at index: Int) {
-        var bp = self.backpack as! [String]
+        var bp = backpackArray()
         bp.remove(at: index)
         self.backpack = bp as NSObject?
     }
