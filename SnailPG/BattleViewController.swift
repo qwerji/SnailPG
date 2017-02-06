@@ -35,86 +35,62 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var heroManaLabel: UILabel!
     @IBOutlet weak var heroManaSlider: HealthBar!
     
-    func attackAndItemButtonState() {
-        attackButton.isHidden = false
-        backToMainButton.isHidden = true
-        restartButton.isHidden = true
-        battleAgainButton.isHidden = true
-        itemButton.isHidden = false
-        abilityButton.isHidden = true
-    }
-    func attackAbilityAndItemButtonState() {
-        attackButton.isHidden = false
-        backToMainButton.isHidden = true
-        restartButton.isHidden = true
-        battleAgainButton.isHidden = true
-        itemButton.isHidden = false
-        abilityButton.isHidden = false
-    }
-    func attackAndAbilityButtonState() {
-        attackButton.isHidden = false
-        backToMainButton.isHidden = true
-        restartButton.isHidden = true
-        battleAgainButton.isHidden = true
-        itemButton.isHidden = true
-        abilityButton.isHidden = false
-    }
-    func attackButtonState() {
-        attackButton.isHidden = false
-        backToMainButton.isHidden = true
-        restartButton.isHidden = true
-        battleAgainButton.isHidden = true
-        itemButton.isHidden = true
-        abilityButton.isHidden = true
-    }
-    func winButtonState() {
-        attackButton.isHidden = true
-        backToMainButton.isHidden = false
-        restartButton.isHidden = true
-        battleAgainButton.isHidden = false
-        itemButton.isHidden = true
-        abilityButton.isHidden = true
-        runButton.isHidden = true
-    }
-    func deathButtonState() {
-        attackButton.isHidden = true
-        backToMainButton.isHidden = true
-        restartButton.isHidden = false
-        battleAgainButton.isHidden = true
-        itemButton.isHidden = true
-        abilityButton.isHidden = true
-        runButton.isHidden = true
-    }
-    
     func updateButtonStates() {
-        runButton.isHidden = true
-        for item in loggedInHero?.backpack as! [String] {
-            if item == "Escape Potion" {
-                runButton.isHidden = false
-            }
-        }
+
+        // Battle-ending checks
         if (loggedInHero?.health)! <= 0 {
-            deathButtonState()
-            return
-        }
-        if (target?.health)! <= 0 {
-            winButtonState()
-            return
-        }
-        if (loggedInHero?.mana)! > 0 {
-            if (loggedInHero?.backpack as! [String]).count > 0 {
-                attackAbilityAndItemButtonState()
-                return
-            }
-            attackAndAbilityButtonState()
-            return
+            
+            restartButton.isHidden = false
+            
+            attackButton.isHidden = true
+            backToMainButton.isHidden = true
+            battleAgainButton.isHidden = true
+            itemButton.isHidden = true
+            abilityButton.isHidden = true
+            
+        } else if (target?.health)! <= 0 {
+            
+            backToMainButton.isHidden = false
+            battleAgainButton.isHidden = false
+            
+            attackButton.isHidden = true
+            itemButton.isHidden = true
+            abilityButton.isHidden = true
+            
         } else {
-            if (loggedInHero?.backpack as! [String]).count <= 0 {
-                attackButtonState()
-                return
+            
+            backToMainButton.isHidden = true
+            battleAgainButton.isHidden = true
+            
+            // In-battle checks
+            
+            // Escape Potion Check
+            runButton.isHidden = true
+            for item in loggedInHero?.backpack as! [String] {
+                if item == "Escape Potion" {
+                    runButton.isHidden = false
+                }
             }
-            attackAndItemButtonState()
+            
+            // Can always attack if in battle
+            attackButton.isHidden = false
+            
+            // Check for items
+            if (loggedInHero?.backpack as! [String]).count > 0 {
+                itemButton.isHidden = false
+            } else {
+                itemButton.isHidden = true
+            }
+            
+            // Check for mana
+            if (loggedInHero?.mana)! < 10 {
+                abilityButton.isHidden = true
+            } else {
+                abilityButton.isHidden = false
+            }
+            
         }
+        
     }
     
     @IBAction func abilityButtonPressed(_ sender: UIButton) {
@@ -296,11 +272,11 @@ class BattleViewController: UIViewController {
         for i in 0..<backpack.count {
             if backpack[i] == "Escape Potion" {
                 loggedInHero?.removeFromBackpack(at: i)
+                ad.saveContext()
+                let _ = self.navigationController?.popViewController(animated: true)
                 break
             }
         }
-        ad.saveContext()
-        let _ = self.navigationController?.popViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -309,6 +285,7 @@ class BattleViewController: UIViewController {
             controller.loggedInHero = self.loggedInHero
         }
     }
+    
     @IBAction func battleAgainButtonPressed(_ sender: Any) {
         getMonster()
         update()
@@ -317,12 +294,9 @@ class BattleViewController: UIViewController {
     func update(){
         heroHealthLabel.text = String(describing: (loggedInHero?.health)!)
         monsterHealthLabel.text = String(describing: (target?.health)!)
-        heroHealthSlider.maximumValue = Float((loggedInHero?.maxHealth)!)
         heroHealthSlider.value = Float((loggedInHero?.health)!)
         heroManaLabel.text = String(describing: (loggedInHero?.mana)!)
-        heroManaSlider.maximumValue = Float((loggedInHero?.maxMana)!)
         heroManaSlider.value = Float((loggedInHero?.mana)!)
-        monsterHealthSlider.maximumValue = Float((monsterMaxHealth!))
         monsterHealthSlider.value = Float((target?.health)!)
         battleLogTable.reloadData()
         if battleLog.count > 0 {
@@ -351,15 +325,20 @@ class BattleViewController: UIViewController {
         let monsterChoice = MonsterList[randomMonster]!
         monsterMaxHealth = monsterChoice["health"] as! Int?
         target = Monster(name: monsterChoice["name"] as! String, health: monsterChoice["health"] as! Int, gold: monsterChoice["gold"] as! Int, damage: monsterChoice["damage"] as! Int, experience: monsterChoice["experience"] as! Int, speed: monsterChoice["speed"] as! Int)
-        // Set Monster stats labels
+        
         monsterNameLabel.text = target?.name
+        monsterHealthSlider.maximumValue = Float(monsterMaxHealth!)
     }
     
     override func viewDidLoad() {
         battleLogTable.delegate = self
         battleLogTable.dataSource = self
-        // Set Hero stats labels
+        
         heroNameLabel.text = "\((loggedInHero?.name!)!)'s Health:"
+        heroManaSlider.maximumValue = Float((loggedInHero?.maxMana)!)
+        heroHealthSlider.maximumValue = Float((loggedInHero?.maxHealth)!)
+        restartButton.isHidden = true
+        
         getMonster()
         update()
     }
