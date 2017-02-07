@@ -30,9 +30,9 @@ class CreateHeroViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func jobChosen(_ sender: UIButton) {
-        if let name = heroName.text {
+        if heroName.text != "" {
 
-            let hero = Hero.createNewHero(job: sender.tag, name: name)
+            let hero = Hero.createNewHero(job: sender.tag, name: heroName.text!)
             
             // Save Hero instance in appDelegate and CoreData
             ad.saveContext()
