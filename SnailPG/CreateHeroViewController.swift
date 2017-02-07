@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import CoreData
-import FirebaseAuth
 
 class CreateHeroViewController: UIViewController, UITextFieldDelegate {
 
+    let achievementManager = AchievementManager.sharedInstance
+    
     @IBOutlet weak var heroName: UITextField!
-    var loggedInHero: Hero?
     var globalAchievements = [String]()
     var isARandomName = false
     
@@ -31,7 +30,22 @@ class CreateHeroViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func jobChosen(_ sender: UIButton) {
-        if heroName.text! == "" {
+        if let name = heroName.text {
+
+            let hero = Hero.createNewHero(job: sender.tag, name: name)
+            
+            // Save Hero instance in appDelegate and CoreData
+            ad.saveContext()
+            
+            // Go to Stats for stat allocation
+            self.performSegue(withIdentifier: "creationStatsSegue", sender: hero)
+            
+            if isARandomName {
+                if let achievement = achievementManager.checkForNameAchievements(for: hero) {
+                    globalAchieve(achievement)
+                }
+            }
+        } else {
             
             let alert = UIAlertController(title: "Please enter a name.", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
@@ -39,66 +53,21 @@ class CreateHeroViewController: UIViewController, UITextFieldDelegate {
                 return
             })
             self.present(alert, animated: true, completion: nil)
-            
-        } else {
 
-            let hero = NSEntityDescription.insertNewObject(forEntityName: "Hero", into: context) as! Hero
-            
-            hero.config(for: sender.tag, with: heroName.text!)
-            
-            // Save Hero instance in appDelegate and CoreData
-            ad.saveContext()
-            loggedInHero = hero
-            
-            // Clear textbox
-            heroName.text = ""
-            
-            // Go to Stats for stat allocation
-            self.performSegue(withIdentifier: "creationStatsSegue", sender: nil)
-            
-            if let user = FIRAuth.auth()?.currentUser, isARandomName {
-                
-                ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                    // Get user value
-                    if let currentAchievements = (snapshot.value as? NSDictionary)?.allValues[0] as? NSDictionary {
-
-                        for achievement in GlobalAchievements {
-                            if achievement.value["name"] as? String == self.loggedInHero?.name {
-                                var alreadyHasAchievement = false
-                                
-                                for currentAchievement in currentAchievements {
-                                    if currentAchievement.key as? String == achievement.value["name"] as? String {
-                                        alreadyHasAchievement = true
-                                    }
-                                }
-                                
-                                if !alreadyHasAchievement {
-                                    ref.child("users/\(user.uid)/achievements").child("\(achievement.value["name"]!)").setValue(true)
-                                    self.globalAchieve(achievement.value["name"] as! String)
-                                }
-                                break
-                            }
-                        }
-                    }
-                    
-                }) { (error) in
-                    print(error.localizedDescription)
-                }
-            }
         }
     }
     
     func globalAchieve(_ key: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let modal = storyboard.instantiateViewController(withIdentifier: "achievement") as! AchievementModalViewController
-        let chieve = GlobalAchievements[key]
+        let chieve = achievementManager.nameAchievements[key]
         modal.configureModal(name: chieve?["name"] as! String, description: chieve?["description"] as! String, icon: chieve?["icon"] as! UIImage)
         self.present(modal, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? StatViewController {
-            controller.loggedInHero = self.loggedInHero
+            controller.loggedInHero = sender as? Hero
             controller.isFromMain = false
         }
     }

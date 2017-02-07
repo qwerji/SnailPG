@@ -9,7 +9,6 @@
 import UIKit
 
 class StatViewController: UIViewController {
-    var loggedInHero: Hero?
     
     @IBOutlet weak var intLabel: UILabel!
     @IBOutlet weak var dexLabel: UILabel!
@@ -19,16 +18,17 @@ class StatViewController: UIViewController {
     @IBOutlet weak var heroNameLabel: UILabel!
     @IBOutlet weak var heroLevelLabel: UILabel!
     @IBOutlet weak var heroIconImage: UIImageView!
-    var isFromMain = false
     
+    var loggedInHero: Hero?
+    var isFromMain = false
     var currentStats = [Int64]()
+    
     override func viewWillAppear(_ animated: Bool) {
         currentStats = [(loggedInHero?.maxHealth)!,(loggedInHero?.strength)!,(loggedInHero?.dexterity)!, (loggedInHero?.intelligence)!,(loggedInHero?.statPoints)!]
         heroNameLabel.text = "\((loggedInHero?.name!)!) the \((loggedInHero?.job!)!)"
         heroIconImage.image = loggedInHero?.icon as! UIImage?
         heroLevelLabel.text = "\((loggedInHero?.level)!)"
         update()
-        
     }
     @IBAction func addToStatPressed(_ sender: UIButton) {
         if (loggedInHero?.statPoints)! > 0 {

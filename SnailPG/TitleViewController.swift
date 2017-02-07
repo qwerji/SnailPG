@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseAuth
-import Firebase
 import GoogleMobileAds
 
 class TitleViewController: UIViewController {

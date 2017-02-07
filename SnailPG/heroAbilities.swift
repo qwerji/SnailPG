@@ -9,6 +9,7 @@
 import UIKit
 
 extension Hero {
+    
     func use(ability: String, target: Monster) -> (String, String){
         switch ability {
         case "Shield Bash":

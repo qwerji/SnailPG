@@ -14,7 +14,6 @@ class HeroSelectViewController: UIViewController {
     @IBOutlet weak var previousHeroesTable: UITableView!
     var previousHeroes = [Hero]()
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! MainViewController
         controller.loggedInHero = sender as? Hero
@@ -22,13 +21,8 @@ class HeroSelectViewController: UIViewController {
     
     func update() {
         // Get previous heroes that are not dead
-        let heroRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Hero")
-        heroRequest.predicate = NSPredicate(format: "%K > %D", "health", 0)
-        do {
-            let results = try context.fetch(heroRequest)
-            previousHeroes = results as! [Hero]
-        } catch {
-            print("\(error)")
+        if let livingHeroes = Hero.allLiving() {
+            previousHeroes = livingHeroes
         }
         
         previousHeroesTable.reloadData()

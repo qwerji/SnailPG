@@ -14,13 +14,13 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var heroGoldLabel: UILabel!
     @IBOutlet weak var purchasedItemLabel: UILabel!
     @IBOutlet weak var purchasedItemModal: UIView!
+    @IBOutlet weak var storeInventoryTable: UITableView!
+    
     var timer = Timer()
-  
     var loggedInHero: Hero?
     var shopInventory = [[String:Any]]()
     var shop = [String:Any]()
-    
-    @IBOutlet weak var storeInventoryTable: UITableView!
+    let achievementManager = AchievementManager.sharedInstance
     
     @IBAction func sortSegmentPressed(_ sender: UISegmentedControl) {
         
@@ -98,30 +98,14 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let item = shopInventory[indexPath.row]
         let itemPrice = item["price"] as! Int
+        
         if Int((loggedInHero?.gold)!) >= itemPrice {
             
-            var potentialAchievement: String?
-            
-            switch item["type"] as! String {
-            case "Weapon":
-                potentialAchievement = "First Weapon"
-                break
-            case "Armor":
-                potentialAchievement = "First Armor"
-                break
-            case "Potion":
-                potentialAchievement = "First Potion"
-                break
-            default: break
-            }
-            
-            if let ach = potentialAchievement {
-                let heroDidNotAlreadyHaveAchievement = loggedInHero?.achieve(ach)
-                if heroDidNotAlreadyHaveAchievement! {
-                    achieve(ach)
-                }
+            if let ach = achievementManager.checkForItemAchievements(for: loggedInHero!, itemType: item["type"] as! String) {
+                achieve(ach)
             }
             
             loggedInHero?.gold -= itemPrice
@@ -141,19 +125,17 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(modalTimerEnd), userInfo: nil, repeats: false)
         
         heroGoldLabel.text = "\((loggedInHero?.name!)!)'s Gold: \((loggedInHero?.gold)!)"
-        ad.saveContext()
     }
     
     func achieve(_ key: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let modal = storyboard.instantiateViewController(withIdentifier: "achievement") as! AchievementModalViewController
-        let chieve = Achievements[key]
-        modal.configureModal(name: chieve?["name"] as! String, description: chieve?["description"] as! String, icon: chieve?["icon"] as! UIImage)
+        let achievement = achievementManager.achievements[key]
+        modal.configureModal(name: achievement?["name"] as! String, description: achievement?["description"] as! String, icon: achievement?["icon"] as! UIImage)
         self.present(modal, animated: true, completion: nil)
     }
     
     func modalTimerEnd() {
-        purchasedItemLabel.isHidden = true
         purchasedItemModal.isHidden = true
     }
     
@@ -168,18 +150,15 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         heroGoldLabel.text = "\((loggedInHero?.name)!)'s Gold: \((loggedInHero?.gold)!)"
         
-        let area = Int((loggedInHero?.area)!)
-        
-        shop = AreaDataForIndex[area]!["shop"] as! [String : Any]
+        shop = AreaDataForIndex[Int((loggedInHero?.area)!)]!["shop"] as! [String : Any]
         
         shopNameLabel.text = shop["name"] as! String?
         
-        update(with: "Weapon")
+        update(with: "All")
         
         storeInventoryTable.delegate = self
         storeInventoryTable.dataSource = self
         
-        purchasedItemLabel.isHidden = true
         purchasedItemModal.isHidden = true
         
         storeInventoryTable.reloadData()

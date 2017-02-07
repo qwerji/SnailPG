@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import CoreData
-import Firebase
-import FirebaseAuth
 
 class BattleViewController: UIViewController {
     
@@ -18,6 +15,7 @@ class BattleViewController: UIViewController {
     var monsterMaxHealth: Int?
     var battleLog = [BattleCellConfig]()
     let monsterManager = MonsterManager.sharedInstance
+    let achievementManager = AchievementManager.sharedInstance
     
     @IBOutlet weak var abilityButton: UIButton!
     @IBOutlet weak var itemButton: UIButton!
@@ -149,13 +147,7 @@ class BattleViewController: UIViewController {
         if (loggedInHero?.health)! <= 0 {
             ad.saveContext()
             battleLog.append(BattleCellConfig(text: "\((loggedInHero?.name!)!) was defeated.", color: "Defeat", image1: #imageLiteral(resourceName: "snailhero2"), image2: loggedInHero?.icon as! UIImage))
-            var cleanBackpack = [String]()
-            for item in (loggedInHero?.backpackArray())! {
-                if item == "Revive Potion" {
-                    cleanBackpack.append(item)
-                }
-            }
-            loggedInHero?.backpack = cleanBackpack as NSObject?
+            loggedInHero?.cleanBackpackOnDeath()
             return true
         }
         return false
@@ -182,17 +174,8 @@ class BattleViewController: UIViewController {
                 achieve(achievement)
             }
             
-            // Increment Firebase total victories
-            if let user = FIRAuth.auth()?.currentUser {
-                ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                    // Get user value
-                    if let currentTotalVictories = (snapshot.value as? NSDictionary)?["totalVictories"] as? Int {
-                        ref.child("users/\(user.uid)/totalVictories").setValue(currentTotalVictories + 1)
-                    }
-                }) { (error) in
-                    print(error.localizedDescription)
-                }
-            }
+            loggedInHero?.incrementFirebaseVictories()
+            
             ad.saveContext()
             return true
         }
@@ -240,7 +223,7 @@ class BattleViewController: UIViewController {
     func achieve(_ key: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let modal = storyboard.instantiateViewController(withIdentifier: "achievement") as! AchievementModalViewController
-        let chieve = Achievements[key]
+        let chieve = achievementManager.achievements[key]
         modal.configureModal(name: chieve?["name"] as! String, description: chieve?["description"] as! String, icon: chieve?["icon"] as! UIImage)
         self.present(modal, animated: true, completion: nil)
     }

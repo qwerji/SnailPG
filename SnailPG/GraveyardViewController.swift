@@ -50,7 +50,6 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
         let revive = UITableViewRowAction(style: .destructive, title: "Revive Hero") { (action, indexPath) in
             hero.health = hero.maxHealth / 10
             hero.removeFromBackpack(at: cell.potionIndex!)
-            ad.saveContext()
             self.update()
             self.graveyardTable.reloadData()
         }
@@ -82,14 +81,8 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func update() {
-        let heroRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Hero")
-        heroRequest.predicate = NSPredicate(format: "%K <= %D", "health", 0)
-        do {
-            let results = try context.fetch(heroRequest)
-            graveyard = results as! [Hero]
-            refinedGraveyard = results as! [Hero]
-        } catch {
-            print("\(error)")
+        if let deadHeroes = Hero.allDead() {
+            graveyard = deadHeroes
         }
         graveyardTable.reloadData()
     }
