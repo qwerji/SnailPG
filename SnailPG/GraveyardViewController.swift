@@ -83,6 +83,7 @@ class GraveyardViewController: UIViewController, UITableViewDelegate, UITableVie
     func update() {
         if let deadHeroes = Hero.allDead() {
             graveyard = deadHeroes
+            refinedGraveyard = graveyard
         }
         graveyardTable.reloadData()
     }

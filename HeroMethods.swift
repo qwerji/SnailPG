@@ -33,7 +33,7 @@ extension Hero {
             addToBackpack(a)
         }
         armor = armorPiece["name"] as! String?
-        defense = armorPiece["defense"] as! Int64
+        defense = Int64(armorPiece["defense"] as! Int)
         ad.saveContext()
     }
     
