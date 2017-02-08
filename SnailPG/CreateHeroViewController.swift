@@ -41,9 +41,12 @@ class CreateHeroViewController: UIViewController, UITextFieldDelegate {
             self.performSegue(withIdentifier: "creationStatsSegue", sender: hero)
             
             if isARandomName {
-                if let achievement = achievementManager.checkForNameAchievements(for: hero) {
-                    globalAchieve(achievement)
-                }
+                achievementManager.checkForNameAchievements(for: hero, completion: {
+                    (achievement) in
+                    if let a = achievement {
+                        self.globalAchieve(a)
+                    }
+                })
             }
         } else {
             

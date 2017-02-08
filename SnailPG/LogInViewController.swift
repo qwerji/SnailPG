@@ -39,10 +39,7 @@ class LogInViewController: UIViewController {
                     self.firebaseErrorTextField.text = "Registered and Logged in!"
                     
                     // Set achievements up
-                    ref.child("users").child((user?.uid)!).setValue([
-                        "achievements": ["achievement":false],
-                        "totalVictories": 0,
-                    ])
+                    ref.child("users").child((user?.uid)!).setValue(["totalVictories": 0])
                     
                     if let navController = self.navigationController {
                         navController.popViewController(animated: true)

@@ -39,31 +39,28 @@ class AchievementManager {
         
         return nil
     }
-
-    func checkForNameAchievements(for hero: Hero) -> String? {
+    
+    func checkForNameAchievements(for hero: Hero, completion: @escaping (_ achievement: String?) -> Void) {
         
         var nameAchievement: String?
         
         if let user = FIRAuth.auth()?.currentUser {
-            ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                // Get user value
-                if let currentAchievements = (snapshot.value as? NSDictionary)?.allValues[0] as? NSDictionary {
-                    
-                    for achievement in self.nameAchievements {
-                        if achievement.value["name"] as? String == hero.name {
-                            var alreadyHasAchievement = false
-                            
-                            for currentAchievement in currentAchievements {
-                                if currentAchievement.key as? String == achievement.value["name"] as? String {
-                                    alreadyHasAchievement = true
-                                }
-                            }
-                            
-                            if !alreadyHasAchievement {
-                                ref.child("users/\(user.uid)/achievements").child("\(achievement.value["name"]!)").setValue(true)
-                                nameAchievement = achievement.value["name"] as! String?
-                            }
+            ref.child("users/\(user.uid)").observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                for achievement in self.nameAchievements {
+                    if achievement.value["name"] as? String == hero.name {
+                        var alreadyHasAchievement = false
+                        
+                        if snapshot.childSnapshot(forPath: "achievements").hasChild((achievement.value["name"] as? String)!) {
+                            alreadyHasAchievement = true
                         }
+                        
+                        if !alreadyHasAchievement {
+                            ref.child("users/\(user.uid)/achievements/\(achievement.value["name"]!)").setValue(true)
+                            nameAchievement = achievement.value["name"] as! String?
+                        }
+                        
+                        completion(nameAchievement)
                     }
                 }
                 
@@ -71,8 +68,6 @@ class AchievementManager {
                 print(error.localizedDescription)
             }
         }
-        
-        return nameAchievement
     }
     
     let achievements: [String:[String:Any]] = [
