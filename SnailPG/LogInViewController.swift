@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var switchLoginRegisterButtonPressed: UIButton!
     @IBOutlet weak var logInButton: UIButton!
@@ -114,8 +114,4 @@ class LogInViewController: UIViewController {
         usernameTextField.isHidden = true
     }
 
-}
-
-extension LogInViewController: UITextFieldDelegate {
-    
 }

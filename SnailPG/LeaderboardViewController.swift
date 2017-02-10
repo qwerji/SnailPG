@@ -11,6 +11,7 @@ import Firebase
 
 class LeaderboardViewController: UIViewController {
     
+    @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var leaderboardTableView: UITableView!
     
     var leaderboard = [FIRDataSnapshot]()
@@ -50,6 +51,9 @@ class LeaderboardViewController: UIViewController {
                 self.leaderboard.insert(data, at: 0)
             }
             self.leaderboardTableView.reloadData()
+            if !self.loadingView.isHidden {
+                self.loadingView.isHidden = true
+            }
         })
     }
 
