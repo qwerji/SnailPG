@@ -391,19 +391,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mU3-rY-ye3" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
-                                <color key="backgroundColor" red="0.82866037436548223" green="0.82866037436548223" blue="0.82866037436548223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="lOV-ha-it3"/>
-                                    <constraint firstAttribute="height" constant="50" id="r4O-uM-zwb"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mU3-rY-ye3" firstAttribute="top" secondItem="Syd-AA-CBK" secondAttribute="bottom" id="19K-sN-vTL"/>
-                            <constraint firstItem="mU3-rY-ye3" firstAttribute="centerX" secondItem="Kb4-JC-G54" secondAttribute="centerX" id="5Rk-7j-GJX"/>
                             <constraint firstItem="ErS-Dp-g7j" firstAttribute="top" secondItem="Syd-AA-CBK" secondAttribute="bottom" constant="15" id="5rC-PO-m9J"/>
                             <constraint firstItem="ErS-Dp-g7j" firstAttribute="centerX" secondItem="Kb4-JC-G54" secondAttribute="centerX" id="DJE-cf-Xun"/>
                             <constraint firstAttribute="trailingMargin" secondItem="slL-sf-6n3" secondAttribute="trailing" constant="8" id="cbX-xY-5cC"/>
@@ -415,7 +405,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="JYW-UA-d21"/>
                     <connections>
-                        <outlet property="bannerView" destination="mU3-rY-ye3" id="9QX-5F-QfW"/>
                         <outlet property="logInAndLeaderboardButton" destination="jhe-8K-WQy" id="Hlc-sv-K0E"/>
                         <segue destination="jRP-lc-q5q" kind="show" identifier="graveyardSegue" id="ReR-jW-T7e"/>
                         <segue destination="V5h-tr-Eci" kind="show" identifier="logInSegue" id="9jR-eY-7hu"/>
@@ -2101,13 +2090,13 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="JMg-Zx-trA" userLabel="battle console">
-                                <rect key="frame" x="49" y="436" width="223" height="89"/>
+                                <rect key="frame" x="76.5" y="440" width="168" height="85"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="MQC-Sl-em9" userLabel="attack/ ability">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="89"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="63" height="85"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biK-XD-LcS">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="38"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="63" height="36"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="MerchantCopyDoublesize" family="Merchant Copy Doublesize" pointSize="20"/>
                                                 <state key="normal" title="Attack!">
@@ -2118,7 +2107,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nT-4u-6D7">
-                                                <rect key="frame" x="0.0" y="51" width="100" height="38"/>
+                                                <rect key="frame" x="0.0" y="49" width="63" height="36"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="MerchantCopyDoublesize" family="Merchant Copy Doublesize" pointSize="20"/>
                                                 <state key="normal" title="Ability">
@@ -2131,10 +2120,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JuA-JI-fHo" userLabel="item escape">
-                                        <rect key="frame" x="138" y="0.0" width="85" height="89"/>
+                                        <rect key="frame" x="101" y="0.0" width="67" height="85"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6b-YP-9Xf">
-                                                <rect key="frame" x="0.0" y="0.0" width="85" height="51"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="49"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="MerchantCopyDoublesize" family="Merchant Copy Doublesize" pointSize="20"/>
                                                 <state key="normal" title="Item">
@@ -2142,7 +2131,7 @@
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KR3-5r-qdG">
-                                                <rect key="frame" x="0.0" y="51" width="85" height="38"/>
+                                                <rect key="frame" x="0.0" y="49" width="67" height="36"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="MerchantCopyDoublesize" family="Merchant Copy Doublesize" pointSize="20"/>
                                                 <state key="normal" title="Escape">
@@ -2247,16 +2236,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mkP-0w-zUX">
-                                <rect key="frame" x="46" y="80" width="228" height="156.5"/>
+                                <rect key="frame" x="46" y="80" width="228" height="180.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your name, hero?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NH4-0F-15c">
-                                        <rect key="frame" x="0.0" y="0.0" width="228" height="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="228" height="29.5"/>
                                         <fontDescription key="fontDescription" name="MerchantCopy" family="Merchant Copy" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkY-DQ-tfT">
-                                        <rect key="frame" x="0.0" y="17" width="228" height="48"/>
+                                        <rect key="frame" x="0.0" y="29.5" width="228" height="48"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k1e-4Z-oN7">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="48"/>
@@ -2281,13 +2270,13 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a job:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxx-DA-ugb">
-                                        <rect key="frame" x="0.0" y="65" width="228" height="15.5"/>
+                                        <rect key="frame" x="0.0" y="77.5" width="228" height="27"/>
                                         <fontDescription key="fontDescription" name="MerchantCopy" family="Merchant Copy" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="gMe-2J-C7R">
-                                        <rect key="frame" x="0.0" y="80.5" width="228" height="76"/>
+                                        <rect key="frame" x="0.0" y="104.5" width="228" height="76"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eud-i1-Zwl">
                                                 <rect key="frame" x="0.0" y="0.0" width="74" height="76"/>
@@ -2330,22 +2319,22 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-52" translatesAutoresizingMaskIntoConstraints="NO" id="0Fj-yT-bOe">
-                                <rect key="frame" x="16" y="244.5" width="288" height="17"/>
+                                <rect key="frame" x="16" y="268.5" width="288" height="29.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warrior" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCv-U4-Bh2">
-                                        <rect key="frame" x="0.0" y="0.0" width="130.5" height="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="130.5" height="29.5"/>
                                         <fontDescription key="fontDescription" name="MerchantCopy" family="Merchant Copy" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5F-Ak-tad">
-                                        <rect key="frame" x="78.5" y="0.0" width="131" height="17"/>
+                                        <rect key="frame" x="78.5" y="0.0" width="131" height="29.5"/>
                                         <fontDescription key="fontDescription" name="MerchantCopy" family="Merchant Copy" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thief" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDm-Ix-U9d">
-                                        <rect key="frame" x="157.5" y="0.0" width="130.5" height="17"/>
+                                        <rect key="frame" x="157.5" y="0.0" width="130.5" height="29.5"/>
                                         <fontDescription key="fontDescription" name="MerchantCopy" family="Merchant Copy" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -2604,8 +2593,8 @@
         <image name="warrior" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UIU-Qo-Vhc"/>
-        <segue reference="t51-69-o9V"/>
+        <segue reference="mNj-RZ-52i"/>
         <segue reference="f1C-43-Y4J"/>
+        <segue reference="t51-69-o9V"/>
     </inferredMetricsTieBreakers>
 </document>

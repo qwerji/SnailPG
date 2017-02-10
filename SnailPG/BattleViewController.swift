@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class BattleViewController: UIViewController {
     
+    var battleCount = 0
     var target: Monster?
     var loggedInHero: Hero?
     var monsterMaxHealth: Int?
     var battleLog = [BattleCellConfig]()
     let monsterManager = MonsterManager.sharedInstance
     let achievementManager = AchievementManager.sharedInstance
+    
+    var interstitial: GADInterstitial!
     
     @IBOutlet weak var abilityButton: UIButton!
     @IBOutlet weak var itemButton: UIButton!
@@ -156,7 +160,7 @@ class BattleViewController: UIViewController {
     func monsterIsDead() -> Bool {
         // Monster Health Check
         if (target?.health)! <= 0 {
-            
+            battleCount += 1
             battleLog.append(BattleCellConfig(text: "\((target?.name)!) was defeated.", color: "Victory", image1: loggedInHero?.icon as! UIImage, image2: #imageLiteral(resourceName: "snailhero2")))
             if let goldDrop = target?.gold {
                 loggedInHero?.gold += goldDrop
@@ -216,6 +220,10 @@ class BattleViewController: UIViewController {
     
     @IBAction func won(_ sender: UIButton) {
         if let navController = self.navigationController {
+            if interstitial.isReady, battleCount > 2 {
+                print("READY")
+                interstitial.present(fromRootViewController: self)
+            }
             navController.popViewController(animated: true)
         }
     }
@@ -276,6 +284,9 @@ class BattleViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
+        createAndLoadInterstitial()
+        
         battleLogTable.delegate = self
         battleLogTable.dataSource = self
         
@@ -286,6 +297,15 @@ class BattleViewController: UIViewController {
         
         getMonster()
         update()
+    }
+    
+    func createAndLoadInterstitial() {
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-8794803295602930/9217465008")
+        let request = GADRequest()
+        // Request test ads on devices you specify. Your test device ID is printed to the console when
+        // an ad request is made.
+        request.testDevices = ["c34fd2a75f9a60034420f74f9d278924"]
+        interstitial.load(request)
     }
     
 }

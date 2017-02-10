@@ -8,11 +8,9 @@
 
 import UIKit
 import FirebaseAuth
-import GoogleMobileAds
 
 class TitleViewController: UIViewController {
-    
-    @IBOutlet weak var bannerView: GADBannerView!
+
     @IBOutlet weak var logInAndLeaderboardButton: UIButton!
     
     @IBAction func logInAndLeaderboardButtonPressed(_ sender: UIButton) {
@@ -37,15 +35,6 @@ class TitleViewController: UIViewController {
     
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
         //settingsSegue
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        bannerView.adUnitID = "ca-app-pub-8794803295602930/3148545408"
-        bannerView.rootViewController = self
-        let request = GADRequest()
-        request.testDevices = ["c34fd2a75f9a60034420f74f9d278924"]
-        bannerView.load(request)
     }
     
 }
