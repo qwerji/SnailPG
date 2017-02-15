@@ -22,10 +22,6 @@ class MainViewController: UIViewController, UITabBarDelegate {
     
     var loggedInHero: Hero?
     
-    @IBAction func saveToFirebasePressed(_ sender: UIButton) {
-
-    }
-    
     // To Title
     @IBAction func exitButtonPressed(_ sender: UIButton) {
         ad.saveContext()

@@ -195,4 +195,11 @@ let ItemList: [String:[String:Any]] = [
         "effect" : "???",
         "price" : 1
     ],
+    "Mana Potion" : [
+        "name" : "Mana Potion",
+        "area" : 0,
+        "type" : "Potion",
+        "effect" : "Restores 20 Mana",
+        "price" : 1
+    ],
 ]

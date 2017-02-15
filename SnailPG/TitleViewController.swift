@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 
 class TitleViewController: UIViewController {
-    
+
     @IBOutlet weak var logInAndLeaderboardButton: UIButton!
     
     @IBAction func logInAndLeaderboardButtonPressed(_ sender: UIButton) {

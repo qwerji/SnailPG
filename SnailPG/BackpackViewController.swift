@@ -68,51 +68,22 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
             return
         }
         
-        
         let item = ItemList[itemName]
         loggedInHero?.removeFromBackpack(at: indexPath.row)
         
         switch item?["type"] as! String {
         case "Weapon":
-            if let lh = loggedInHero?.leftHand {
-                if let rh = loggedInHero?.rightHand {
-                    loggedInHero?.addToBackpack(rh)
-                }
-                if item?["handed"] as! Int == 2 {
-                    loggedInHero?.addToBackpack(lh)
-                    loggedInHero?.rightHand = nil
-                } else {
-                    if ItemList[(loggedInHero?.leftHand)!]?["handed"] as! Int == 1 {
-                        loggedInHero?.rightHand = loggedInHero?.leftHand
-                    } else {
-                        loggedInHero?.addToBackpack(lh)
-                    }
-                }
-            }
-            loggedInHero?.leftHand = itemName
+            loggedInHero?.equip(weapon: item!)
             break
         case "Potion":
-            if item?["name"] as! String == "Health Potion" {
-                let maxHealth = Int((loggedInHero?.maxHealth)!)
-                let curHealth = Int((loggedInHero?.health)!)
-                if curHealth + 20 > maxHealth {
-                    loggedInHero?.health = Int64(maxHealth)
-                } else {
-                    loggedInHero?.health += 20
-                }
-            }
+            loggedInHero?.drink(potion: item!)
             break
         case "Armor":
-            if let armor = loggedInHero?.armor {
-                loggedInHero?.addToBackpack(armor)
-            }
-            loggedInHero?.armor = itemName
-            loggedInHero?.equip(armorPiece: itemName)
+            loggedInHero?.equip(armorPiece: item!)
             break
         default:
             print("error")
         }
-        ad.saveContext()
         update()
     }
     
@@ -204,10 +175,7 @@ class BackpackViewController: UIViewController, UITableViewDelegate, UITableView
         defenseLabel.text = "Defense: \(defense)"
         
         // Get Items
-        backpack = []
-        for itemName in loggedInHero?.backpack as! [String] {
-            backpack.append(itemName)
-        }
+        backpack = (loggedInHero?.backpackArray())!
         
         backpackTable.reloadData()
     }

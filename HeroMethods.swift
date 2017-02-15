@@ -7,8 +7,126 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 extension Hero {
+    
+    func drink(potion: [String:Any]) {
+        if potion["name"] as! String == "Health Potion" {
+            if health + 20 > maxHealth {
+                health = maxHealth
+            } else {
+                health += 20
+            }
+        } else if potion["name"] as! String == "Mana Potion" {
+            if mana + 20 > maxMana {
+                mana = maxMana
+            } else {
+                mana += 20
+            }
+        }
+        ad.saveContext()
+    }
+    
+    func equip(armorPiece: [String:Any]) {
+        if let a = armor {
+            addToBackpack(a)
+        }
+        armor = armorPiece["name"] as! String?
+        defense = Int64(armorPiece["defense"] as! Int)
+        ad.saveContext()
+    }
+    
+    func equip(weapon: [String:Any]) {
+        if let lh = leftHand {
+            if let rh = rightHand {
+                addToBackpack(rh)
+            }
+            if weapon["handed"] as! Int == 2 {
+                addToBackpack(lh)
+                rightHand = nil
+            } else {
+                if ItemList[leftHand!]?["handed"] as! Int == 1 {
+                    rightHand = leftHand
+                } else {
+                    addToBackpack(lh)
+                }
+            }
+        }
+        leftHand = weapon["name"] as! String?
+        ad.saveContext()
+    }
+    
+    func incrementFirebaseVictories() {
+        if let user = FIRAuth.auth()?.currentUser {
+            ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                if let currentTotalVictories = (snapshot.value as? NSDictionary)?["totalVictories"] as? Int {
+                    ref.child("users/\(user.uid)/totalVictories").setValue(currentTotalVictories + 1)
+                }
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func cleanBackpackOnDeath() {
+        var cleanBackpack = [String]()
+        for item in backpackArray() {
+            if item == "Revive Potion" {
+                cleanBackpack.append(item)
+            }
+        }
+        backpack = cleanBackpack as NSObject?
+    }
+    
+    func backpackArray() -> [String] {
+        return backpack as! [String]
+    }
+    
+    func canUseEscapePotion() -> Bool {
+        let bp = backpackArray()
+        for i in 0..<bp.count {
+            if bp[i] == "Escape Potion" {
+                removeFromBackpack(at: i)
+                return true
+            }
+        }
+        return false
+    }
+    
+    func didReachVictoriesAchievement() -> String? {
+        
+        var potentialAchievement: String?
+        switch victories {
+        case 1:
+            potentialAchievement = "Won A Battle"
+            break
+        case 50:
+            potentialAchievement = "50 Enemies"
+            break
+        case 100:
+            potentialAchievement = "100 Enemies"
+            break
+        case 200:
+            potentialAchievement = "200 Enemies"
+            break
+        case 500:
+            potentialAchievement = "500 Enemies"
+            break
+        case 1000:
+            potentialAchievement = "1000 Enemies"
+            break
+        default: break
+        }
+        if let ach = potentialAchievement {
+            let heroDidNotAlreadyHaveAchievement = achieve(ach)
+            if heroDidNotAlreadyHaveAchievement {
+                return ach
+            }
+        }
+        return nil
+        
+    }
     
     func achieve(_ potentialAchievement: String) -> Bool {
         var achievements = self.achievements as! [String]
@@ -28,15 +146,17 @@ extension Hero {
     
     //adds item to backpack
     func addToBackpack(_ item: String) {
-        var bp = self.backpack as! [String]
+        var bp = backpackArray()
         bp.append(item)
         self.backpack = bp as NSObject?
+        ad.saveContext()
     }
     //removes item from backpack when it is being equipped
     func removeFromBackpack(at index: Int) {
-        var bp = self.backpack as! [String]
+        var bp = backpackArray()
         bp.remove(at: index)
         self.backpack = bp as NSObject?
+        ad.saveContext()
     }
     
     func getHit(with damage: Int) {
@@ -236,9 +356,6 @@ extension Hero {
         default:
             break
         }
-    }
-    func equip (armorPiece: String){
-        self.defense = Int64(ItemList[armorPiece]!["defense"] as! Int)
     }
 }
 

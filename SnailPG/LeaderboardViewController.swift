@@ -7,9 +7,14 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
 
 class LeaderboardViewController: UIViewController {
+    
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var leaderboardTableView: UITableView!
+    
+    var leaderboard = [FIRDataSnapshot]()
 
     @IBAction func backButtonPressed(_ sender: UIButton) {
         if let navController = self.navigationController {
@@ -18,9 +23,8 @@ class LeaderboardViewController: UIViewController {
     }
     
     @IBAction func logOutButtonPressed(_ sender: UIButton) {
-        let firebaseAuth = FIRAuth.auth()
         do {
-            try firebaseAuth?.signOut()
+            try FIRAuth.auth()?.signOut()
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
             }
@@ -31,24 +35,41 @@ class LeaderboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        leaderboardTableView.delegate = self
+        leaderboardTableView.dataSource = self
+        update()
+        ref.child("users").observe(.childChanged, with: {(snapshot) in
+            self.update()
+        })
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func update() {
+        let query = ref.child("users").queryOrdered(byChild: "totalVictories").queryLimited(toLast: 10)
+        query.observeSingleEvent(of: .value, with: { (snapshot) in
+            self.leaderboard = []
+            for data in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                self.leaderboard.insert(data, at: 0)
+            }
+            self.leaderboardTableView.reloadData()
+            if !self.loadingView.isHidden {
+                self.loadingView.isHidden = true
+            }
+        })
     }
-    */
 
+}
+
+extension LeaderboardViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "leaderboardCell", for: indexPath)
+        cell.textLabel?.text = "\(leaderboard[indexPath.row].childSnapshot(forPath: "name").value!)"
+        cell.detailTextLabel?.text = "Victories: \(leaderboard[indexPath.row].childSnapshot(forPath: "totalVictories").value!)"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return leaderboard.count
+    }
+    
 }

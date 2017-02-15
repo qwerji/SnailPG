@@ -28,8 +28,8 @@ let AreaDataForIndex: [Int:[String:Any]] = [
                 "Escape Potion",
                 "Health Potion",
                 "Snail Knife",
-                "Tomahawk"
-                
+                "Tomahawk",
+                "Mana Potion"
             ]
         ]
     ],
